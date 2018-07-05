@@ -13,19 +13,8 @@ import bitstringlists.BitStringListUnioner;
 import bitstringlists.IBitStringList;
 
 /**
- * <p>
- * Title: BitStringListUnionerDemo
- * </p>
- * <p>
- * Description: TBS
- * </p>
- * <p>
  * Copyright (c) 2005
- * </p>
- * <p>
  * Company: Positronic Software
- * </p>
- * 
  * @author Kerry Michael Soileau
  * @version 1.0
  */
