@@ -8,6 +8,14 @@ Saffron is a preprocessor which serves as a front end for Sat4j. Saffron is to S
 	-	org.sat4j.core_2.3.5.v201308161310.jar
 3.	To familiarize yourself with the use of Saffron, run the numerous demo applications in the package named (of all things): demos. Extensive javadoc files can be found in the folder called: doc
 
+## Running From The Windows Terminal
+
+For instance, here's how the NaturalNumberXorerDemo app runs in my particular Java configuration:
+
+cd C:\Users\Kerry\.AndroidStudio2.2\system\restart\jre\bin\
+
+java.exe -classpath "C:\Users\Kerry\git\Saffron-2.0\Saffron 2.0\bin;C:\Users\Kerry\Development\eclipse\plugins\org.sat4j.core_2.3.5.v201308161310.jar" demos.NaturalNumberXorerDemo
+
 ## Built With
 
 * [Eclipse](https://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/photonr) - Java IDE
