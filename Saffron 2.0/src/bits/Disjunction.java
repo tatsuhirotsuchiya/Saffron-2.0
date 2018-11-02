@@ -1,14 +1,8 @@
 package bits;
 
-/*
- * Disjunction.java	1.21 07/08/22
- *
- * Copyright 2004-2007 Positronic Software.
- *
- *
- */
-
 /**
+ * Disjunction.java
+ * 
  * An extension of the Problem class which creates a new IProblem object from a
  * collection of IProblem objects. Given several IProblems p_1, p_2, ..., p_n,
  * to satisfy the IProblem given by new Disjunction(new IProblem[]{p_1, p_2,
@@ -26,8 +20,7 @@ package bits;
  * { p_1, p_2, p_3 });
  * </pre>
  * 
- * </blockquote> is satisfied, the following truth equation will be satisfied:
- * <blockquote>
+ * is satisfied, the following truth equation will be satisfied: <blockquote>
  * 
  * <pre>
  * p_1 is satisfied
@@ -41,7 +34,7 @@ package bits;
  * 
  * @author Kerry Michael Soileau ksoileau2@yahoo.com
  *         http://kerrysoileau.com/index.html
- * @version 1.21, 07/08/22
+ * @version 1.21, 2007/08/22
  * @see IProblem
  * @see Problem
  */
@@ -50,9 +43,11 @@ public class Disjunction extends Problem implements IProblem
 	private static final long serialVersionUID = -8401293639054850015L;
 
 	/**
-	 * This or() method takes two Problems ptrue and pfalse and creates a new
-	 * Problem, let's call it p. If b is true, p is equivalent to the Problem
-	 * ptrue. Likewise, if b is false, p is equivalent to the Problem pfalse.
+	 * This or() method takes two Problems <code>ptrue</code> and
+	 * <code>pfalse</code> and creates a new Problem, let's call it
+	 * <code>p</code>. If <code>b</code> is true, <code>p</code> is equivalent
+	 * to the Problem <code>ptrue</code>. Likewise, if <code>b</code> is false,
+	 * <code>p</code> is equivalent to the Problem <code>pfalse</code>.
 	 * 
 	 * @throws Exception
 	 */
@@ -67,79 +62,90 @@ public class Disjunction extends Problem implements IProblem
 			return Disjunction.or(new IProblem[]
 			{ pfalse }, new IBooleanVariable[]
 			{ b });
+
 		Object[] clfalse = pfalse.getClauses();
 		IClause[] clfalseNew = new IClause[clfalse.length];
-
 		for (int i = 0; i < clfalse.length; i++)
-		{
-			IClause o1 = ((IClause) clfalse[i]);
-			clfalseNew[i] = (IClause) (o1.clone());
-			clfalseNew[i] = clfalseNew[i].or(b);
-		}
+			clfalseNew[i] = ((IClause) (((IClause) clfalse[i]).clone())).or(b);
 
 		Object[] cltrue = ptrue.getClauses();
 		IClause[] cltrueNew = new IClause[cltrue.length];
 		for (int i = 0; i < cltrue.length; i++)
-		{
-			cltrueNew[i] = (IClause) (((IClause) cltrue[i]).clone());
-			cltrueNew[i] = cltrueNew[i].orNot(b);
-		}
+			cltrueNew[i] = ((IClause) (((IClause) cltrue[i]).clone())).orNot(b);
 
 		return new Conjunction(new Problem(clfalseNew), new Problem(cltrueNew));
 	}
 
-	private static IProblem or(IProblem[] p) throws Exception
+	private static IProblem or(IProblem[] problemArray) throws Exception
 	{
-		if (p == null)
+		if (problemArray == null)
 			return null;
-		int N = p.length;
-		if (N == 0)
+		int n = problemArray.length;
+		if (n == 0)
 			return null;
-		if (N == 1)
-			return p[0];
-		if (N > 1)
+		if (n == 1)
+			return problemArray[0];
+		if (n > 1)
 		{
-			IBooleanVariable[] b = new IBooleanVariable[N - 1];
+			IBooleanVariable[] b = new IBooleanVariable[n - 1];
 			for (int i = 0; i < b.length; i++)
 				b[i] = BooleanVariable.getBooleanVariable();
-			return Disjunction.or(p, b);
+			return Disjunction.or(problemArray, b);
 		}
 		return null;
 	}
 
 	/**
-	 * If p={p_0,p_1,p_2,...,p_{n-1}} and b={x_0,x_1,x_2,...,x_{n-2}} then
-	 * returns {r_0,r_1,r_2,...,r_{n-2}} where r_0=Disjunction.or(p_0,r_1,x_0)
-	 * r_1=Disjunction.or(p_1,r_2,x_1) r_2=Disjunction.or(p_2,r_3,x_2) ...
+	 * If
+	 * 
+	 * <pre>
+	 * p={p_0,p_1,p_2,...,p_{n-1}}
+	 * and
+	 * b={x_0,x_1,x_2,...,x_{n-2}}
+	 * </pre>
+	 * 
+	 * then
+	 * 
+	 * @return {r_0,r_1,r_2,...,r_{n-2}} where
+	 * 
+	 *         <pre>
+	 * r_0=Disjunction.or(p_0,r_1,x_0)
+	 * r_1=Disjunction.or(p_1,r_2,x_1) 
+	 * r_2=Disjunction.or(p_2,r_3,x_2) 
+	 * .
+	 * .
+	 * .
 	 * r_{n-3}=Disjunction.or(p_{n-3},r_{n-2},x_{n-3})
 	 * r_{n-2}=Disjunction.or(p_{n-2},p_{n-1},x_{n-2})
+	 * </pre>
 	 * 
-	 * 
-	 * 
-	 * @param p
-	 * @param b
-	 * @return
+	 *         In effect, for the first <code>i</code> such that
+	 *         <code>x_i</code> is true, <code>p_i</code> is returned. If no
+	 *         such <code>i</code> exists, <code>p_{n-1}</code> is returned.
 	 * @throws Exception
 	 */
-	private static IProblem or(IProblem[] p, IBooleanVariable[] b)
-			throws Exception
+	private static IProblem or(IProblem[] problemArray,
+			IBooleanVariable[] booleanVariableArray) throws Exception
 	{
-		if (p == null || b == null)
+		if (problemArray == null || booleanVariableArray == null)
 			return null;
-		int numberOfProblems = p.length;
+		int numberOfProblems = problemArray.length;
 		if (numberOfProblems == 0)
 			return null;
 		if (numberOfProblems == 1)
-			return p[0];
-		if (numberOfProblems != b.length + 1)
+			return problemArray[0];
+		if (numberOfProblems != booleanVariableArray.length + 1)
 			return null;
 		if (numberOfProblems > 1)
 		{
 			IProblem[] r = new IProblem[numberOfProblems - 1];
-			r[numberOfProblems - 2] = Disjunction.or(p[numberOfProblems - 2],
-					p[numberOfProblems - 1], b[numberOfProblems - 2]);
+			r[numberOfProblems - 2] = Disjunction.or(
+					problemArray[numberOfProblems - 2],
+					problemArray[numberOfProblems - 1],
+					booleanVariableArray[numberOfProblems - 2]);
 			for (int i = numberOfProblems - 3; i >= 0; i--)
-				r[i] = Disjunction.or(p[i], r[i + 1], b[i]);
+				r[i] = Disjunction.or(problemArray[i], r[i + 1],
+						booleanVariableArray[i]);
 			return r[0];
 		}
 		return null;
@@ -177,16 +183,16 @@ public class Disjunction extends Problem implements IProblem
 		{ p1, p2, p3, p4 });
 	}
 
-	public Disjunction(IProblem[] group) throws Exception
+	public Disjunction(IProblem[] problemArray) throws Exception
 	{
-		IProblem p = Disjunction.or(group);
+		IProblem p = Disjunction.or(problemArray);
 		if (p != null)
 			this.setClauses(p.getClauses());
 	}
 
-	public Disjunction(IProblem[] group, IBooleanVariable[] b) throws Exception
+	public Disjunction(IProblem[] problemArray, IBooleanVariable[] booleanVariableArray) throws Exception
 	{
-		IProblem p = Disjunction.or(group, b);
+		IProblem p = Disjunction.or(problemArray, booleanVariableArray);
 		if (p != null)
 			this.setClauses(p.getClauses());
 	}
