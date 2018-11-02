@@ -107,23 +107,38 @@ public class Disjunction extends Problem implements IProblem
 		return null;
 	}
 
+	/**
+	 * If p={p_0,p_1,p_2,...,p_{n-1}} and b={x_0,x_1,x_2,...,x_{n-2}} then
+	 * returns {r_0,r_1,r_2,...,r_{n-2}} where r_0=Disjunction.or(p_0,r_1,x_0)
+	 * r_1=Disjunction.or(p_1,r_2,x_1) r_2=Disjunction.or(p_2,r_3,x_2) ...
+	 * r_{n-3}=Disjunction.or(p_{n-3},r_{n-2},x_{n-3})
+	 * r_{n-2}=Disjunction.or(p_{n-2},p_{n-1},x_{n-2})
+	 * 
+	 * 
+	 * 
+	 * @param p
+	 * @param b
+	 * @return
+	 * @throws Exception
+	 */
 	private static IProblem or(IProblem[] p, IBooleanVariable[] b)
 			throws Exception
 	{
 		if (p == null || b == null)
 			return null;
-		int N = p.length;
-		if (N == 0)
+		int numberOfProblems = p.length;
+		if (numberOfProblems == 0)
 			return null;
-		if (N == 1)
+		if (numberOfProblems == 1)
 			return p[0];
-		if (N != b.length + 1)
+		if (numberOfProblems != b.length + 1)
 			return null;
-		if (N > 1)
+		if (numberOfProblems > 1)
 		{
-			IProblem[] r = new IProblem[N - 1];
-			r[N - 2] = Disjunction.or(p[N - 2], p[N - 1], b[N - 2]);
-			for (int i = N - 3; i >= 0; i--)
+			IProblem[] r = new IProblem[numberOfProblems - 1];
+			r[numberOfProblems - 2] = Disjunction.or(p[numberOfProblems - 2],
+					p[numberOfProblems - 1], b[numberOfProblems - 2]);
+			for (int i = numberOfProblems - 3; i >= 0; i--)
 				r[i] = Disjunction.or(p[i], r[i + 1], b[i]);
 			return r[0];
 		}
