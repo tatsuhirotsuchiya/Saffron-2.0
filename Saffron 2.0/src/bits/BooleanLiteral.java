@@ -106,6 +106,32 @@ public class BooleanLiteral implements IBooleanLiteral
 		System.out.println(lis);
 	}
 
+	/**
+	 * Clear all of the values of the IBooleanVariables involved in
+	 * <code>list</code>.
+	 * 
+	 * @param list
+	 * @throws BooleanLiteralException
+	 */
+	public static void reset(List<?> list) throws BooleanLiteralException
+	{
+		if (list == null)
+			throw new BooleanLiteralException(
+					"Null List was passed to reset method.");
+		else
+			for (int i = 0; i < list.size(); i++)
+			{
+				IBooleanLiteral ibool = (IBooleanLiteral) (list.get(i));
+				try
+				{
+					ibool.getBooleanVariable().setValue(false);
+				}
+				catch (Exception err)
+				{
+				}
+			}
+	}
+
 	private boolean barred;
 
 	private IBooleanVariable BV;
