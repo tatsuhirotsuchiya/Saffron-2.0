@@ -8,6 +8,9 @@
 
 package bits;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * An extension of the Problem class which imposes a Boolean relation on three
  * IBooleanVariables. For example, the IProblem p defined by
@@ -38,7 +41,34 @@ package bits;
  */
 public class BitExclusiveSelector extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 6206540595772114093L;
+	private static final long serialVersionUID = 2978894161821848384L;
+
+	public BitExclusiveSelector(ArrayList<IBooleanVariable> bitArrayList)
+			throws Exception
+	{
+		IProblem problem;
+		if (bitArrayList == null || bitArrayList.size() == 0)
+			return;
+		if (bitArrayList.size() == 1)
+			problem = new BitFixer(bitArrayList.get(0), true);
+		else
+		{
+			List<IBooleanVariable> restList = bitArrayList
+					.subList(1, bitArrayList.size());
+			ArrayList<IBooleanVariable> rest = new ArrayList<IBooleanVariable>(restList);
+			problem = new ExclusiveDisjunction(
+					new BitFixer(bitArrayList.get(0)),
+					(IProblem) new BitExclusiveSelector(rest));
+		}
+		this.setClauses(problem.getClauses());
+	}
+
+	public BitExclusiveSelector(IBooleanVariable x, IBooleanVariable y)
+			throws Exception
+	{
+		this.setClauses(new IClause[]
+		{ Clause.newClause().or(x).or(y), Clause.newClause().orNot(x).orNot(y) });
+	}
 
 	public BitExclusiveSelector(IBooleanVariable x, IBooleanVariable y,
 			IBooleanVariable z) throws Exception
