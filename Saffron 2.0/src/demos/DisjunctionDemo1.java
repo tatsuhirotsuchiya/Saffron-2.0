@@ -197,5 +197,25 @@ public class DisjunctionDemo1
 		}
 		else
 			System.out.println("No solution.");
+		// IProblem-8
+		problem = Disjunction.inner(new IProblem[]
+		{ p2, p3, p4 }, new IBooleanVariable[]
+		{ X, Y, Z });
+		System.out.println(problem);
+		s = problem.findModel(Problem.defaultSolver());
+		if (s != null && s.size() > 0)
+		{
+			BooleanLiteral.interpret(s);
+			System.out.println("X= " + X.getValue());
+			System.out.println("Y= " + Y.getValue());
+			System.out.println("Z= " + Z.getValue());
+			System.out.println("A= " + A);
+			System.out.println("B= " + B);
+			System.out.println("C= " + C);
+			System.out.println("D= " + D);
+			BooleanLiteral.reset(s);
+		}
+		else
+			System.out.println("No solution.");
 	}
 }
