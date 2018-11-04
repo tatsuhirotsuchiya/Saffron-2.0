@@ -53,12 +53,13 @@ public class BitExclusiveSelector extends Problem implements IProblem
 			problem = new BitFixer(bitArrayList.get(0), true);
 		else
 		{
-			List<IBooleanVariable> restList = bitArrayList
-					.subList(1, bitArrayList.size());
-			ArrayList<IBooleanVariable> rest = new ArrayList<IBooleanVariable>(restList);
-			problem = new ExclusiveDisjunction(
-					new BitFixer(bitArrayList.get(0)),
-					(IProblem) new BitExclusiveSelector(rest));
+			List<IBooleanVariable> restList = bitArrayList.subList(1,
+					bitArrayList.size());
+			ArrayList<IBooleanVariable> rest = new ArrayList<IBooleanVariable>(
+					restList);
+			BitFixer p1 = new BitFixer(bitArrayList.get(0),true);
+			IProblem p2 = (IProblem) new BitExclusiveSelector(rest);
+			problem = new ExclusiveDisjunction(p1, p2);
 		}
 		this.setClauses(problem.getClauses());
 	}
