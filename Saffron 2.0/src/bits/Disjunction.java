@@ -1,5 +1,3 @@
-package bits;
-
 /**
  * Disjunction.java
  * 
@@ -38,50 +36,12 @@ package bits;
  * @see IProblem
  * @see Problem
  */
+
+package bits;
+
 public class Disjunction extends Problem implements IProblem
 {
 	private static final long serialVersionUID = -8401293639054850015L;
-
-	/**
-	 * 
-	 * @param problemArray
-	 * @param booleanVariableArray
-	 * @return an IProblem that is satisfied if and only if at least one of the
-	 *         following IProblems is satisfied:
-	 * 
-	 *         <pre>
-	 * new BitFixer(booleanVariableArray[0], true) is satisfied and  problemArray[0] is satisfied
-	 * new BitFixer(booleanVariableArray[1], true) is satisfied and  problemArray[1] is satisfied
-	 * new BitFixer(booleanVariableArray[2], true) is satisfied and  problemArray[2] is satisfied
-	 * .
-	 * .
-	 * .
-	 * new BitFixer(booleanVariableArray[n-1], true) is satisfied and  problemArray[n-] is satisfied
-	 * 
-	 * where n=the length of problemArray.
-	 * </pre>
-	 * @throws Exception
-	 */
-	public static IProblem inner(IProblem[] problemArray,
-			IBooleanVariable[] booleanVariableArray) throws Exception
-	{
-		if (problemArray == null || booleanVariableArray == null)
-			return null;
-		int numberOfProblems = problemArray.length;
-		if (numberOfProblems == 0)
-			return null;
-		if (numberOfProblems == 1)
-			return problemArray[0];
-		if (numberOfProblems != booleanVariableArray.length)
-			return null;
-
-		IProblem[] subProblems = new IProblem[numberOfProblems];
-		for (int i = 0; i < numberOfProblems; i++)
-			subProblems[i] = new Conjunction(new BitFixer(
-					booleanVariableArray[i], true), problemArray[i]);
-
-		return new Disjunction(subProblems);
-	}
 
 	/**
 	 * This or() method takes two Problems <code>ptrue</code> and
