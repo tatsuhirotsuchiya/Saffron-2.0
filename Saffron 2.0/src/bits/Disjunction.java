@@ -77,6 +77,23 @@ public class Disjunction extends Problem implements IProblem
 		return new Conjunction(new Problem(clfalseNew), new Problem(cltrueNew));
 	}
 
+	/**
+	 *
+	 * @return If problemArray={p_0,p_1,p_2,...,p_{n-1}} then returns an
+	 *         IProblem satisfied if and only if at least one of the following
+	 *         IProblems is satisfied:
+	 * 
+	 *         <pre>
+	 * p_0
+	 * p_1
+	 * p_2
+	 * .
+	 * .
+	 * .
+	 * p_{n-1}
+	 * </pre>
+	 * @throws Exception
+	 */
 	private static IProblem or(IProblem[] problemArray) throws Exception
 	{
 		if (problemArray == null)
@@ -152,11 +169,29 @@ public class Disjunction extends Problem implements IProblem
 		return null;
 	}
 
+	/**
+	 *
+	 * @return an IProblem equivalent to the IProblem p.
+	 * @throws Exception
+	 */
 	public Disjunction(IProblem p) throws Exception
 	{
-		this.setClauses(p.getClauses());
+		this(new IProblem[]
+		{ p });
 	}
 
+	/**
+	 *
+	 * @return an
+	 *         IProblem satisfied if and only if at least one of the following
+	 *         IProblems is satisfied:
+	 * 
+	 * <pre>
+	 * p_1
+	 * p_2
+	 * </pre>
+	 * @throws Exception
+	 */
 	public Disjunction(IProblem p1, IProblem p2) throws Exception
 	{
 		this(new IProblem[]
@@ -171,12 +206,39 @@ public class Disjunction extends Problem implements IProblem
 			this.setClauses(p.getClauses());
 	}
 
+	/**
+	 *
+	 * @return an
+	 *         IProblem satisfied if and only if at least one of the following
+	 *         IProblems is satisfied:
+	 * 
+	 * <pre>
+	 * p_1
+	 * p_2
+	 * p_3
+	 * </pre>
+	 * @throws Exception
+	 */
 	public Disjunction(IProblem p1, IProblem p2, IProblem p3) throws Exception
 	{
 		this(new IProblem[]
 		{ p1, p2, p3 });
 	}
 
+	/**
+	 *
+	 * @return an
+	 *         IProblem satisfied if and only if at least one of the following
+	 *         IProblems is satisfied:
+	 * 
+	 * <pre>
+	 * p_1
+	 * p_2
+	 * p_3
+	 * p_4
+	 * </pre>
+	 * @throws Exception
+	 */
 	public Disjunction(IProblem p1, IProblem p2, IProblem p3, IProblem p4)
 			throws Exception
 	{
@@ -184,18 +246,73 @@ public class Disjunction extends Problem implements IProblem
 		{ p1, p2, p3, p4 });
 	}
 
+	/**
+	 *
+	 * @return an
+	 *         IProblem satisfied if and only if at least one of the following
+	 *         IProblems is satisfied:
+	 * 
+	 * <pre>
+	 * problemArray[0]
+	 * problemArray[1]
+	 * problemArray[2]
+	 * .
+	 * .
+	 * .
+	 * problemArray[n-1]
+	 * 
+	 * where n=problemArray.length.
+	 * </pre>
+	 * @throws Exception
+	 */
 	public Disjunction(IProblem[] problemArray) throws Exception
 	{
-		IProblem p = Disjunction.or(problemArray);
-		if (p != null)
-			this.setClauses(p.getClauses());
+		if (problemArray != null && problemArray.length > 0)
+		{
+			IProblem p = Disjunction.or(problemArray);
+			if (p != null)
+				this.setClauses(p.getClauses());
+		}
 	}
 
+	/**
+	 * If
+	 * 
+	 * <pre>
+	 * problemArray={p_0,p_1,p_2,...,p_{n-1}}
+	 * and
+	 * booleanVariableArray={x_0,x_1,x_2,...,x_{n-2}}
+	 * </pre>
+	 * 
+	 * then
+	 * 
+	 * @return {r_0,r_1,r_2,...,r_{n-2}} where
+	 * 
+	 *         <pre>
+	 * r_0=Disjunction.or(p_0,r_1,x_0)
+	 * r_1=Disjunction.or(p_1,r_2,x_1) 
+	 * r_2=Disjunction.or(p_2,r_3,x_2) 
+	 * .
+	 * .
+	 * .
+	 * r_{n-3}=Disjunction.or(p_{n-3},r_{n-2},x_{n-3})
+	 * r_{n-2}=Disjunction.or(p_{n-2},p_{n-1},x_{n-2})
+	 * </pre>
+	 * 
+	 *         In effect, for the first <code>i</code> such that
+	 *         <code>x_i</code> is true, <code>p_i</code> is returned. If no
+	 *         such <code>i</code> exists, <code>p_{n-1}</code> is returned.
+	 * @throws Exception
+	 */
 	public Disjunction(IProblem[] problemArray,
 			IBooleanVariable[] booleanVariableArray) throws Exception
 	{
-		IProblem p = Disjunction.or(problemArray, booleanVariableArray);
-		if (p != null)
-			this.setClauses(p.getClauses());
+		if (problemArray != null && problemArray.length > 0)
+			if (booleanVariableArray != null && booleanVariableArray.length > 0)
+			{
+				IProblem p = Disjunction.or(problemArray, booleanVariableArray);
+				if (p != null)
+					this.setClauses(p.getClauses());
+			}
 	}
 }
