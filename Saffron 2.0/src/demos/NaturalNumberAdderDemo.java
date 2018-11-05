@@ -42,7 +42,7 @@ public class NaturalNumberAdderDemo
 				new NaturalNumberFixer(Y, 121)).and(
 				new NaturalNumberAdder(X, Y, Z, C));
 
-		System.out.println(((Problem)p).toCode());
+		System.out.println(((Problem) p).toCode());
 		List<IBooleanLiteral> s = p.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
