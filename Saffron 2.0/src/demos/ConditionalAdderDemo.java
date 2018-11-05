@@ -1,6 +1,6 @@
 /**
  * 
- * ConditionalAdderDemo.java	1.0 05/05/04
+ * ConditionalAdderDemo.java	1.0 2018/11/05
  * Copyright 2018 Positronic Software
  * @author Kerry Michael Soileau
  * @version 1.0
@@ -27,7 +27,7 @@ public class ConditionalAdderDemo
 {
 	public static void main(String[] args) throws Exception
 	{
-		NaturalNumber.setLength(8);
+		NaturalNumber.setLargestNaturalNumber(200);
 
 		INaturalNumber A = new NaturalNumber("A");
 		INaturalNumber B = new NaturalNumber("B");
