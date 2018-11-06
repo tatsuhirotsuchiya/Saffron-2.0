@@ -22,7 +22,13 @@ public class BitArrayPartition extends Problem implements IProblem
 
 	public BitArrayPartition(IBooleanVariable[][] partition) throws Exception
 	{
+		if(partition==null)
+			return;
 		int partitions = partition.length;
+		if(partitions==0)
+			return;
+		if(partition[0]==null)
+			return;
 		int bits = partition[0].length;
 
 		@SuppressWarnings("unchecked")
