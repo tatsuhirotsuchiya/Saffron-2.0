@@ -9,7 +9,6 @@
 package bits;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * An extension of the Problem class which imposes a Boolean relation on three
@@ -53,13 +52,28 @@ public class BitExclusiveSelector extends Problem implements IProblem
 			problem = new BitFixer(bitArrayList.get(0), true);
 		else
 		{
-			List<IBooleanVariable> restList = bitArrayList.subList(1,
-					bitArrayList.size());
-			ArrayList<IBooleanVariable> rest = new ArrayList<IBooleanVariable>(
-					restList);
-			BitFixer p1 = new BitFixer(bitArrayList.get(0),true);
-			IProblem p2 = (IProblem) new BitExclusiveSelector(rest);
-			problem = new ExclusiveDisjunction(p1, p2);
+			int siz = bitArrayList.size();
+			BooleanLiteral.getBooleanLiteral(bitArrayList.get(0), false);
+			problem = Problem.newProblem();
+			IClause build1 = Clause.newClause();
+			for (IBooleanVariable curr : bitArrayList)
+				build1.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(
+						curr, false));
+			problem.addClause(build1);
+
+			for (int i = 0; i < siz; i++)
+			{
+				BooleanLiteral q = (BooleanLiteral) BooleanLiteral
+						.getBooleanLiteral(bitArrayList.get(i), true);
+				for (int j = i + 1; j < siz; j++)
+				{
+					IClause build2 = Clause.newClause();
+					build2.add(q);
+					build2.add((BooleanLiteral) BooleanLiteral
+							.getBooleanLiteral(bitArrayList.get(j), true));
+					problem.addClause(build2);
+				}
+			}
 		}
 		this.setClauses(problem.getClauses());
 	}
