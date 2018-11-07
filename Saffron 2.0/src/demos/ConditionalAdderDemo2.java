@@ -28,25 +28,27 @@ public class ConditionalAdderDemo2
 {
 	public static void main(String[] args) throws Exception
 	{
+		pack();
+	}
+
+	public static void pack() throws Exception
+	{
 		NaturalNumber.setLargestNaturalNumber(425);
 
-		INaturalNumber A = new NaturalNumber("A");
-		INaturalNumber B = new NaturalNumber("B");
-		INaturalNumber C = new NaturalNumber("C");
-		INaturalNumber D = new NaturalNumber("D");
-		INaturalNumber E = new NaturalNumber("E");
-		INaturalNumber F = new NaturalNumber("F");
-		INaturalNumber G = new NaturalNumber("G");
-		INaturalNumber H = new NaturalNumber("H");
+		Item[] items = new Item[]
+		{ new Item("A", 127), new Item("B", 121), new Item("C", 37),
+				new Item("D", 12), new Item("E", 53), new Item("F", 26),
+				new Item("G", 17), new Item("H", 32) };
+		
+		INaturalNumber[] items0=new INaturalNumber[items.length];
+		for(int i=0;i<items.length;i++)
+			items0[i] = new NaturalNumber(items[i].name);
 
 		INaturalNumber binSize = new NaturalNumber("BinSize");
 
-		INaturalNumber[] items = new INaturalNumber[]
-		{ A, B, C, D, E, F, G, H };
-
 		int bins = 3;
 		int bits = items.length;
-		int binCapacity=150;
+		int binCapacity = 150;
 
 		IBooleanVariable[][] partition = new IBooleanVariable[bins][bits];
 		for (int i = 0; i < bins; i++)
@@ -60,7 +62,7 @@ public class ConditionalAdderDemo2
 		for (int i = 0; i < bins; i++)
 		{
 			condSum[i] = new NaturalNumber("NNCondSum-" + i);
-			adderProblem[i] = new ConditionalAdder(items, partition[i],
+			adderProblem[i] = new ConditionalAdder(items0, partition[i],
 					condSum[i]);
 		}
 		IProblem sumProb = new Conjunction(adderProblem);
@@ -72,11 +74,15 @@ public class ConditionalAdderDemo2
 		}
 		IProblem binsFit = new Conjunction(binFitProblem);
 
+		IProblem[] fixerProblemArray = new IProblem[items.length];
+		for(int i=0;i<items.length;i++)
+			fixerProblemArray[i]=new NaturalNumberFixer(items0[i], items[i].size);
+		
 		IProblem p = new Conjunction(new IProblem[]
-		{ new NaturalNumberFixer(A, 127), new NaturalNumberFixer(B, 121),
-				new NaturalNumberFixer(C, 37), new NaturalNumberFixer(D, 12),
-				new NaturalNumberFixer(E, 53), new NaturalNumberFixer(F, 26),
-				new NaturalNumberFixer(G, 17), new NaturalNumberFixer(H, 32),
+		{ new NaturalNumberFixer(items0[0], 127), new NaturalNumberFixer(items0[1], 121),
+				new NaturalNumberFixer(items0[2], 37), new NaturalNumberFixer(items0[3], 12),
+				new NaturalNumberFixer(items0[4], 53), new NaturalNumberFixer(items0[5], 26),
+				new NaturalNumberFixer(items0[6], 17), new NaturalNumberFixer(items0[7], 32),
 				new NaturalNumberFixer(binSize, binCapacity), partitionProblem,
 				sumProb, binsFit });
 
@@ -86,14 +92,8 @@ public class ConditionalAdderDemo2
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
-			System.out.println("A = " + A);
-			System.out.println("B = " + B);
-			System.out.println("C = " + C);
-			System.out.println("D = " + D);
-			System.out.println("E = " + E);
-			System.out.println("F = " + F);
-			System.out.println("G = " + G);
-			System.out.println("H = " + H);
+			for(int i=0;i<items.length;i++)
+				System.out.println(items[i].name+" = " + items0[i]);
 
 			for (int i = 0; i < bins; i++)
 			{
@@ -110,5 +110,17 @@ public class ConditionalAdderDemo2
 		}
 		else
 			System.out.println("No solution.");
+	}
+}
+
+class Item
+{
+	String name;
+	int size;
+
+	public Item(String name, int size)
+	{
+		this.name = name;
+		this.size = size;
 	}
 }
