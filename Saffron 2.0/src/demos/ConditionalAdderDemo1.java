@@ -23,7 +23,7 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
-public class ConditionalAdderDemo
+public class ConditionalAdderDemo1
 {
 	public static void main(String[] args) throws Exception
 	{
