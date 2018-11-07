@@ -1,7 +1,10 @@
-package naturalnumbers;
+package demos;
 
 import java.util.List;
 
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberLEQer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
