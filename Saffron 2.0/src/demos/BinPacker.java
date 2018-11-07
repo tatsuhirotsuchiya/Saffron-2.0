@@ -8,6 +8,7 @@
 
 package demos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import naturalnumbers.ConditionalAdder;
@@ -57,7 +58,7 @@ class Bin
 	}
 }
 
-public class ConditionalAdderDemo2
+public class BinPacker
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -67,17 +68,24 @@ public class ConditionalAdderDemo2
 				new Item("G", 17), new Item("H", 32) };
 
 		Bin[] bins = new Bin[]
-		{ new Bin("Bin0", 150), new Bin("Bin1", 150), new Bin("Bin2", 150) };
+		{ new Bin("Bin0", 150), new Bin("Bin1", 100), new Bin("Bin2", 185) };
 
-		pack(items, bins);
+		ArrayList<ArrayList<Item>> solution = pack(items, bins);
+
+		System.out.println(solution);
 	}
 
-	public static void pack(Item[] items, Bin[] bins) throws Exception
+	public static ArrayList<ArrayList<Item>> pack(Item[] items, Bin[] bins)
+			throws Exception
 	{
-		NaturalNumber.setLargestNaturalNumber(425);
-
 		int numberBins = bins.length;
 		int numberItems = items.length;
+
+		int maxBin = Integer.MIN_VALUE;
+		for (int i = 0; i < numberBins; i++)
+			if (bins[i].getCapacity() > maxBin)
+				maxBin = bins[i].getCapacity();
+		NaturalNumber.setLargestNaturalNumber(maxBin);
 
 		IBooleanVariable[][] partition = new IBooleanVariable[numberBins][numberItems];
 		for (int i = 0; i < numberBins; i++)
@@ -88,7 +96,7 @@ public class ConditionalAdderDemo2
 
 		INaturalNumber[] naturalNumberArray = new INaturalNumber[numberItems];
 		for (int i = 0; i < numberItems; i++)
-			naturalNumberArray[i] = new NaturalNumber(items[i].name);
+			naturalNumberArray[i] = new NaturalNumber(items[i].getName());
 		INaturalNumber[] condSum = new INaturalNumber[numberBins];
 		IProblem[] adderProblem = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
@@ -113,7 +121,7 @@ public class ConditionalAdderDemo2
 		IProblem[] fixerProblemArray = new IProblem[numberItems];
 		for (int i = 0; i < numberItems; i++)
 			fixerProblemArray[i] = new NaturalNumberFixer(
-					naturalNumberArray[i], items[i].size);
+					naturalNumberArray[i], items[i].getSize());
 
 		IProblem[] binCapacityArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
@@ -124,48 +132,66 @@ public class ConditionalAdderDemo2
 		IProblem[] sizesArray = new IProblem[numberItems];
 		for (int i = 0; i < numberItems; i++)
 			sizesArray[i] = new NaturalNumberFixer(naturalNumberArray[i],
-					items[i].size);
+					items[i].getSize());
 		IProblem sizesProblem = new Conjunction(sizesArray);
 
 		IProblem p = new Conjunction(new IProblem[]
 		{ sizesProblem, binCapacityFixer, partitionProblem, sumProb, binsFit });
 
-		System.out.println(p);
-
 		List<IBooleanLiteral> s = p.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
-			for (int i = 0; i < numberItems; i++)
-				System.out.println(items[i].name + " = "
-						+ naturalNumberArray[i]);
-
+			ArrayList<ArrayList<Item>> solution = new ArrayList<ArrayList<Item>>();
 			for (int i = 0; i < numberBins; i++)
 			{
-				String str = "";
+				ArrayList<Item> curr = new ArrayList<Item>();
 				for (int j = 0; j < numberItems; j++)
-					str += partition[i][j].getValue() ? "1" : "0";
-				System.out.println(str);
+					if (partition[i][j].getValue())
+						curr.add(items[j]);
+				solution.add(curr);
 			}
-
-			for (int i = 0; i < numberBins; i++)
-				System.out.println(condSum[i]);
-
 			BooleanLiteral.reset(s);
+			return solution;
 		}
 		else
-			System.out.println("No solution.");
+			return null;
 	}
 }
 
 class Item
 {
-	String name;
-	int size;
+	private String name;
+	private int size;
 
 	public Item(String name, int size)
 	{
+		this.setName(name);
+		this.setSize(size);
+	}
+
+	public String toString()
+	{
+		return getName() + "(" + getSize() + ")";
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
 		this.name = name;
+	}
+
+	public int getSize()
+	{
+		return size;
+	}
+
+	public void setSize(int size)
+	{
 		this.size = size;
 	}
 }
