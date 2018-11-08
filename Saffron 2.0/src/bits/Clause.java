@@ -211,10 +211,15 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	}
 
 	/**
-	 * This method returns true if and only if the following conditions are all
-	 * true: 1. this.size()==c.size() 2. this.minus(c) contains exactly one
-	 * literal 3. c.minus(this) contains exactly one literal 4.
-	 * this.minus(c).getBooleanVariable()==c.minus(this).getBooleanVariable()
+	 * This method returns non-null if and only if the following conditions are
+	 * all true:
+	 * 
+	 * <pre>
+	 * 1. this.size()==c.size() 
+	 * 2. this.minus(c) contains exactly one literal 
+	 * 3. c.minus(this) contains exactly one literal 
+	 * 4. this.minus(c).getBooleanVariable()==c.minus(this).getBooleanVariable()
+	 * </pre>
 	 * 
 	 * @return IBooleanLiteral
 	 * @throws Exception
@@ -225,19 +230,19 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 			return null;
 		if (this.size() != c.size())
 			return null;
-		IClause dminusc = this.minus(c);
-		if (dminusc.size() != 1)
+		IClause thisminusc = this.minus(c);
+		if (thisminusc.size() != 1)
 			return null;
-		IClause cminusd = ((Clause) c).minus(this);
-		if (cminusd.size() != 1)
+		IClause cminusthis = ((Clause) c).minus(this);
+		if (cminusthis.size() != 1)
 			return null;
-		IBooleanLiteral dminuscbl = dminusc.getLiteralAt(0);
-		IBooleanVariable dminuscbv = dminuscbl.getBooleanVariable();
-		IBooleanVariable cminusdbv = cminusd.getLiteralAt(0)
+		IBooleanLiteral thisminuscbl = thisminusc.getLiteralAt(0);
+		IBooleanVariable thisminuscbv = thisminuscbl.getBooleanVariable();
+		IBooleanVariable cminusthisbv = cminusthis.getLiteralAt(0)
 				.getBooleanVariable();
-		if (!dminuscbv.equals(cminusdbv))
+		if (!thisminuscbv.equals(cminusthisbv))
 			return null;
-		return dminuscbl;
+		return thisminuscbl;
 	}
 
 	/**
@@ -379,6 +384,29 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 			throw new ClauseException(
 					"A negative number was passed to getLiteralAt method.");
 		return (super.get(n));
+	}
+
+	/**
+	 * This method finds the IClause consisting of the IBooleanLiterals that
+	 * appear if both this and clause, if any.
+	 * 
+	 * @return IClause
+	 * @throws Exception
+	 */
+	public IClause intersection(IClause clause) throws Exception
+	{
+		if (clause == null)
+			return null;
+		if (this.isEmpty())
+			return this;
+
+		IClause ret = Clause.newClause();
+		for (IBooleanLiteral curr : this)
+		{
+			if (clause.contains(curr))
+				ret.add((BooleanLiteral) curr);
+		}
+		return ret;
 	}
 
 	@Override

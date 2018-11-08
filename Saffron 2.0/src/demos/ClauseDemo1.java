@@ -10,7 +10,7 @@ import bits.IBooleanLiteral;
 import bits.IBooleanVariable;
 import bits.IClause;
 
-public class ClauseDemo
+public class ClauseDemo1
 {
 	public static void main(String[] args) throws Exception
 	{
