@@ -177,7 +177,6 @@ public class Problem extends ArrayList<IClause> implements IProblem
 	 * public IProblem and(IProblem p) throws Exception { return new
 	 * Conjunction(new IProblem[]{p,this}); }
 	 */
-
 	@Override
 	public IProblem and(IProblem p) throws Exception
 	{
@@ -244,6 +243,59 @@ public class Problem extends ArrayList<IClause> implements IProblem
 				ret.addClause(clausei);
 		}
 		return ret;
+	}
+
+	public IProblem compress() throws Exception
+	{
+		IProblem latest = this;
+		while (true)
+		{
+			IProblem contender = ((Problem) latest).compress0();
+			if (contender.size() == latest.size())
+				break;
+			latest = contender;
+		}
+		return latest;
+	}
+
+	private IProblem compress0() throws Exception
+	{
+		IProblem reduction1 = this.compressReductionPass();
+		IProblem reducedProblem1 = new Problem();
+		for (IClause curr1 : this)
+		{
+			IClause dominatedBy = null;
+			for (IClause curr2 : reduction1)
+			{
+				if (((Clause) curr2).dominates(curr1))
+				{
+					dominatedBy = curr2;
+					break;
+				}
+			}
+
+			if (dominatedBy != null)
+				reducedProblem1.addClause(dominatedBy);
+			else
+				reducedProblem1.addClause(curr1);
+		}
+		return reducedProblem1;
+	}
+
+	private IProblem compressReductionPass() throws Exception
+	{
+		IProblem reduction = new Problem();
+		for (int i = 0; i < this.size(); i++)
+		{
+			Clause c1 = (Clause) this.getClause(i);
+			for (int j = i + 1; j < this.size(); j++)
+			{
+				IClause c2 = this.getClause(j);
+				if (c1.differsSinglyFrom(c2) != null)
+					reduction.addClause(c1.intersection(c2));
+			}
+		}
+		return reduction;
 	}
 
 	@Override
@@ -468,6 +520,11 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		return count;
 	}
 
+	/*
+	 * @Override public Stream<IClause> parallelStream() { // TODO
+	 * Auto-generated method stub return null; }
+	 */
+
 	public IProblem or(IProblem p) throws Exception
 	{
 		return new Disjunction(this, p);
@@ -482,11 +539,6 @@ public class Problem extends ArrayList<IClause> implements IProblem
 	{
 		super.clear();
 	}
-
-	/*
-	 * @Override public Stream<IClause> parallelStream() { // TODO
-	 * Auto-generated method stub return null; }
-	 */
 
 	@Override
 	public void removeClause(int n)
@@ -564,6 +616,11 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		Problem.stream = stream;
 	}
 
+	/*
+	 * @Override public Stream<IClause> stream() { // TODO Auto-generated method
+	 * stub return null; }
+	 */
+
 	@Override
 	public boolean solve(ISolver solver) throws Exception
 	{
@@ -592,11 +649,6 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		Arrays.sort(ary);
 		this.setClauses(ary);
 	}
-
-	/*
-	 * @Override public Stream<IClause> stream() { // TODO Auto-generated method
-	 * stub return null; }
-	 */
 
 	public IProblem substitute(IBooleanVariable b, boolean value)
 			throws Exception
@@ -824,4 +876,5 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		}
 		return p;
 	}
+
 }
