@@ -2,17 +2,17 @@ package demos.binpacking;
 
 public class Bin
 {
-	private int capacity;
+	private long capacity;
 	private String name;
 
-	public Bin(String name, int capacity)
+	public Bin(String name, long capacity)
 	{
 		super();
 		this.capacity = capacity;
 		this.name = name;
 	}
 
-	public int getCapacity()
+	public long getCapacity()
 	{
 		return capacity;
 	}
@@ -22,7 +22,7 @@ public class Bin
 		return name;
 	}
 
-	public void setCapacity(int capacity)
+	public void setCapacity(long capacity)
 	{
 		this.capacity = capacity;
 	}

@@ -3,9 +3,9 @@ package demos.binpacking;
 public class Item
 {
 	private String name;
-	private int size;
+	private long size;
 
-	public Item(String name, int size)
+	public Item(String name, long size)
 	{
 		this.setName(name);
 		this.setSize(size);
@@ -16,7 +16,7 @@ public class Item
 		return name;
 	}
 
-	public int getSize()
+	public long getSize()
 	{
 		return size;
 	}
@@ -26,12 +26,11 @@ public class Item
 		this.name = name;
 	}
 
-	public void setSize(int size)
+	public void setSize(long size)
 	{
 		this.size = size;
 	}
 
-	@Override
 	public String toString()
 	{
 		return getName() + "(" + getSize() + ")";

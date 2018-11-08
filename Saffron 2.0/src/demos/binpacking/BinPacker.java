@@ -40,12 +40,13 @@ public class BinPacker
 		int numberBins = bins.length;
 		int numberItems = items.length;
 
-		int maxBin = Integer.MIN_VALUE;
+		long maxBin = Integer.MIN_VALUE;
 		for (int i = 0; i < numberBins; i++)
 			if (bins[i].getCapacity() > maxBin)
 				maxBin = bins[i].getCapacity();
 		NaturalNumber.setLargestNaturalNumber(maxBin);
 
+		System.out.println("Building partitionProblem...");
 		IBooleanVariable[][] partition = new IBooleanVariable[numberBins][numberItems];
 		for (int i = 0; i < numberBins; i++)
 		{
@@ -56,6 +57,7 @@ public class BinPacker
 		}
 		IProblem partitionProblem = new BitArrayPartition(partition);
 
+		System.out.println("Building adderProblem...");
 		INaturalNumber[] itemSizeNaturalNumberArray = new INaturalNumber[numberItems];
 		for (int i = 0; i < numberItems; i++)
 			itemSizeNaturalNumberArray[i] = new NaturalNumber(
@@ -70,6 +72,7 @@ public class BinPacker
 		}
 		IProblem adderProblem = new Conjunction(adderProblemArray);
 
+		System.out.println("Building binFitterProblem...");
 		INaturalNumber[] binCapacityNNArray = new INaturalNumber[numberBins];
 		for (int i = 0; i < numberBins; i++)
 			binCapacityNNArray[i] = new NaturalNumber("BinSize-" + i);
@@ -81,6 +84,7 @@ public class BinPacker
 		}
 		IProblem binFitterProblem = new Conjunction(binFitProblemArray);
 
+		System.out.println("Building binCapacityFixerProblem...");
 		IProblem[] binCapacityProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 			binCapacityProblemArray[i] = new NaturalNumberFixer(
@@ -88,18 +92,23 @@ public class BinPacker
 		IProblem binCapacityFixerProblem = new Conjunction(
 				binCapacityProblemArray);
 
+		System.out.println("Building sizesProblem...");
 		IProblem[] sizesProblemArray = new IProblem[numberItems];
 		for (int i = 0; i < numberItems; i++)
 			sizesProblemArray[i] = new NaturalNumberFixer(
 					itemSizeNaturalNumberArray[i], items[i].getSize());
 		IProblem sizesProblem = new Conjunction(sizesProblemArray);
 
+		System.out.println("Building binPackingProblem...");
 		binPackingProblem = new Conjunction(new IProblem[]
 		{ sizesProblem, binCapacityFixerProblem, partitionProblem,
 				adderProblem, binFitterProblem });
 
+		System.out.println("Solving SAT problem...");
 		List<IBooleanLiteral> blList = binPackingProblem.findModel(Problem
 				.defaultSolver());
+		
+		System.out.println("Returning solution...");
 		if (blList != null && blList.size() > 0)
 		{
 			BooleanLiteral.interpret(blList);
