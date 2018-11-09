@@ -32,20 +32,30 @@ public class ConditionalAdder extends Problem implements IProblem
 		INaturalNumber[] subTotal = new INaturalNumber[numbers.length];
 		subTotal[0] = new NaturalNumber();
 		subAnswer[0] = new NaturalNumber();
-		IProblem problem = new NaturalNumberBitMultiply(membership[0],
-				numbers[0], subAnswer[0]);
-		problem = new Conjunction(problem, new NaturalNumberEqualizer(
+		IProblem[] problemArray = new IProblem[numbers.length];
+		problemArray[0]=new Conjunction(new NaturalNumberBitMultiply(membership[0],
+				numbers[0], subAnswer[0]), new NaturalNumberEqualizer(
 				subTotal[0], subAnswer[0]));
 		for (int i = 1; i < numbers.length; i++)
 		{
+			//System.out.println("\t\tConditionalAdder:"+i);
 			subAnswer[i] = new NaturalNumber();
+			//System.out.println("h1");
 			subTotal[i] = new NaturalNumber();
-			problem = new Conjunction(problem, new NaturalNumberBitMultiply(
+			//System.out.println("h2");
+			//System.out.println(membership[i]);
+			//System.out.println(numbers[i]);
+			//System.out.println(subAnswer[i]);
+			//System.out.println(subTotal[i - 1]);
+			//System.out.println(subTotal[i]);
+			//System.out.println(problemArray[i]);
+			problemArray[i]=new Conjunction(new NaturalNumberBitMultiply(
 					membership[i], numbers[i], subAnswer[i]),
 					new NaturalNumberAdder(subTotal[i - 1], subAnswer[i],
 							subTotal[i]));
+			//System.out.println("h3");
 		}
-		problem = new Conjunction(problem, new NaturalNumberEqualizer(
+		IProblem problem = new Conjunction(new Conjunction(problemArray), new NaturalNumberEqualizer(
 				subTotal[numbers.length - 1], conditionalSum));
 		this.setClauses(problem.getClauses());
 	}

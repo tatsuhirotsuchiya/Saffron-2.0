@@ -2,7 +2,7 @@ package demos.binpacking;
 
 import java.util.ArrayList;
 
-public class BinPackingDemo
+public class BinPackingDemo1
 {
 	public static void main(String[] args) throws Exception
 	{

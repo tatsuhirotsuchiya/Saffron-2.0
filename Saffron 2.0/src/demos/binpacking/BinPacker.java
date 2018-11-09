@@ -39,6 +39,7 @@ public class BinPacker
 	{
 		int numberBins = bins.length;
 		int numberItems = items.length;
+		ArrayList<IProblem> stagingArray = new ArrayList<IProblem>();
 
 		long maxBin = Integer.MIN_VALUE;
 		for (int i = 0; i < numberBins; i++)
@@ -56,6 +57,7 @@ public class BinPacker
 						+ i + "-" + j);
 		}
 		IProblem partitionProblem = new BitArrayPartition(partition);
+		stagingArray.add(partitionProblem);
 
 		System.out.println("Building adderProblem...");
 		INaturalNumber[] itemSizeNaturalNumberArray = new INaturalNumber[numberItems];
@@ -66,11 +68,13 @@ public class BinPacker
 		IProblem[] adderProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 		{
+			System.out.println("\tBuilding adderProblemArray[" + i + "]...");
 			condSum[i] = new NaturalNumber("NNCondSum-" + i);
 			adderProblemArray[i] = new ConditionalAdder(
 					itemSizeNaturalNumberArray, partition[i], condSum[i]);
+			stagingArray.add(adderProblemArray[i]);
 		}
-		IProblem adderProblem = new Conjunction(adderProblemArray);
+		//IProblem adderProblem = new Conjunction(adderProblemArray);
 
 		System.out.println("Building binFitterProblem...");
 		INaturalNumber[] binCapacityNNArray = new INaturalNumber[numberBins];
@@ -81,33 +85,41 @@ public class BinPacker
 		{
 			binFitProblemArray[i] = new NaturalNumberLEQer(condSum[i],
 					binCapacityNNArray[i]);
+			stagingArray.add(binFitProblemArray[i]);
 		}
-		IProblem binFitterProblem = new Conjunction(binFitProblemArray);
+		//IProblem binFitterProblem = new Conjunction(binFitProblemArray);
 
 		System.out.println("Building binCapacityFixerProblem...");
 		IProblem[] binCapacityProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
+		{
 			binCapacityProblemArray[i] = new NaturalNumberFixer(
 					binCapacityNNArray[i], bins[i].getCapacity());
-		IProblem binCapacityFixerProblem = new Conjunction(
-				binCapacityProblemArray);
+			stagingArray.add(binCapacityProblemArray[i]);
+		}
+		//IProblem binCapacityFixerProblem = new Conjunction(
+		//		binCapacityProblemArray);
 
 		System.out.println("Building sizesProblem...");
 		IProblem[] sizesProblemArray = new IProblem[numberItems];
 		for (int i = 0; i < numberItems; i++)
+		{
 			sizesProblemArray[i] = new NaturalNumberFixer(
 					itemSizeNaturalNumberArray[i], items[i].getSize());
-		IProblem sizesProblem = new Conjunction(sizesProblemArray);
+			stagingArray.add(sizesProblemArray[i]);
+		}
+		//IProblem sizesProblem = new Conjunction(sizesProblemArray);
 
 		System.out.println("Building binPackingProblem...");
-		binPackingProblem = new Conjunction(new IProblem[]
-		{ sizesProblem, binCapacityFixerProblem, partitionProblem,
-				adderProblem, binFitterProblem });
+		//binPackingProblem = new Conjunction(new IProblem[]
+		//{ sizesProblem, binCapacityFixerProblem, partitionProblem,
+		//		adderProblem, binFitterProblem });
+		binPackingProblem = new Conjunction(stagingArray);
 
 		System.out.println("Solving SAT problem...");
 		List<IBooleanLiteral> blList = binPackingProblem.findModel(Problem
 				.defaultSolver());
-		
+
 		System.out.println("Returning solution...");
 		if (blList != null && blList.size() > 0)
 		{

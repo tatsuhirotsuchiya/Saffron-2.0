@@ -7,7 +7,7 @@
  */
 package bits;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Conjunction extends Problem implements IProblem
 {
@@ -40,6 +40,11 @@ public class Conjunction extends Problem implements IProblem
 		return res;
 	}
 
+	public Conjunction(ArrayList<IProblem> problemList) throws Exception
+	{
+		this(problemList.toArray(new IProblem[0]));
+	}
+
 	public Conjunction(IProblem problem) throws Exception
 	{
 		this.setClauses(problem.getClauses());
@@ -63,7 +68,7 @@ public class Conjunction extends Problem implements IProblem
 		this(new IProblem[]
 		{ p1, p2, p3, p4 });
 	}
-
+	
 	public Conjunction(IProblem[] group) throws Exception
 	{
 		IProblem p = Conjunction.and(group);
@@ -71,6 +76,7 @@ public class Conjunction extends Problem implements IProblem
 			this.setClauses(p.getClauses());
 	}
 
+	/*
 	public Conjunction(List<IProblem> problemList) throws Exception
 	{
 		IProblem[] o = (problemList.toArray(new IProblem[0]));
@@ -82,4 +88,5 @@ public class Conjunction extends Problem implements IProblem
 		}
 		this.setClauses(new Conjunction(p).getClauses());
 	}
+	*/
 }
