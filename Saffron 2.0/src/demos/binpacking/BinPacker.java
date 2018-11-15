@@ -68,7 +68,7 @@ public class BinPacker
 		IProblem[] adderProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 		{
-			System.out.println("\tBuilding adderProblemArray[" + i + "]...");
+			System.out.println("\tBuilding adderProblemArray[" + i + "/"+(numberBins-1)+"]...");
 			condSum[i] = new NaturalNumber("NNCondSum-" + i);
 			adderProblemArray[i] = new ConditionalAdder(
 					itemSizeNaturalNumberArray, partition[i], condSum[i]);
