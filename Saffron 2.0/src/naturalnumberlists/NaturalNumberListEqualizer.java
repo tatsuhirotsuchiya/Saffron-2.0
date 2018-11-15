@@ -14,8 +14,8 @@ public class NaturalNumberListEqualizer extends Problem implements IProblem
 {
 	private static final long serialVersionUID = 1L;
 
-	public NaturalNumberListEqualizer(INaturalNumberList A, INaturalNumberList B)
-			throws Exception
+	public NaturalNumberListEqualizer(INaturalNumberList A,
+			INaturalNumberList B) throws Exception
 	{
 		if (A == null)
 			throw new NaturalNumberListException(
@@ -23,8 +23,7 @@ public class NaturalNumberListEqualizer extends Problem implements IProblem
 		if (B == null)
 			throw new NaturalNumberListException(
 					"Passed a null INaturalNumberList to constructor.");
-		IProblem problem = new Conjunction(
-				new NaturalNumberListSubsetter(A, B),
+		IProblem problem = new Conjunction(new NaturalNumberListSubsetter(A, B),
 				new NaturalNumberListSubsetter(B, A));
 		this.setClauses(problem.getClauses());
 	}

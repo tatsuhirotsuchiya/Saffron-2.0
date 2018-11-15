@@ -58,11 +58,10 @@ public class BitStringEqualizerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("X= " + X);
 			System.out.println("Y= " + Y);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 
-		System.out.println(((Problem) problem).buildEquivalenceRelation()
-				.toString());
+		System.out.println(
+				((Problem) problem).buildEquivalenceRelation().toString());
 	}
 }

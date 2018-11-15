@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListFixer;
-import naturalnumberlists.NaturalNumberListNonrepeater;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListFixer;
+import naturalnumberlists.NaturalNumberListNonrepeater;
 
 public class NaturalNumberListNonrepeaterDemo
 {
@@ -18,8 +18,7 @@ public class NaturalNumberListNonrepeaterDemo
 	{
 		INaturalNumberList testList = new NaturalNumberList("y", new long[]
 		{ 5, 6, 2, 4 });
-		IProblem problem = new Conjunction(
-				new NaturalNumberListFixer(testList),
+		IProblem problem = new Conjunction(new NaturalNumberListFixer(testList),
 				new NaturalNumberListNonrepeater(testList));
 		System.out.println(problem);
 		List<IBooleanLiteral> s = problem.findModel(Problem.defaultSolver());
@@ -27,8 +26,7 @@ public class NaturalNumberListNonrepeaterDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("s2= " + testList);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

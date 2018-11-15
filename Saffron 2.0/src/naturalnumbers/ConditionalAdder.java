@@ -9,12 +9,13 @@ import bits.Problem;
 
 public class ConditionalAdder extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 766604207120847889L;
-
 	public ConditionalAdder(INaturalNumber[] numbers,
 			IBooleanVariable[] membership, INaturalNumber conditionalSum)
 			throws Exception
 	{
+		// long startTimeMillis=System.currentTimeMillis();
+		// System.out.println("\t\t\t\tStarting ConditionalAdder...");
+
 		if (numbers.length == 0 || membership.length == 0)
 			throw (new ConditionalAdderException(
 					"numbers or bits array of zero length was passed to constructor."));
@@ -32,32 +33,35 @@ public class ConditionalAdder extends Problem implements IProblem
 		INaturalNumber[] subTotal = new INaturalNumber[numbers.length];
 		subTotal[0] = new NaturalNumber();
 		subAnswer[0] = new NaturalNumber();
-		IProblem[] problemArray = new IProblem[numbers.length];
-		problemArray[0]=new Conjunction(new NaturalNumberBitMultiply(membership[0],
-				numbers[0], subAnswer[0]), new NaturalNumberEqualizer(
-				subTotal[0], subAnswer[0]));
+
+		IProblem[] stagingArray = new IProblem[2 * numbers.length + 1];
+		int stagingIndex = 0;
+		stagingArray[stagingIndex++] = new NaturalNumberBitMultiply(
+				membership[0], numbers[0], subAnswer[0]);
+		stagingArray[stagingIndex++] = new NaturalNumberEqualizer(subTotal[0],
+				subAnswer[0]);
 		for (int i = 1; i < numbers.length; i++)
 		{
-			//System.out.println("\t\tConditionalAdder:"+i);
+			// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\t\t"+i);
 			subAnswer[i] = new NaturalNumber();
-			//System.out.println("h1");
 			subTotal[i] = new NaturalNumber();
-			//System.out.println("h2");
-			//System.out.println(membership[i]);
-			//System.out.println(numbers[i]);
-			//System.out.println(subAnswer[i]);
-			//System.out.println(subTotal[i - 1]);
-			//System.out.println(subTotal[i]);
-			//System.out.println(problemArray[i]);
-			problemArray[i]=new Conjunction(new NaturalNumberBitMultiply(
-					membership[i], numbers[i], subAnswer[i]),
-					new NaturalNumberAdder(subTotal[i - 1], subAnswer[i],
-							subTotal[i]));
-			//System.out.println("h3");
+			stagingArray[stagingIndex++] = new NaturalNumberBitMultiply(
+					membership[i], numbers[i], subAnswer[i]);
+			stagingArray[stagingIndex++] = new NaturalNumberAdder(
+					subTotal[i - 1], subAnswer[i], subTotal[i]);
+			// System.out.println(stagingIndex);
 		}
-		IProblem problem = new Conjunction(new Conjunction(problemArray), new NaturalNumberEqualizer(
-				subTotal[numbers.length - 1], conditionalSum));
+		// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\\t\tAdding
+		// NaturalNumberEqualizer");
+		stagingArray[stagingIndex++] = new NaturalNumberEqualizer(
+				subTotal[numbers.length - 1], conditionalSum);
+		// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\t\tComputing
+		// staging array");
+		IProblem problem = new Conjunction(stagingArray);
 		this.setClauses(problem.getClauses());
+
+		// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"\t\t\t\tFinishing
+		// ConditionalAdder...");
 	}
 
 	public ConditionalAdder(INaturalNumberList numbersArray,

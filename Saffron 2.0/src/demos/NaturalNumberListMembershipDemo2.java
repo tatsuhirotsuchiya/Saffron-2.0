@@ -2,18 +2,18 @@ package demos;
 
 import java.util.List;
 
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListFixer;
-import naturalnumberlists.NaturalNumberListMembership;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberUnequalizer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListFixer;
+import naturalnumberlists.NaturalNumberListMembership;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberUnequalizer;
 
 /**
  * <p>
@@ -71,8 +71,7 @@ public class NaturalNumberListMembershipDemo2
 			System.out.println("bsl = " + bsl);
 			System.out.println("String1 = " + string1);
 			System.out.println("String2 = " + string2);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

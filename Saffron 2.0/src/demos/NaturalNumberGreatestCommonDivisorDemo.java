@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberGreatestCommonDivisor;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberGreatestCommonDivisor;
 
 public class NaturalNumberGreatestCommonDivisorDemo
 {
@@ -35,8 +35,7 @@ public class NaturalNumberGreatestCommonDivisorDemo
 			System.out.println("X = " + X);
 			System.out.println("Y = " + Y);
 			System.out.println("GCD = " + GCD);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

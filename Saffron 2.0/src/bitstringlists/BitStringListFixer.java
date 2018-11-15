@@ -38,9 +38,11 @@ public class BitStringListFixer extends Problem implements IProblem
 		IProblem problem = null;
 		for (int i = 0; i < target.size(); i++)
 			for (int j = 0; j < target.getBitString(i).size(); j++)
-				problem = new Conjunction(problem, new BitFixer(target
-						.getBitString(i).getBooleanVariable(j), target
-						.getBitString(i).getBooleanVariable(j).getValue()));
+				problem = new Conjunction(problem,
+						new BitFixer(
+								target.getBitString(i).getBooleanVariable(j),
+								target.getBitString(i).getBooleanVariable(j)
+										.getValue()));
 		this.setClauses(problem.getClauses());
 	}
 

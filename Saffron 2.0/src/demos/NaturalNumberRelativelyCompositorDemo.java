@@ -10,15 +10,15 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberRelativelyCompositor;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberRelativelyCompositor;
 
 public class NaturalNumberRelativelyCompositorDemo
 {
@@ -41,8 +41,7 @@ public class NaturalNumberRelativelyCompositorDemo
 			System.out.print("\nM = " + M);
 			System.out.print("\tN = " + N);
 			System.out.print("\tCommon Factor Found= " + CF);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

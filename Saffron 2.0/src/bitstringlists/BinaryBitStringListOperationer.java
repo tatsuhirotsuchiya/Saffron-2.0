@@ -10,8 +10,6 @@ import bitstrings.BitStringFixer;
 
 public class BinaryBitStringListOperationer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -2618848517175740552L;
-
 	public static void main(String[] args) throws Exception
 	{
 		BinaryBitStringListOperationer o = new BinaryBitStringListOperationer();

@@ -10,15 +10,15 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberXorer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberXorer;
 
 public class NaturalNumberXorerDemo
 {
@@ -30,7 +30,8 @@ public class NaturalNumberXorerDemo
 
 		NaturalNumberFixer bnnfx = new NaturalNumberFixer(X, 4);
 		NaturalNumberFixer bnnfy = new NaturalNumberFixer(Y, 5);
-		NaturalNumberXorer NaturalNumberXorer1 = new NaturalNumberXorer(X, Y, Z);
+		NaturalNumberXorer NaturalNumberXorer1 = new NaturalNumberXorer(X, Y,
+				Z);
 
 		IProblem p1 = new Conjunction(bnnfx, bnnfy);
 		IProblem p = new Conjunction(p1, NaturalNumberXorer1);
@@ -43,8 +44,7 @@ public class NaturalNumberXorerDemo
 			System.out.println("X= " + X);
 			System.out.println("Y= " + Y);
 			System.out.println("Z= " + Z);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

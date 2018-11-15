@@ -1,9 +1,9 @@
 package naturalnumbertables;
 
-import naturalnumbers.NaturalNumberFixer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumberFixer;
 
 public class NaturalNumberTableFixer extends Problem implements IProblem
 {

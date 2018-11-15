@@ -32,10 +32,7 @@ package bits;
  */
 public class BitEqualizer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 2510527818977149000L;
-
-	public BitEqualizer(IBooleanVariable x, IBooleanVariable y)
-			throws Exception
+	public BitEqualizer(IBooleanVariable x, IBooleanVariable y) throws Exception
 	{
 		if (x == null || y == null)
 			throw new BitEqualizerException(

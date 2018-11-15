@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberIncrementer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberIncrementer;
 
 public class NaturalNumberIncrementerDemo2
 {
@@ -35,8 +35,7 @@ public class NaturalNumberIncrementerDemo2
 				System.out.print("\nX= " + X + "\t");
 				System.out.print("Y= " + Y + "\t");
 				System.out.print("C= " + C + "\t");
-			}
-			else
+			} else
 				System.out.print("No solution.");
 		}
 	}

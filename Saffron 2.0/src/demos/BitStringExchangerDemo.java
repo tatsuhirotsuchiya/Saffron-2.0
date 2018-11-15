@@ -35,8 +35,7 @@ public class BitStringExchangerDemo
 			System.out.println("yBefore=" + yBefore.toBits());
 			System.out.println("xAfter=" + xAfter.toBits());
 			System.out.println("yAfter=" + yAfter.toBits());
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

@@ -65,8 +65,7 @@ public class BitStringListMembershipperDemo1
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println(string);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

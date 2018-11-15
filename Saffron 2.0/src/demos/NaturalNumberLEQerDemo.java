@@ -2,22 +2,22 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberLEQer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberLEQer;
 
 public class NaturalNumberLEQerDemo
 {
 	public static void main(String[] args) throws Exception
 	{
 		NaturalNumber.setLargestNaturalNumber(100);
-		
+
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 
@@ -31,8 +31,7 @@ public class NaturalNumberLEQerDemo
 			System.out.println(X);
 			System.out.println(Y);
 			BooleanLiteral.reset(s);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

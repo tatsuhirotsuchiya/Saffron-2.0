@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListFixer;
-import naturalnumberlists.NaturalNumberListJoiner;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListFixer;
+import naturalnumberlists.NaturalNumberListJoiner;
 
 public class NaturalNumberListJoinerDemo
 {
@@ -24,7 +24,8 @@ public class NaturalNumberListJoinerDemo
 		{ 212 });
 		IProblem bFix = new NaturalNumberListFixer(b);
 
-		INaturalNumberList target = new NaturalNumberList("target", new long[3]);
+		INaturalNumberList target = new NaturalNumberList("target",
+				new long[3]);
 
 		IProblem problem = new Conjunction(aFix, bFix,
 				new NaturalNumberListJoiner(target, a, b));
@@ -38,8 +39,7 @@ public class NaturalNumberListJoinerDemo
 			System.out.println("slm= " + a);
 			System.out.println("bsl= " + b);
 			System.out.println("target= " + target);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 
 	}

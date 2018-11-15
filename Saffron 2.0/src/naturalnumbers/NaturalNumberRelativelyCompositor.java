@@ -5,13 +5,13 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
-public class NaturalNumberRelativelyCompositor extends Problem implements
-		IProblem
+public class NaturalNumberRelativelyCompositor extends Problem
+		implements IProblem
 {
 	private static final long serialVersionUID = -4756992399919407651L;
 
-	public NaturalNumberRelativelyCompositor(INaturalNumber M,
-			INaturalNumber N, INaturalNumber CF) throws Exception
+	public NaturalNumberRelativelyCompositor(INaturalNumber M, INaturalNumber N,
+			INaturalNumber CF) throws Exception
 	{
 		INaturalNumber Two = new NaturalNumber();
 		INaturalNumber A = new NaturalNumber();
@@ -20,8 +20,8 @@ public class NaturalNumberRelativelyCompositor extends Problem implements
 
 		IProblem p = new Conjunction(new NaturalNumberFixer(Two, 2),
 				new NaturalNumberMultiplier(CF, A, M),
-				new NaturalNumberMultiplier(CF, B, N), new NaturalNumberAdder(
-						P, Two, CF));
+				new NaturalNumberMultiplier(CF, B, N),
+				new NaturalNumberAdder(P, Two, CF));
 
 		this.setClauses(p.getClauses());
 	}

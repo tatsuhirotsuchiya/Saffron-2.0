@@ -10,12 +10,12 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberBitFixer;
 import bits.BooleanLiteral;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberBitFixer;
 
 public class NaturalNumberBitFixerDemo
 {
@@ -28,8 +28,7 @@ public class NaturalNumberBitFixerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("X= " + X);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

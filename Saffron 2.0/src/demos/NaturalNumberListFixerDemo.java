@@ -10,15 +10,15 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListFixer;
-import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListFixer;
+import naturalnumbers.NaturalNumber;
 
 public class NaturalNumberListFixerDemo
 {
@@ -36,8 +36,7 @@ public class NaturalNumberListFixerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("samp2= " + samp2);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

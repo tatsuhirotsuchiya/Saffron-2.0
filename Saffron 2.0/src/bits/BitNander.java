@@ -31,15 +31,23 @@ package bits;
  */
 public class BitNander extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1056411650725455500L;
+	/*
+	 * public BitNander(IBooleanVariable x, IBooleanVariable y, IBooleanVariable
+	 * z) throws Exception { this.setClauses(new IClause[] {
+	 * Clause.newClause().or(x).or(y).or(z),
+	 * Clause.newClause().or(x).orNot(y).or(z),
+	 * Clause.newClause().orNot(x).or(y).or(z),
+	 * Clause.newClause().orNot(x).orNot(y).orNot(z) }); }
+	 */
 
+	/***************************************
+	 *** { x z } { y z } { $x $y $z }
+	 ***************************************/
 	public BitNander(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z)
 			throws Exception
 	{
 		this.setClauses(new IClause[]
-		{ Clause.newClause().or(x).or(y).or(z),
-				Clause.newClause().or(x).orNot(y).or(z),
-				Clause.newClause().orNot(x).or(y).or(z),
+		{ Clause.newClause().or(x).or(z), Clause.newClause().or(y).or(z),
 				Clause.newClause().orNot(x).orNot(y).orNot(z) });
 	}
 }

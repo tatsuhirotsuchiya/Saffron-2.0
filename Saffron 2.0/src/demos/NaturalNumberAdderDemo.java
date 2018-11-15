@@ -19,14 +19,14 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberAdder;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberAdder;
+import naturalnumbers.NaturalNumberFixer;
 
 public class NaturalNumberAdderDemo
 {
@@ -38,9 +38,9 @@ public class NaturalNumberAdderDemo
 		INaturalNumber Z = new NaturalNumber("Z");
 		INaturalNumber C = new NaturalNumber("C");
 
-		IProblem p = new NaturalNumberFixer(X, 127).and(
-				new NaturalNumberFixer(Y, 121)).and(
-				new NaturalNumberAdder(X, Y, Z, C));
+		IProblem p = new NaturalNumberFixer(X, 127)
+				.and(new NaturalNumberFixer(Y, 121))
+				.and(new NaturalNumberAdder(X, Y, Z, C));
 
 		System.out.println(((Problem) p).toCode());
 		List<IBooleanLiteral> s = p.findModel(Problem.defaultSolver());
@@ -51,8 +51,7 @@ public class NaturalNumberAdderDemo
 			System.out.println("Y = " + Y);
 			System.out.println("Z = " + Z);
 			System.out.println("C = " + C);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

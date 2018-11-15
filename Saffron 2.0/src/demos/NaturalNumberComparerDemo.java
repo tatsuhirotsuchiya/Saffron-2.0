@@ -19,15 +19,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberComparer;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberComparer;
+import naturalnumbers.NaturalNumberFixer;
 
 public class NaturalNumberComparerDemo
 {
@@ -50,8 +50,7 @@ public class NaturalNumberComparerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("X = " + X);
 			System.out.println("Y = " + Y);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

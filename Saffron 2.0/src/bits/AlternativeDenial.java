@@ -35,8 +35,6 @@ import java.util.List;
  */
 public class AlternativeDenial extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -29389230886476794L;
-
 	public AlternativeDenial(IProblem first, IProblem second) throws Exception
 	{
 		this(new IProblem[]

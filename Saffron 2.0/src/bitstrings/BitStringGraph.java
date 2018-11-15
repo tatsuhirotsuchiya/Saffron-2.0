@@ -21,7 +21,10 @@
  */
 package bitstrings;
 
+import java.util.HashSet;
+
 import bits.BooleanVariable;
+import bits.IBitString;
 import bits.IBooleanVariable;
 
 public class BitStringGraph implements IBitStringGraph

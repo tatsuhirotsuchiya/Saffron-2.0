@@ -30,9 +30,9 @@ public class ClauseDemo2
 
 		System.out.println(clause[0]);
 		System.out.println(clause[1]);
-		
+
 		IBooleanLiteral q = ((Clause) clause[0]).differsSinglyFrom(clause[1]);
-		if(q!=null)
+		if (q != null)
 			System.out.println(((Clause) clause[0]).intersection(clause[1]));
 	}
 }

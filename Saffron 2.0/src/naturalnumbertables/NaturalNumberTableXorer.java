@@ -1,16 +1,16 @@
 package naturalnumbertables;
 
-import naturalnumbers.NaturalNumberXorer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumberXorer;
 
 public class NaturalNumberTableXorer extends Problem implements IProblem
 {
 	private static final long serialVersionUID = -8058265651886336402L;
 
-	public NaturalNumberTableXorer(INaturalNumberTable X,
-			INaturalNumberTable Y, INaturalNumberTable Z) throws Exception
+	public NaturalNumberTableXorer(INaturalNumberTable X, INaturalNumberTable Y,
+			INaturalNumberTable Z) throws Exception
 	{
 		if (!X.isSameSizeAs(Y) || !X.isSameSizeAs(Z))
 			this.setClauses(Problem.unsolvableProblem().getClauses());

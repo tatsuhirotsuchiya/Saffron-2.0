@@ -58,8 +58,7 @@ public class BitStringHighPopperDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("X= " + X);
 			System.out.println("Y= " + Y);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

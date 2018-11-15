@@ -8,9 +8,9 @@
 
 package naturalnumbertables;
 
-import naturalnumbers.NaturalNumber;
 import bits.IBitString;
 import bits.INaturalNumber;
+import naturalnumbers.NaturalNumber;
 
 public class NaturalNumberTable implements INaturalNumberTable
 {

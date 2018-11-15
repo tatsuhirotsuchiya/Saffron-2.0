@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListAdder;
-import naturalnumberlists.NaturalNumberListFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListAdder;
+import naturalnumberlists.NaturalNumberListFixer;
 
 public class NaturalNumberListAdderDemo
 {
@@ -48,8 +48,7 @@ public class NaturalNumberListAdderDemo
 			System.out.println("s1=" + s1);
 			System.out.println("s2=" + s2);
 			System.out.println("s3=" + s3);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

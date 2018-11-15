@@ -10,15 +10,15 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberNoter;
-import naturalnumbers.NaturalNumberOrer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberNoter;
+import naturalnumbers.NaturalNumberOrer;
 
 public class NaturalNumberOrerDemo
 {
@@ -40,8 +40,7 @@ public class NaturalNumberOrerDemo
 			System.out.println("X= " + X);
 			System.out.println("Y= " + Y);
 			System.out.println("Z= " + Z);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

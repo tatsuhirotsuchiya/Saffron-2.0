@@ -10,14 +10,14 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberCompositor;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberCompositor;
+import naturalnumbers.NaturalNumberFixer;
 
 public class NaturalNumberCompositorDemo
 {
@@ -31,8 +31,7 @@ public class NaturalNumberCompositorDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println(Z + " is composite.");
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

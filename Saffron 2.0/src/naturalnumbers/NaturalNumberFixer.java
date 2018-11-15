@@ -55,10 +55,8 @@ public class NaturalNumberFixer extends Problem implements IProblem
 
 	public NaturalNumberFixer(INaturalNumber b, long n) throws Exception
 	{
-		this(
-				b,
-				((INumber) new Number(new Number(n), NaturalNumber.getLength()))
-						.getBitArray());
+		this(b, ((INumber) new Number(new Number(n), NaturalNumber.getLength()))
+				.getBitArray());
 	}
 
 	public NaturalNumberFixer(INaturalNumber b, String bitString)

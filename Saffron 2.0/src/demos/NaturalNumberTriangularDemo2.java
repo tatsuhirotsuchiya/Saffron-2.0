@@ -10,16 +10,16 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberDoubler;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberIncrementer;
-import naturalnumbers.NaturalNumberMultiplier;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberDoubler;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberIncrementer;
+import naturalnumbers.NaturalNumberMultiplier;
 
 public class NaturalNumberTriangularDemo2
 {
@@ -35,10 +35,9 @@ public class NaturalNumberTriangularDemo2
 		{ new NaturalNumberFixer(Two, 2), new NaturalNumberFixer(TwoZ, 12),
 				new NaturalNumberIncrementer(X, Y),
 				new NaturalNumberMultiplier(X, Y, TwoZ),
-				new NaturalNumberFixer(Z, 6),
-				new NaturalNumberDoubler(Z, TwoZ),
-		// new NaturalNumberMultiplier(Two,Z,TwoZ),
-				});
+				new NaturalNumberFixer(Z, 6), new NaturalNumberDoubler(Z, TwoZ),
+				// new NaturalNumberMultiplier(Two,Z,TwoZ),
+		});
 
 		/*
 		 * p=new Conjunction(new NaturalNumberFixer(Two), new

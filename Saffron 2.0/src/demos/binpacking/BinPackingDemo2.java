@@ -17,7 +17,7 @@ public class BinPackingDemo2
 
 		Bin[] bins = new Bin[7];
 		for (int i = 0; i < bins.length; i++)
-			bins[i] = new Bin("Bin-0" + i, 524L);
+			bins[i] = new Bin("Bin-0" + i, 523L);
 
 		ArrayList<ArrayList<Item>> solution = BinPacker.pack(items, bins);
 

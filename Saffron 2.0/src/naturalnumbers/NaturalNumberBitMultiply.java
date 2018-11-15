@@ -17,8 +17,6 @@ import bits.Problem;
 
 public class NaturalNumberBitMultiply extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -5359923444434478567L;
-
 	public NaturalNumberBitMultiply(IBooleanVariable b, INaturalNumber X,
 			INaturalNumber Y) throws Exception
 	{
@@ -34,24 +32,28 @@ public class NaturalNumberBitMultiply extends Problem implements IProblem
 	public NaturalNumberBitMultiply(IBooleanVariable[] b, INaturalNumber[] X,
 			INaturalNumber[] Y) throws Exception
 	{
-		IProblem p = null;
+		IProblem[] stagingArray = new IProblem[X.length
+				* NaturalNumber.getLength()];
+		int stagingIndex = 0;
 		for (int j = 0; j < X.length; j++)
 			for (int i = 0; i < NaturalNumber.getLength(); i++)
-				p = new Conjunction(p, new NaturalNumberBitMultiply(b[j], X[j],
-						Y[j]));
-
-		this.setClauses(p.getClauses());
+				stagingArray[stagingIndex++] = new NaturalNumberBitMultiply(
+						b[j], X[j], Y[j]);
+		IProblem prob = new Conjunction(stagingArray);
+		this.setClauses(prob.getClauses());
 	}
 
 	public NaturalNumberBitMultiply(IBooleanVariable[] b, INaturalNumberList X,
 			INaturalNumberList Y) throws Exception
 	{
-		IProblem p = null;
+		IProblem[] stagingArray = new IProblem[X.size()
+				* NaturalNumber.getLength()];
+		int stagingIndex = 0;
 		for (int j = 0; j < X.size(); j++)
 			for (int i = 0; i < NaturalNumber.getLength(); i++)
-				p = new Conjunction(p, new NaturalNumberBitMultiply(b[j],
-						X.getNaturalNumber(j), Y.getNaturalNumber(j)));
-
-		this.setClauses(p.getClauses());
+				stagingArray[stagingIndex++] = new NaturalNumberBitMultiply(
+						b[j], X.getNaturalNumber(j), Y.getNaturalNumber(j));
+		IProblem prob = new Conjunction(stagingArray);
+		this.setClauses(prob.getClauses());
 	}
 }

@@ -1,11 +1,11 @@
 package naturalnumberlists;
 
-import naturalnumbers.NaturalNumber;
 import bits.IBitString;
 import bits.INaturalNumber;
 import bits.Number;
 import bitstringlists.BitStringList;
 import bitstrings.BitString;
+import naturalnumbers.NaturalNumber;
 
 /**
  * <p>
@@ -25,8 +25,8 @@ import bitstrings.BitString;
  * @version 1.0
  */
 
-public class NaturalNumberList extends BitStringList implements
-		INaturalNumberList
+public class NaturalNumberList extends BitStringList
+		implements INaturalNumberList
 {
 	private static int nNLCount;
 	private INaturalNumber[] arrayN;
@@ -141,7 +141,8 @@ public class NaturalNumberList extends BitStringList implements
 		n = new Number(n, NaturalNumber.getLength());
 		boolean[] bool = n.getBitArray();
 		IBitString ib = new BitString(name, bool);
-		this.arrayN[index] = new NaturalNumber(this.getName() + "_" + index, ib);
+		this.arrayN[index] = new NaturalNumber(this.getName() + "_" + index,
+				ib);
 	}
 
 	@Override

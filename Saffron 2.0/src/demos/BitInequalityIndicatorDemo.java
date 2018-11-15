@@ -18,8 +18,8 @@ public class BitInequalityIndicatorDemo
 		IProblem bitInequalityIndicator1 = new BitInequalityIndicator(x, y, z);
 
 		System.out.println(bitInequalityIndicator1);
-		BooleanLiteral.interpret(bitInequalityIndicator1.findModel(Problem
-				.defaultSolver()));
+		BooleanLiteral.interpret(
+				bitInequalityIndicator1.findModel(Problem.defaultSolver()));
 		System.out.println("x = " + x.getValue());
 		System.out.println("y = " + y.getValue());
 		System.out.println("z = " + z.getValue());

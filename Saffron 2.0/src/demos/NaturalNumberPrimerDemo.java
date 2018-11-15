@@ -10,14 +10,14 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberPrimer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberPrimer;
 
 public class NaturalNumberPrimerDemo
 {
@@ -32,8 +32,7 @@ public class NaturalNumberPrimerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println(Z);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

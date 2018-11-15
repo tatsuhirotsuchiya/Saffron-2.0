@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberEqualizer;
-import naturalnumbers.NaturalNumberFixer;
 import bits.Conjunction;
 import bits.Disjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberEqualizer;
+import naturalnumbers.NaturalNumberFixer;
 
 public class PermuterMultiplier extends Problem implements IProblem
 {
@@ -34,9 +34,10 @@ public class PermuterMultiplier extends Problem implements IProblem
 			ArrayList<Permutation> copy = new ArrayList<Permutation>();
 			for (int i = 1; i < permutationList.size(); i++)
 				copy.add(permutationList.get(i));
-			this.setClauses(new Conjunction(new PermuterMultiplier(copy,
-					partialProduct), new PermuterMultiplier(permutationList
-					.get(0), partialProduct, product)).getClauses());
+			this.setClauses(new Conjunction(
+					new PermuterMultiplier(copy, partialProduct),
+					new PermuterMultiplier(permutationList.get(0),
+							partialProduct, product)).getClauses());
 		}
 		if (permutationList.size() == 2)
 			this.setClauses(new PermuterMultiplier(permutationList.get(0),
@@ -54,9 +55,11 @@ public class PermuterMultiplier extends Problem implements IProblem
 			INaturalNumber perm3num = product.get(i);
 			for (int j = 0; j < perm1.getOrder(); j++)
 			{
-				retint = new Disjunction(retint, new Conjunction(
-						new NaturalNumberEqualizer(perm2.get(j), perm3num),
-						new NaturalNumberFixer(perm1num, j)));
+				retint = new Disjunction(retint,
+						new Conjunction(
+								new NaturalNumberEqualizer(perm2.get(j),
+										perm3num),
+								new NaturalNumberFixer(perm1num, j)));
 			}
 			ret = new Conjunction(ret, retint);
 		}

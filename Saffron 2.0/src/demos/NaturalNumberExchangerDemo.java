@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberExchanger;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberExchanger;
+import naturalnumbers.NaturalNumberFixer;
 
 public class NaturalNumberExchangerDemo
 {
@@ -33,8 +33,7 @@ public class NaturalNumberExchangerDemo
 			System.out.println("yBefore=" + yBefore);
 			System.out.println("xAfter=" + xAfter);
 			System.out.println("yAfter=" + yAfter);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

@@ -2,16 +2,16 @@ package demos;
 
 import java.util.List;
 
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListFixer;
-import naturalnumberlists.NaturalNumberListMiner;
-import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListFixer;
+import naturalnumberlists.NaturalNumberListMiner;
+import naturalnumbers.NaturalNumber;
 
 /**
  * <p>
@@ -57,8 +57,7 @@ public class NaturalNumberListMinerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("minValue = " + theMinValue);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

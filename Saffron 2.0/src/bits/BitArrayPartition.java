@@ -9,26 +9,24 @@ import java.util.ArrayList;
  * 
  * 
  * <pre>
- *                0   1   2   3   4
- *               ------------------- 
- * partition[0]: x00 x01 x02 x03 x04
- * partition[1]: x10 x11 x12 x13 x14
- * partition[2]: x20 x21 x22 x23 x24
+ * 0 1 2 3 4 ------------------- partition[0]: x00 x01 x02 x03 x04 partition[1]:
+ * x10 x11 x12 x13 x14 partition[2]: x20 x21 x22 x23 x24
  * 
  * where the x's are IBooleanVariables.
  * 
  * <pre>
- * then new BitArrayPartition(<code>partition</code>) returns an <code>IProblem</code> that imposes the following:
+ * then new BitArrayPartition(<code>partition</code>) returns an
+ * <code>IProblem</code> that imposes the following:
  * 
- * Exactly one of these {new BitFixer(x00,true), new BitFixer(x10,true), new BitFixer(x20,true)} is satisfied
- * and
- * exactly one of these {new BitFixer(x01,true), new BitFixer(x11,true), new BitFixer(x21,true)} is satisfied)
- * and
- * exactly one of these {new BitFixer(x02,true), new BitFixer(x12,true), new BitFixer(x22,true)} is satisfied)
- * and
- * exactly one of these {new BitFixer(x03,true), new BitFixer(x13,true), new BitFixer(x23,true)} is satisfied)
- * and
- * exactly one of these {new BitFixer(x04,true), new BitFixer(x14,true), new BitFixer(x24,true)} is satisfied)
+ * Exactly one of these {new BitFixer(x00,true), new BitFixer(x10,true), new
+ * BitFixer(x20,true)} is satisfied and exactly one of these {new
+ * BitFixer(x01,true), new BitFixer(x11,true), new BitFixer(x21,true)} is
+ * satisfied) and exactly one of these {new BitFixer(x02,true), new
+ * BitFixer(x12,true), new BitFixer(x22,true)} is satisfied) and exactly one of
+ * these {new BitFixer(x03,true), new BitFixer(x13,true), new
+ * BitFixer(x23,true)} is satisfied) and exactly one of these {new
+ * BitFixer(x04,true), new BitFixer(x14,true), new BitFixer(x24,true)} is
+ * satisfied)
  * 
  * This class is useful for partitioning a set into several disjoint subsets.
  * 
@@ -38,8 +36,6 @@ import java.util.ArrayList;
  */
 public class BitArrayPartition extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 4725109314250454123L;
-
 	public BitArrayPartition(IBooleanVariable[][] partition) throws Exception
 	{
 		if (partition == null)

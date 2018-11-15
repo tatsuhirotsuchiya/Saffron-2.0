@@ -1,9 +1,9 @@
 package naturalnumberlists;
 
-import naturalnumbers.NaturalNumberAdder;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumberAdder;
 
 /**
  * This performs a "vector" addition of two like-sized INaturalNumberLists. This

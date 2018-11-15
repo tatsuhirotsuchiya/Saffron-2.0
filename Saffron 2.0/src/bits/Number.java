@@ -118,8 +118,7 @@ public class Number implements INumber
 			this.setBitArray(new boolean[padsize]);
 			for (int i = 0; i < n.getSize(); i++)
 				this.setBit(i, n.getBit(i));
-		}
-		else
+		} else
 		{
 			if (n.getSize() > NaturalNumber.getLength())
 				throw new NumberException(

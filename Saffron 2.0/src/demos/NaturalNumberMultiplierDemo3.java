@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberMultiplier;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberMultiplier;
 
 public class NaturalNumberMultiplierDemo3
 {
@@ -22,9 +22,10 @@ public class NaturalNumberMultiplierDemo3
 
 		IProblem p;
 		List<IBooleanLiteral> s;
-		for (long i = 1; i < (long) (Math.pow(2., NaturalNumber.getLength())); i++)
-			for (long j = 0; i * j < (long) Math.pow(2.,
-					NaturalNumber.getLength()); j++)
+		for (long i = 1; i < (long) (Math.pow(2.,
+				NaturalNumber.getLength())); i++)
+			for (long j = 0; i
+					* j < (long) Math.pow(2., NaturalNumber.getLength()); j++)
 			{
 				p = new Conjunction(new IProblem[]
 				{ new NaturalNumberMultiplier(X, Y, Z),
@@ -38,8 +39,7 @@ public class NaturalNumberMultiplierDemo3
 					System.out.print("\nX = " + X);
 					System.out.print("\tY = " + Y);
 					System.out.print("\tZ = " + Z);
-				}
-				else
+				} else
 					System.out.println("No solution.");
 			}
 	}

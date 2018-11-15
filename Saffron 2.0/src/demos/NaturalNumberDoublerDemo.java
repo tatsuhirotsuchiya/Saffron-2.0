@@ -10,15 +10,15 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberDoubler;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberDoubler;
+import naturalnumbers.NaturalNumberFixer;
 
 public class NaturalNumberDoublerDemo
 {
@@ -27,7 +27,8 @@ public class NaturalNumberDoublerDemo
 		INaturalNumber X = new NaturalNumber("X");
 		INaturalNumber Y = new NaturalNumber("Y");
 
-		for (long i = 0; i < Math.pow(2., 1. * NaturalNumber.getLength()) / 2; i++)
+		for (long i = 0; i < Math.pow(2., 1. * NaturalNumber.getLength())
+				/ 2; i++)
 		{
 			NaturalNumberFixer bnnfx = new NaturalNumberFixer(X, i);
 
@@ -41,8 +42,7 @@ public class NaturalNumberDoublerDemo
 				BooleanLiteral.interpret(s);
 				System.out.print("\nX= " + X);
 				System.out.print("\tY= " + Y);
-			}
-			else
+			} else
 				System.out.print("No solution.");
 		}
 	}

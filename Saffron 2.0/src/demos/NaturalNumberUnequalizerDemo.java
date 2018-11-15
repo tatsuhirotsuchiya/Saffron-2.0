@@ -10,15 +10,15 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberUnequalizer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberUnequalizer;
 
 public class NaturalNumberUnequalizerDemo
 {
@@ -37,8 +37,7 @@ public class NaturalNumberUnequalizerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("X=" + X);
 			System.out.println("Y=" + Y);
-		}
-		else
+		} else
 			System.out.println("There is no solution.");
 	}
 }

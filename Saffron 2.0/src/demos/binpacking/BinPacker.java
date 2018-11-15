@@ -11,10 +11,6 @@ package demos.binpacking;
 import java.util.ArrayList;
 import java.util.List;
 
-import naturalnumbers.ConditionalAdder;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberLEQer;
 import bits.BitArrayPartition;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
@@ -24,6 +20,10 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.ConditionalAdder;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberLEQer;
 
 public class BinPacker
 {
@@ -37,9 +37,12 @@ public class BinPacker
 	public static ArrayList<ArrayList<Item>> pack(Item[] items, Bin[] bins)
 			throws Exception
 	{
+		long startTimeMillis = System.currentTimeMillis();
 		int numberBins = bins.length;
 		int numberItems = items.length;
-		ArrayList<IProblem> stagingArray = new ArrayList<IProblem>();
+		int stagingIndex = 0;
+		IProblem[] stagingArray = new IProblem[1 + 3 * numberBins
+				+ numberItems];
 
 		long maxBin = Integer.MIN_VALUE;
 		for (int i = 0; i < numberBins; i++)
@@ -47,19 +50,23 @@ public class BinPacker
 				maxBin = bins[i].getCapacity();
 		NaturalNumber.setLargestNaturalNumber(maxBin);
 
-		System.out.println("Building partitionProblem...");
+		System.out
+				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
+						+ ":" + "\tBuilding partitionProblem...");
 		IBooleanVariable[][] partition = new IBooleanVariable[numberBins][numberItems];
 		for (int i = 0; i < numberBins; i++)
 		{
 			IBooleanVariable[] currentBin = partition[i];
 			for (int j = 0; j < numberItems; j++)
-				currentBin[j] = BooleanVariable.getBooleanVariable("partition-"
-						+ i + "-" + j);
+				currentBin[j] = BooleanVariable
+						.getBooleanVariable("partition-" + i + "-" + j);
 		}
 		IProblem partitionProblem = new BitArrayPartition(partition);
-		stagingArray.add(partitionProblem);
+		stagingArray[stagingIndex++] = partitionProblem;
 
-		System.out.println("Building adderProblem...");
+		System.out
+				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
+						+ ":" + "\tBuilding adderProblem...");
 		INaturalNumber[] itemSizeNaturalNumberArray = new INaturalNumber[numberItems];
 		for (int i = 0; i < numberItems; i++)
 			itemSizeNaturalNumberArray[i] = new NaturalNumber(
@@ -68,15 +75,19 @@ public class BinPacker
 		IProblem[] adderProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 		{
-			System.out.println("\tBuilding adderProblemArray[" + i + "/"+(numberBins-1)+"]...");
+			System.out.println(
+					(System.currentTimeMillis() - startTimeMillis) / 1000. + ":"
+							+ "\t\t\tBuilding adderProblemArray[" + i + "]...");
 			condSum[i] = new NaturalNumber("NNCondSum-" + i);
 			adderProblemArray[i] = new ConditionalAdder(
 					itemSizeNaturalNumberArray, partition[i], condSum[i]);
-			stagingArray.add(adderProblemArray[i]);
+			// System.out.println((System.currentTimeMillis()-startTimeMillis)/1000.+":"+"stagingArray.add(adderProblemArray["+i+"]");
+			stagingArray[stagingIndex++] = adderProblemArray[i];
 		}
-		//IProblem adderProblem = new Conjunction(adderProblemArray);
 
-		System.out.println("Building binFitterProblem...");
+		System.out
+				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
+						+ ":" + "\tBuilding binFitterProblem...");
 		INaturalNumber[] binCapacityNNArray = new INaturalNumber[numberBins];
 		for (int i = 0; i < numberBins; i++)
 			binCapacityNNArray[i] = new NaturalNumber("BinSize-" + i);
@@ -85,42 +96,45 @@ public class BinPacker
 		{
 			binFitProblemArray[i] = new NaturalNumberLEQer(condSum[i],
 					binCapacityNNArray[i]);
-			stagingArray.add(binFitProblemArray[i]);
+			stagingArray[stagingIndex++] = binFitProblemArray[i];
 		}
-		//IProblem binFitterProblem = new Conjunction(binFitProblemArray);
 
-		System.out.println("Building binCapacityFixerProblem...");
+		System.out
+				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
+						+ ":" + "\tBuilding binCapacityFixerProblem...");
 		IProblem[] binCapacityProblemArray = new IProblem[numberBins];
 		for (int i = 0; i < numberBins; i++)
 		{
 			binCapacityProblemArray[i] = new NaturalNumberFixer(
 					binCapacityNNArray[i], bins[i].getCapacity());
-			stagingArray.add(binCapacityProblemArray[i]);
+			stagingArray[stagingIndex++] = binCapacityProblemArray[i];
 		}
-		//IProblem binCapacityFixerProblem = new Conjunction(
-		//		binCapacityProblemArray);
 
-		System.out.println("Building sizesProblem...");
+		System.out
+				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
+						+ ":" + "\tBuilding sizesProblem...");
 		IProblem[] sizesProblemArray = new IProblem[numberItems];
 		for (int i = 0; i < numberItems; i++)
 		{
 			sizesProblemArray[i] = new NaturalNumberFixer(
 					itemSizeNaturalNumberArray[i], items[i].getSize());
-			stagingArray.add(sizesProblemArray[i]);
+			stagingArray[stagingIndex++] = sizesProblemArray[i];
 		}
-		//IProblem sizesProblem = new Conjunction(sizesProblemArray);
 
-		System.out.println("Building binPackingProblem...");
-		//binPackingProblem = new Conjunction(new IProblem[]
-		//{ sizesProblem, binCapacityFixerProblem, partitionProblem,
-		//		adderProblem, binFitterProblem });
+		System.out
+				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
+						+ ":" + "\tBuilding binPackingProblem...");
 		binPackingProblem = new Conjunction(stagingArray);
 
-		System.out.println("Solving SAT problem...");
-		List<IBooleanLiteral> blList = binPackingProblem.findModel(Problem
-				.defaultSolver());
+		System.out
+				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
+						+ ":" + "\tSolving SAT problem...");
+		List<IBooleanLiteral> blList = binPackingProblem
+				.findModel(Problem.defaultSolver());
 
-		System.out.println("Returning solution...");
+		System.out
+				.println((System.currentTimeMillis() - startTimeMillis) / 1000.
+						+ ":" + "\tReturning solution...");
 		if (blList != null && blList.size() > 0)
 		{
 			BooleanLiteral.interpret(blList);
@@ -136,8 +150,7 @@ public class BinPacker
 			}
 			BooleanLiteral.reset(blList);
 			return solution;
-		}
-		else
+		} else
 			return null;
 	}
 }

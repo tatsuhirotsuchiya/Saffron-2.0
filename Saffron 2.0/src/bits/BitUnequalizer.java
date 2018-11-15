@@ -39,6 +39,7 @@ public class BitUnequalizer extends Problem implements IProblem
 			throw new BitUnequalizerException(
 					"Null IBooleanVariable was passed to constructor.");
 		this.setClauses(new IClause[]
-		{ Clause.newClause().or(x).or(y), Clause.newClause().orNot(x).orNot(y) });
+		{ Clause.newClause().or(x).or(y),
+				Clause.newClause().orNot(x).orNot(y) });
 	}
 }

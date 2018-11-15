@@ -8,17 +8,17 @@
 
 package naturalnumbertables;
 
-import naturalnumbers.NaturalNumberAnder;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumberAnder;
 
 public class NaturalNumberTableAnder extends Problem implements IProblem
 {
 	private static final long serialVersionUID = -1907191457667291200L;
 
-	public NaturalNumberTableAnder(INaturalNumberTable X,
-			INaturalNumberTable Y, INaturalNumberTable Z) throws Exception
+	public NaturalNumberTableAnder(INaturalNumberTable X, INaturalNumberTable Y,
+			INaturalNumberTable Z) throws Exception
 	{
 		if (!X.isSameSizeAs(Y) || !X.isSameSizeAs(Z))
 			throw new NaturalNumberTableAnderException(

@@ -22,6 +22,7 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.Number;
 import bitstrings.BitString;
+import bitstrings.BitStringException;
 
 public class NaturalNumber extends BitString implements INaturalNumber
 {
@@ -40,15 +41,16 @@ public class NaturalNumber extends BitString implements INaturalNumber
 	}
 
 	/*
-	 * Call this method to set the bit size of NaturalNumbers so that they can 
+	 * Call this method to set the bit size of NaturalNumbers so that they can
 	 * accommodate natural numbers up to a size specified by you.
 	 */
-	public static void setLargestNaturalNumber(long nn) throws NaturalNumberException
+	public static void setLargestNaturalNumber(long nn)
+			throws NaturalNumberException
 	{
-		if(nn<1)
+		if (nn < 1)
 			throw new NaturalNumberException("Error: Attempted to use method "
 					+ "setLargestNaturalNumber with an argument less than 1.");
-		setLength((int) Math.ceil(Math.log(nn+1d)/Math.log(2)));
+		setLength((int) Math.ceil(Math.log(nn + 1d) / Math.log(2)));
 	}
 
 	/*
@@ -98,17 +100,18 @@ public class NaturalNumber extends BitString implements INaturalNumber
 	public NaturalNumber(String name, long n) throws Exception
 	{
 		this(name, new Number(new Number(n), NaturalNumber.getLength())
-		.getBitArray());
+				.getBitArray());
 	}
 
 	public boolean equals(Object o)
 	{
 		if (o == null)
 			return false; // this is never equal to null.
-			if (!(o instanceof NaturalNumber))
-				return false;
-			else
-				return (this.getName().compareTo(((NaturalNumber) o).getName())) == 0;
+		if (!(o instanceof NaturalNumber))
+			return false;
+		else
+			return (this.getName()
+					.compareTo(((NaturalNumber) o).getName())) == 0;
 	}
 
 	public String getName()
@@ -148,4 +151,3 @@ public class NaturalNumber extends BitString implements INaturalNumber
 		return "" + total;
 	}
 }
-

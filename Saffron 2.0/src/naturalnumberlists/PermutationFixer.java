@@ -1,9 +1,9 @@
 package naturalnumberlists;
 
-import naturalnumbers.NaturalNumberFixer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumberFixer;
 
 public class PermutationFixer extends Problem implements IProblem
 {
@@ -20,8 +20,8 @@ public class PermutationFixer extends Problem implements IProblem
 		IProblem ret = null;
 
 		for (int i = 0; i < image.length; i++)
-			ret = new Conjunction(ret, new NaturalNumberFixer(perm.get(i),
-					image[i]));
+			ret = new Conjunction(ret,
+					new NaturalNumberFixer(perm.get(i), image[i]));
 
 		this.setClauses(ret.getClauses());
 	}

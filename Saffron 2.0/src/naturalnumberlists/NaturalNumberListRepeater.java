@@ -27,12 +27,14 @@
 
 package naturalnumberlists;
 
-import naturalnumbers.NaturalNumberEqualizer;
 import bits.Disjunction;
+import bits.IBitString;
 import bits.IClause;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import bitstrings.BitStringEqualizer;
+import naturalnumbers.NaturalNumberEqualizer;
 
 public class NaturalNumberListRepeater extends Problem implements IProblem
 {

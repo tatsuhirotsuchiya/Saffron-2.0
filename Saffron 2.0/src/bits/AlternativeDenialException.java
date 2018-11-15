@@ -1,4 +1,5 @@
 package bits;
+
 /**
  * <p>
  * Title: AlternativeDenialException

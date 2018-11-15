@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberQuotienter;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberQuotienter;
 
 public class NaturalNumberQuotienterDemo
 {
@@ -37,8 +37,7 @@ public class NaturalNumberQuotienterDemo
 			System.out.println("Y = " + Divisor);
 			System.out.println("Z = " + Quotient);
 			System.out.println("C = " + Remainder);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

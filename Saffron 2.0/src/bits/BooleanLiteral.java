@@ -27,7 +27,7 @@ import java.util.List;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- * </pre>
+ *         </pre>
  * 
  *         </blockquote>
  * @version 1.0, 04/09/07
@@ -99,8 +99,8 @@ public class BooleanLiteral implements IBooleanLiteral
 
 	public static void listLiterals()
 	{
-		IBooleanLiteral[] ary = BooleanLiteral.getInstances().toArray(
-				new BooleanLiteral[0]);
+		IBooleanLiteral[] ary = BooleanLiteral.getInstances()
+				.toArray(new BooleanLiteral[0]);
 		List<IBooleanLiteral> lis = Arrays.asList(ary);
 		Collections.sort(lis);
 		System.out.println(lis);
@@ -192,10 +192,11 @@ public class BooleanLiteral implements IBooleanLiteral
 		{
 			if (bo.isBarred() != this.isBarred())
 				return false;
-			else if (bov.equals(this.getBooleanVariable()))
-				return true;
 			else
-				return false;
+				if (bov.equals(this.getBooleanVariable()))
+					return true;
+				else
+					return false;
 		}
 	}
 

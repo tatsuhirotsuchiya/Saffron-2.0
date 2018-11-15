@@ -39,10 +39,11 @@
 
 package bits;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Disjunction extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -8401293639054850015L;
-
 	/**
 	 * This or() method takes two Problems <code>ptrue</code> and
 	 * <code>pfalse</code> and creates a new Problem, let's call it
@@ -64,15 +65,25 @@ public class Disjunction extends Problem implements IProblem
 			{ pfalse }, new IBooleanVariable[]
 			{ b });
 
-		Object[] clfalse = pfalse.getClauses();
-		IClause[] clfalseNew = new IClause[clfalse.length];
-		for (int i = 0; i < clfalse.length; i++)
-			clfalseNew[i] = ((IClause) (((IClause) clfalse[i]).clone())).or(b);
+		List<IClause> clfalse = pfalse.getClauses();
+		ArrayList<IClause> clfalseNew = new ArrayList<IClause>();
+		for (int i = 0; i < clfalse.size(); i++)
+		{
+			IClause q0 = clfalse.get(i);
+			IClause q1 = (IClause) q0.clone();
+			IClause q2 = q1.or(b);
+			clfalseNew.add(q2);
+		}
 
-		Object[] cltrue = ptrue.getClauses();
-		IClause[] cltrueNew = new IClause[cltrue.length];
-		for (int i = 0; i < cltrue.length; i++)
-			cltrueNew[i] = ((IClause) (((IClause) cltrue[i]).clone())).orNot(b);
+		List<IClause> cltrue = ptrue.getClauses();
+		ArrayList<IClause> cltrueNew = new ArrayList<IClause>();
+		for (int i = 0; i < cltrue.size(); i++)
+		{
+			IClause q0 = cltrue.get(i);
+			IClause q1 = (IClause) q0.clone();
+			IClause q2 = q1.orNot(b);
+			cltrueNew.add(q2);
+		}
 
 		return new Conjunction(new Problem(clfalseNew), new Problem(cltrueNew));
 	}
@@ -91,7 +102,8 @@ public class Disjunction extends Problem implements IProblem
 	 * .
 	 * .
 	 * p_{n-1}
-	 * </pre>
+	 *         </pre>
+	 * 
 	 * @throws Exception
 	 */
 	private static IProblem or(IProblem[] problemArray) throws Exception
@@ -135,7 +147,7 @@ public class Disjunction extends Problem implements IProblem
 	 * .
 	 * r_{n-3}=Disjunction.or(p_{n-3},r_{n-2},x_{n-3})
 	 * r_{n-2}=Disjunction.or(p_{n-2},p_{n-1},x_{n-2})
-	 * </pre>
+	 *         </pre>
 	 * 
 	 *         In effect, for the first <code>i</code> such that
 	 *         <code>x_i</code> is true, <code>p_i</code> is returned. If no
@@ -182,14 +194,14 @@ public class Disjunction extends Problem implements IProblem
 
 	/**
 	 *
-	 * @return an
-	 *         IProblem satisfied if and only if at least one of the following
-	 *         IProblems is satisfied:
+	 * @return an IProblem satisfied if and only if at least one of the
+	 *         following IProblems is satisfied:
 	 * 
-	 * <pre>
+	 *         <pre>
 	 * p_1
 	 * p_2
-	 * </pre>
+	 *         </pre>
+	 * 
 	 * @throws Exception
 	 */
 	public Disjunction(IProblem p1, IProblem p2) throws Exception
@@ -208,15 +220,15 @@ public class Disjunction extends Problem implements IProblem
 
 	/**
 	 *
-	 * @return an
-	 *         IProblem satisfied if and only if at least one of the following
-	 *         IProblems is satisfied:
+	 * @return an IProblem satisfied if and only if at least one of the
+	 *         following IProblems is satisfied:
 	 * 
-	 * <pre>
+	 *         <pre>
 	 * p_1
 	 * p_2
 	 * p_3
-	 * </pre>
+	 *         </pre>
+	 * 
 	 * @throws Exception
 	 */
 	public Disjunction(IProblem p1, IProblem p2, IProblem p3) throws Exception
@@ -227,16 +239,16 @@ public class Disjunction extends Problem implements IProblem
 
 	/**
 	 *
-	 * @return an
-	 *         IProblem satisfied if and only if at least one of the following
-	 *         IProblems is satisfied:
+	 * @return an IProblem satisfied if and only if at least one of the
+	 *         following IProblems is satisfied:
 	 * 
-	 * <pre>
+	 *         <pre>
 	 * p_1
 	 * p_2
 	 * p_3
 	 * p_4
-	 * </pre>
+	 *         </pre>
+	 * 
 	 * @throws Exception
 	 */
 	public Disjunction(IProblem p1, IProblem p2, IProblem p3, IProblem p4)
@@ -248,11 +260,10 @@ public class Disjunction extends Problem implements IProblem
 
 	/**
 	 *
-	 * @return an
-	 *         IProblem satisfied if and only if at least one of the following
-	 *         IProblems is satisfied:
+	 * @return an IProblem satisfied if and only if at least one of the
+	 *         following IProblems is satisfied:
 	 * 
-	 * <pre>
+	 *         <pre>
 	 * problemArray[0]
 	 * problemArray[1]
 	 * problemArray[2]
@@ -262,7 +273,8 @@ public class Disjunction extends Problem implements IProblem
 	 * problemArray[n-1]
 	 * 
 	 * where n=problemArray.length.
-	 * </pre>
+	 *         </pre>
+	 * 
 	 * @throws Exception
 	 */
 	public Disjunction(IProblem[] problemArray) throws Exception
@@ -297,7 +309,7 @@ public class Disjunction extends Problem implements IProblem
 	 * .
 	 * r_{n-3}=Disjunction.or(p_{n-3},r_{n-2},x_{n-3})
 	 * r_{n-2}=Disjunction.or(p_{n-2},p_{n-1},x_{n-2})
-	 * </pre>
+	 *         </pre>
 	 * 
 	 *         In effect, for the first <code>i</code> such that
 	 *         <code>x_i</code> is true, <code>p_i</code> is returned. If no

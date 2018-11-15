@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberLinearDivisibilitor;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberLinearDivisibilitor;
 
 /**
  * <p>
@@ -51,8 +51,7 @@ public class NaturalNumberLinearDivisibilitorDemo
 			System.out.println("A= " + A);
 			System.out.println("X= " + X);
 			System.out.println("C= " + C);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

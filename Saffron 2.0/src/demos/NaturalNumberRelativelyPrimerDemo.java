@@ -10,15 +10,15 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberRelativelyPrimer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberRelativelyPrimer;
 
 public class NaturalNumberRelativelyPrimerDemo
 {
@@ -41,8 +41,7 @@ public class NaturalNumberRelativelyPrimerDemo
 			BooleanLiteral.interpret(s);
 			System.out.print("\nM = " + M);
 			System.out.print("\tN = " + N);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

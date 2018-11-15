@@ -1,10 +1,10 @@
 package naturalnumberlists;
 
-import naturalnumbers.NaturalNumberEqualizer;
 import bits.Disjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumberEqualizer;
 
 public class NaturalNumberListMembershipper extends Problem implements IProblem
 {

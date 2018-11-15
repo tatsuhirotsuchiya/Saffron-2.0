@@ -42,11 +42,11 @@ public class ClauseDenier extends Problem implements IProblem
 			{
 				IBooleanLiteral ib = (IBooleanLiteral) (oib[i]);
 				if (ib.isBarred())
-					super.addClause(Clause.newClause().or(
-							ib.getBooleanVariable()));
+					super.addClause(
+							Clause.newClause().or(ib.getBooleanVariable()));
 				else
-					super.addClause(Clause.newClause().orNot(
-							ib.getBooleanVariable()));
+					super.addClause(
+							Clause.newClause().orNot(ib.getBooleanVariable()));
 			}
 		}
 	}

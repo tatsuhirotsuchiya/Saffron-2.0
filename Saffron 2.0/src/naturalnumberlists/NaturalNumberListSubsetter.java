@@ -9,8 +9,8 @@ public class NaturalNumberListSubsetter extends Problem implements IProblem
 	private static final long serialVersionUID = 1L;
 
 	// Ensures that every INaturalNumber in A is also in B
-	public NaturalNumberListSubsetter(INaturalNumberList A, INaturalNumberList B)
-			throws Exception
+	public NaturalNumberListSubsetter(INaturalNumberList A,
+			INaturalNumberList B) throws Exception
 	{
 		if (A == null)
 			throw new NaturalNumberListException(

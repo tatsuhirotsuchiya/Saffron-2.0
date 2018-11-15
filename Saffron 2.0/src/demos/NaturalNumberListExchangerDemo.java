@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListExchanger;
-import naturalnumberlists.NaturalNumberListFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListExchanger;
+import naturalnumberlists.NaturalNumberListFixer;
 
 public class NaturalNumberListExchangerDemo
 {
@@ -34,8 +34,7 @@ public class NaturalNumberListExchangerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("s1=" + s1);
 			System.out.println("s2=" + s2);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

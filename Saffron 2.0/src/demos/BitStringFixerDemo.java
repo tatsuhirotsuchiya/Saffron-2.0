@@ -26,8 +26,7 @@ public class BitStringFixerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("\n" + samp1.getName() + "= " + samp1);
 
-		}
-		else
+		} else
 			System.out.println("No solution.");
 
 		IBitString samp2 = new BitString("myBitString2", 3);
@@ -40,8 +39,7 @@ public class BitStringFixerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("\n" + samp2.getName() + "= " + samp2);
 
-		}
-		else
+		} else
 			System.out.println("No solution.");
 
 		IBitString samp3 = new BitString("myBitString3", 3);
@@ -53,8 +51,7 @@ public class BitStringFixerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("\n" + samp3.getName() + "= " + samp3);
 
-		}
-		else
+		} else
 			System.out.println("No solution.");
 
 		IBitString samp4 = new BitString("myBitString4", new boolean[]
@@ -67,8 +64,7 @@ public class BitStringFixerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("\n" + samp4.getName() + "= " + samp4);
 
-		}
-		else
+		} else
 			System.out.println("No solution.");
 
 		IBitString samp5 = new BitString("myBitString5", new IBooleanVariable[]
@@ -83,8 +79,7 @@ public class BitStringFixerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("\n" + samp5.getName() + "= " + samp5);
 
-		}
-		else
+		} else
 			System.out.println("No solution.");
 
 		IBitString samp6 = new BitString("myBitString6", new IBooleanVariable[]
@@ -100,8 +95,7 @@ public class BitStringFixerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("\n" + samp6.getName() + "= " + samp6);
 
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

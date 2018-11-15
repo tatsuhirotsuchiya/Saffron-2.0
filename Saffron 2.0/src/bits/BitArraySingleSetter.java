@@ -2,8 +2,6 @@ package bits;
 
 public class BitArraySingleSetter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -704445761860954074L;
-
 	public BitArraySingleSetter(IBooleanVariable[] array) throws Exception
 	{
 		if (array == null)
@@ -22,8 +20,8 @@ public class BitArraySingleSetter extends Problem implements IProblem
 
 		for (int i = 0; i < bits; i++)
 			for (int j = i + 1; j < bits; j++)
-				problem.addClause(Clause.newClause().orNot(array[i])
-						.orNot(array[j]));
+				problem.addClause(
+						Clause.newClause().orNot(array[i]).orNot(array[j]));
 
 		this.setClauses(problem.getClauses());
 	}

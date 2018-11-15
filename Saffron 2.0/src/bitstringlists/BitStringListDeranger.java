@@ -33,10 +33,12 @@
 
 package bitstringlists;
 
+import bits.BooleanLiteralException;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import bitstrings.BitStringException;
 import bitstrings.BitStringUnequalizer;
 
 public class BitStringListDeranger extends Problem implements IProblem

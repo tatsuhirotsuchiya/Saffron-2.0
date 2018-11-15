@@ -44,7 +44,7 @@ import bits.TwoBitAdder;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- * </pre>
+ *         </pre>
  * 
  *         </blockquote>
  * @version 1.2, 05/03/08
@@ -56,8 +56,6 @@ import bits.TwoBitAdder;
 
 public class NaturalNumberAdder extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -595205667365932960L;
-
 	public NaturalNumberAdder(INaturalNumber X, INaturalNumber Y,
 			INaturalNumber Z) throws Exception
 	{
@@ -67,16 +65,18 @@ public class NaturalNumberAdder extends Problem implements IProblem
 	public NaturalNumberAdder(INaturalNumber X, INaturalNumber Y,
 			INaturalNumber Z, INaturalNumber C) throws Exception
 	{
-		IProblem p = new TwoBitAdder(Y.getBooleanVariable(0),
+		IProblem[] stagingArray = new IProblem[NaturalNumber.getLength() + 1];
+		int stagingIndex = 0;
+		stagingArray[stagingIndex++] = new TwoBitAdder(Y.getBooleanVariable(0),
 				X.getBooleanVariable(0), Z.getBooleanVariable(0),
 				C.getBooleanVariable(0));
 		for (int i = 1; i < NaturalNumber.getLength(); i++)
-			p = new Conjunction(p, new ThreeBitAdder(
+			stagingArray[stagingIndex++] = new ThreeBitAdder(
 					C.getBooleanVariable(i - 1), Y.getBooleanVariable(i),
 					X.getBooleanVariable(i), Z.getBooleanVariable(i),
-					C.getBooleanVariable(i)));
-		p = new Conjunction(p, new BitFixer(C.getBooleanVariable(NaturalNumber
-				.getLength() - 1), false));
-		this.setClauses(p.getClauses());
+					C.getBooleanVariable(i));
+		stagingArray[stagingIndex++] = new BitFixer(
+				C.getBooleanVariable(NaturalNumber.getLength() - 1), false);
+		this.setClauses(new Conjunction(stagingArray).getClauses());
 	}
 }

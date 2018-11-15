@@ -1,12 +1,12 @@
 package naturalnumberlists;
 
-import naturalnumbers.NaturalNumberException;
-import naturalnumbers.NaturalNumberUnequalizer;
 import bits.BooleanLiteralException;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumberException;
+import naturalnumbers.NaturalNumberUnequalizer;
 
 /*
  * NaturalNumberListDeranger.java	1.0 09/05/21
@@ -28,7 +28,7 @@ import bits.Problem;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.htm
- * </pre>
+ *         </pre>
  * 
  *         </blockquote>
  * @version 1.0, 09/05/21

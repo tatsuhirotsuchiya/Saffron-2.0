@@ -55,8 +55,7 @@ public class BitStringListExchangerDemo
 			BooleanLiteral.interpret(s);
 			System.out.println(((BitStringList) board1).toBits());
 			System.out.println(((BitStringList) board2).toBits());
-		}
-		else
+		} else
 			System.out.println("There is no solution.");
 	}
 }

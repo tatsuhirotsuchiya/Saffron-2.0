@@ -2,16 +2,16 @@ package demos;
 
 import java.util.List;
 
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListFixer;
-import naturalnumberlists.NaturalNumberListMaxer;
-import naturalnumbers.NaturalNumber;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListFixer;
+import naturalnumberlists.NaturalNumberListMaxer;
+import naturalnumbers.NaturalNumber;
 
 /**
  * <p>
@@ -56,8 +56,7 @@ public class NaturalNumberListMaxerDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println("maxValue = " + theMaxValue);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

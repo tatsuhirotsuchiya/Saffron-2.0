@@ -39,18 +39,37 @@ public class TwoBitAdder extends Problem implements IProblem
 	public TwoBitAdder(IBooleanVariable x, IBooleanVariable y,
 			IBooleanVariable z, IBooleanVariable c) throws Exception
 	{
+		/*
+		 * this.setClauses(new IClause[] {
+		 * Clause.newClause().or(x).or(y).orNot(z).or(c),
+		 * Clause.newClause().or(x).orNot(y).or(z).or(c),
+		 * Clause.newClause().orNot(x).or(y).or(z).or(c),
+		 * Clause.newClause().orNot(x).orNot(y).or(z).or(c),
+		 * Clause.newClause().orNot(x).orNot(y).orNot(z).or(c),
+		 * Clause.newClause().or(x).or(y).or(z).orNot(c),
+		 * Clause.newClause().or(x).or(y).orNot(z).orNot(c),
+		 * Clause.newClause().or(x).orNot(y).or(z).orNot(c),
+		 * Clause.newClause().or(x).orNot(y).orNot(z).orNot(c),
+		 * Clause.newClause().orNot(x).or(y).or(z).orNot(c),
+		 * Clause.newClause().orNot(x).or(y).orNot(z).orNot(c),
+		 * Clause.newClause().orNot(x).orNot(y).orNot(z).orNot(c) });
+		 */
+		// Compressed
+		/**************************************
+		 *** { $c x } { $c y } { $c $z } { x y $z } { x $y z } { $x y z } { c $y z
+		 * } { $x $y $z }
+		 ***************************************
+		 */
 		this.setClauses(new IClause[]
-		{ Clause.newClause().or(x).or(y).orNot(z).or(c),
-				Clause.newClause().or(x).orNot(y).or(z).or(c),
-				Clause.newClause().orNot(x).or(y).or(z).or(c),
-				Clause.newClause().orNot(x).orNot(y).or(z).or(c),
-				Clause.newClause().orNot(x).orNot(y).orNot(z).or(c),
-				Clause.newClause().or(x).or(y).or(z).orNot(c),
-				Clause.newClause().or(x).or(y).orNot(z).orNot(c),
-				Clause.newClause().or(x).orNot(y).or(z).orNot(c),
-				Clause.newClause().or(x).orNot(y).orNot(z).orNot(c),
-				Clause.newClause().orNot(x).or(y).or(z).orNot(c),
-				Clause.newClause().orNot(x).or(y).orNot(z).orNot(c),
-				Clause.newClause().orNot(x).orNot(y).orNot(z).orNot(c) });
+		{ Clause.newClause().orNot(c).or(x), // { $c x }
+				Clause.newClause().orNot(c).or(y), // { $c y }
+				Clause.newClause().orNot(c).orNot(z), // { $c $z }
+				Clause.newClause().or(x).or(y).orNot(z), // { x y $z }
+				Clause.newClause().or(x).orNot(y).or(z), // { x $y z }
+				Clause.newClause().orNot(x).or(y).or(z), // { $x y z }
+				Clause.newClause().or(c).orNot(y).or(z), // { c $y z }
+				Clause.newClause().orNot(x).orNot(y).orNot(z) // { $x $y $z }
+		});
+
 	}
 }

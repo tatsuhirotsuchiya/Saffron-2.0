@@ -17,8 +17,7 @@ public class BitTableXorer extends Problem implements IProblem
 {
 	private static final long serialVersionUID = 1125894830904743313L;
 
-	public BitTableXorer(IBitTable X, IBitTable Y, IBitTable Z)
-			throws Exception
+	public BitTableXorer(IBitTable X, IBitTable Y, IBitTable Z) throws Exception
 	{
 		if (!X.isSameSizeAs(Y) || !X.isSameSizeAs(Z))
 			this.setClauses(Problem.unsolvableProblem().getClauses());
@@ -29,8 +28,8 @@ public class BitTableXorer extends Problem implements IProblem
 			for (int i = 0; i < X.numberRows(); i++)
 				for (int j = 0; j < X.numberColumns(); j++)
 					p[count++] = new BitXorer(X.getBooleanVariable(i, j),
-							Y.getBooleanVariable(i, j), Z.getBooleanVariable(i,
-									j));
+							Y.getBooleanVariable(i, j),
+							Z.getBooleanVariable(i, j));
 			this.setClauses(new Conjunction(p).getClauses());
 		}
 	}

@@ -10,15 +10,15 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberPositiver;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberPositiver;
 
 public class NaturalNumberPositiverDemo
 {
@@ -36,8 +36,7 @@ public class NaturalNumberPositiverDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.print("\nX=" + X);
-		}
-		else
+		} else
 			System.out.print("\nNo solution.");
 	}
 }

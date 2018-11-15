@@ -31,10 +31,12 @@
 
 package bitstringlists;
 
+import bits.BooleanLiteralException;
 import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import bitstrings.BitStringException;
 import bitstrings.BitStringOrderer;
 
 public class BitStringListSorter extends Problem implements IProblem

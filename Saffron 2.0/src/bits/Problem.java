@@ -13,14 +13,15 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import naturalnumbers.NaturalNumber;
-
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.specs.ISolver;
+
+import naturalnumbers.NaturalNumber;
 
 /**
  * A class which represents a collection of IClause objects, and which amounts
@@ -36,7 +37,7 @@ import org.sat4j.specs.ISolver;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- * </pre>
+ *         </pre>
  * 
  *         </blockquote>
  * @version 1.3, 05/10/07
@@ -53,10 +54,9 @@ import org.sat4j.specs.ISolver;
  * @see BitOrer
  * @see BitXorer
  */
-public class Problem extends ArrayList<IClause> implements IProblem
+public class Problem implements IProblem
 {
 	private static int problemCount;
-	private static final long serialVersionUID = 3875190018670130568L;
 	private static PrintStream stream = System.out;
 
 	public static ISolver defaultSolver()
@@ -94,6 +94,8 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		{ new Clause() });
 	}
 
+	private List<IClause> backing = new ArrayList<IClause>();
+
 	/**
 	 * Constructs an empty Problem, that is, an instance of Problem which
 	 * contains no IClauses.
@@ -101,30 +103,6 @@ public class Problem extends ArrayList<IClause> implements IProblem
 	 */
 	public Problem()
 	{
-	}
-
-	/**
-	 * Constructs an instance of Problem which contains the IClauses found in
-	 * the parameter v.
-	 * 
-	 * @param v
-	 *            the ArrayList of IClauses to comprise the instance of Problem.
-	 * @throws Exception
-	 */
-	public Problem(ArrayList<IClause> v) throws Exception
-	{
-		if (v != null)
-		{
-			for (int i = 0; i < v.size(); i++)
-			{
-				IClause o = v.get(i);
-				if (o instanceof IClause)
-				{
-					IClause c = o;
-					this.addClause(c);
-				}
-			}
-		}
 	}
 
 	/**
@@ -145,6 +123,35 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		this.setClauses(iproblem.getClauses());
 	}
 
+	/**
+	 * Constructs an instance of Problem which contains the IClauses found in
+	 * the parameter v.
+	 * 
+	 * @param v
+	 *            the List of IClauses to comprise the instance of Problem.
+	 * @throws Exception
+	 */
+	public Problem(List<IClause> v) throws Exception
+	{
+		if (v != null)
+		{
+			for (int i = 0; i < v.size(); i++)
+			{
+				IClause o = v.get(i);
+				if (o instanceof IClause)
+				{
+					IClause c = o;
+					this.addClause(c);
+				}
+			}
+		}
+	}
+
+	public void add(IClause currcl)
+	{
+		this.getClauses().add(currcl);
+	}
+
 	@Override
 	public boolean addClause(IClause c) throws Exception
 	{
@@ -152,10 +159,9 @@ public class Problem extends ArrayList<IClause> implements IProblem
 			return false;
 		if (!this.contains(c))
 		{
-			super.add(c);
+			this.backing.add(c);
 			return true;
-		}
-		else
+		} else
 			return false;
 	}
 
@@ -180,7 +186,7 @@ public class Problem extends ArrayList<IClause> implements IProblem
 	@Override
 	public IProblem and(IProblem p) throws Exception
 	{
-		return new Conjunction(this, p);
+		return (IProblem) new Conjunction(this, p);
 	}
 
 	public EquivalenceRelation buildEquivalenceRelation()
@@ -197,21 +203,16 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		return e;
 	}
 
-	@Override
 	public Object clone()
 	{
-		Object[] cobj = this.getClauses();
-		IClause[] clauses = new IClause[cobj.length];
-		for (int i = 0; i < cobj.length; i++)
-			clauses[i] = (IClause) (cobj[i]);
+		List<IClause> cobj = this.getClauses();
 		IProblem res = null;
 		try
 		{
-			res = new Problem(clauses);
+			res = new Problem(cobj);
 		}
 		catch (Exception e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return res;
@@ -353,11 +354,13 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		}
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	public boolean equals(List<IBooleanLiteral> p)
 	{
 		if (!(p instanceof List))
 			return false;
-		if (this.containsAll(p) && ((List<?>) p).containsAll(this))
+		if (this.getClauses().containsAll(p)
+				&& ((List<?>) p).containsAll((Collection<?>) this))
 			return true;
 		return false;
 	}
@@ -369,15 +372,14 @@ public class Problem extends ArrayList<IClause> implements IProblem
 	}
 
 	@Override
-	public ArrayList<IBooleanLiteral> findModel(ISolver solver)
-			throws Exception
+	public ArrayList<IBooleanLiteral> findModel(ISolver solver) throws Exception
 	{
 		KSatReader reader = new KSatReader(solver);
 		org.sat4j.specs.IProblem sat4jproblem = reader.parseInstance(this);
 		if (!sat4jproblem.isSatisfiable())
 			return new ArrayList<IBooleanLiteral>();
-		ArrayList<IBooleanLiteral> rl = reader.toBooleanLiterals(sat4jproblem
-				.model());
+		ArrayList<IBooleanLiteral> rl = reader
+				.toBooleanLiterals(sat4jproblem.model());
 		IProblem test = this.resolve(rl);
 		if (test.size() > 0)
 			return new ArrayList<IBooleanLiteral>();
@@ -441,6 +443,10 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		return findTwoModels(n.getBVArray());
 	}
 
+	/*
+	 * public IClause[] getClauses(int n) { return this.backing; }
+	 */
+
 	@Override
 	public ArrayList<IBooleanVariable> getBooleanVariables() throws Exception
 	{
@@ -459,19 +465,14 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		return hs;
 	}
 
-	@Override
 	public IClause getClause(int n)
 	{
-		return (super.get(n));
+		return this.backing.get(n);
 	}
 
-	@Override
-	public IClause[] getClauses()
+	public List<IClause> getClauses()
 	{
-		IClause[] clauses = new IClause[super.size()];
-		for (int i = 0; i < clauses.length; i++)
-			clauses[i] = (super.get(i));
-		return clauses;
+		return this.backing;
 	}
 
 	public PrintStream getStream()
@@ -479,7 +480,6 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		return stream;
 	}
 
-	@Override
 	public boolean isEmpty()
 	{
 		return (this.numberOfClauses() == 0);
@@ -493,15 +493,19 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		return true;
 	}
 
+	public Iterator<IClause> iterator()
+	{
+		return this.getClauses().iterator();
+	}
+
 	public IBooleanVariable newBooleanVariable() throws Exception
 	{
 		return BooleanVariable.getBooleanVariable();
 	}
 
-	@Override
 	public int numberOfClauses()
 	{
-		return super.size();
+		return this.backing.size();
 	}
 
 	public int occurrences(IBooleanLiteral bl) throws Exception
@@ -520,11 +524,6 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		return count;
 	}
 
-	/*
-	 * @Override public Stream<IClause> parallelStream() { // TODO
-	 * Auto-generated method stub return null; }
-	 */
-
 	public IProblem or(IProblem p) throws Exception
 	{
 		return new Disjunction(this, p);
@@ -537,13 +536,12 @@ public class Problem extends ArrayList<IClause> implements IProblem
 
 	public void removeAllClauses()
 	{
-		super.clear();
+		this.getClauses().clear();
 	}
 
-	@Override
 	public void removeClause(int n)
 	{
-		super.remove(n);
+		this.getClauses().remove(n);
 	}
 
 	public IProblem resolve(IBooleanVariable b, boolean value) throws Exception
@@ -556,7 +554,6 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		return ret;
 	}
 
-	@Override
 	public IProblem resolve(List<IBooleanLiteral> ib) throws Exception
 	{
 		IProblem res = (IProblem) this.clone();
@@ -599,16 +596,25 @@ public class Problem extends ArrayList<IClause> implements IProblem
 	@Override
 	public void setClause(int n, IClause cl)
 	{
-		super.set(n, cl);
+		this.getClauses().set(n, cl);
 	}
 
-	@Override
-	public void setClauses(IClause[] cl) throws Exception
+	public void setClauses(IClause[] c) throws Exception
+	{
+		if (c == null || c.length == 0)
+			return;
+		/*
+		 * for(int i=0;i<c.length;i++) this.getClauses().add(c[i]);
+		 */
+
+		this.backing = Arrays.asList(c);
+	}
+
+	public void setClauses(List<IClause> list) throws Exception
 	{
 		this.removeAllClauses();
-		if (cl != null)
-			for (int i = 0; i < cl.length; i++)
-				this.addClause(cl[i]);
+		if (list != null)
+			this.backing = list;
 	}
 
 	public void setStream(PrintStream stream)
@@ -616,12 +622,11 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		Problem.stream = stream;
 	}
 
-	/*
-	 * @Override public Stream<IClause> stream() { // TODO Auto-generated method
-	 * stub return null; }
-	 */
+	public int size()
+	{
+		return this.getClauses().size();
+	}
 
-	@Override
 	public boolean solve(ISolver solver) throws Exception
 	{
 		List<IBooleanLiteral> s = this.findModel(solver);
@@ -629,8 +634,7 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		{
 			BooleanLiteral.interpret(s);
 			return true;
-		}
-		else
+		} else
 			return false;
 	}
 
@@ -642,10 +646,9 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		return this.findModel();
 	}
 
-	@Override
 	public void sort() throws Exception
 	{
-		IClause[] ary = this.toArray(new IClause[0]);
+		IClause[] ary = this.getClauses().toArray(new IClause[0]);
 		Arrays.sort(ary);
 		this.setClauses(ary);
 	}
@@ -706,9 +709,13 @@ public class Problem extends ArrayList<IClause> implements IProblem
 	{
 		if (this.size() < 1)
 			return null;
-		String ret = ((Clause) this.get(0)).toCode();
+		String ret = ((Clause) this.getClause(0)).toCode();
 		for (int i = 1; i < this.size(); i++)
-			ret += "+" + ((Clause) this.get(i)).toCode();
+		{
+			IClause curr = this.getClause(i);
+			ret += "+" + curr.toCode();
+		}
+
 		return ret;
 	}
 
@@ -734,19 +741,20 @@ public class Problem extends ArrayList<IClause> implements IProblem
 	public String toSatSimTable() throws Exception
 	{
 		String ret = "{";
-		for (int clauseindex = 0; clauseindex < this.numberOfClauses() - 1; clauseindex++)
+		for (int clauseindex = 0; clauseindex < this.numberOfClauses()
+				- 1; clauseindex++)
 		{
 			IClause currentClause = this.getClause(clauseindex);
 			ret += "{";
-			for (int literalindex = 0; literalindex < currentClause.size() - 1; literalindex++)
+			for (int literalindex = 0; literalindex < currentClause.size()
+					- 1; literalindex++)
 			{
 				IBooleanLiteral currentLiteral = currentClause
 						.getLiteralAt(literalindex);
-				ret += "{"
-						+ (currentLiteral.isBarred() ? 1 : 0)
-						+ ","
+				ret += "{" + (currentLiteral.isBarred() ? 1 : 0) + ","
 						+ currentLiteral.getBooleanVariable().getName()
-								.toString() + "},";
+								.toString()
+						+ "},";
 			}
 			IBooleanLiteral currentLiteral = currentClause
 					.getLiteralAt(currentClause.size() - 1);
@@ -756,7 +764,8 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		}
 		IClause currentClause = this.getClause(this.numberOfClauses() - 1);
 		ret += "{";
-		for (int literalindex = 0; literalindex < currentClause.size() - 1; literalindex++)
+		for (int literalindex = 0; literalindex < currentClause.size()
+				- 1; literalindex++)
 		{
 			IBooleanLiteral currentLiteral = currentClause
 					.getLiteralAt(literalindex);
@@ -876,5 +885,4 @@ public class Problem extends ArrayList<IClause> implements IProblem
 		}
 		return p;
 	}
-
 }

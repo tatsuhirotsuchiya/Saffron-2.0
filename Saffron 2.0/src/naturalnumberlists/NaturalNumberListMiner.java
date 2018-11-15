@@ -33,11 +33,11 @@
  */
 package naturalnumberlists;
 
-import naturalnumbers.NaturalNumberOrderer;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumberOrderer;
 
 public class NaturalNumberListMiner extends Problem implements IProblem
 {
@@ -49,8 +49,8 @@ public class NaturalNumberListMiner extends Problem implements IProblem
 		IProblem[] p = new NaturalNumberOrderer[list.size()];
 		for (int i = 0; i < p.length; i++)
 			p[i] = new NaturalNumberOrderer(min, list.getNaturalNumber(i));
-		IProblem result = new Conjunction(new NaturalNumberListMembership(min,
-				list), new Conjunction(p));
+		IProblem result = new Conjunction(
+				new NaturalNumberListMembership(min, list), new Conjunction(p));
 		this.setClauses(result.getClauses());
 	}
 }

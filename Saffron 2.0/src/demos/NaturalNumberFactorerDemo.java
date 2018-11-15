@@ -10,14 +10,14 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFactorer;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFactorer;
+import naturalnumbers.NaturalNumberFixer;
 
 public class NaturalNumberFactorerDemo
 {
@@ -28,8 +28,9 @@ public class NaturalNumberFactorerDemo
 		INaturalNumber Y = new NaturalNumber("Y");
 		INaturalNumber Z = new NaturalNumber("Z");
 
-		IProblem p = new Conjunction(new NaturalNumberFixer(Z,
-				9111546325452345231L), new NaturalNumberFactorer(X, Y, Z));
+		IProblem p = new Conjunction(
+				new NaturalNumberFixer(Z, 9111546325452345231L),
+				new NaturalNumberFactorer(X, Y, Z));
 
 		System.out.println(p.size() + "clauses generated...");
 

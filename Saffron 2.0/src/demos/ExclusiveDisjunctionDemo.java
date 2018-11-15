@@ -25,7 +25,7 @@ public class ExclusiveDisjunctionDemo
 		IProblem p1 = new Problem(new IClause[]
 		{ new Clause().orNot(bva[0]).orNot(bva[1]).orNot(bva[2]) });
 		System.out.println(p1);
-		
+
 		IProblem p2 = new Problem(new IClause[]
 		{ new Clause().or(bva[0]).orNot(bva[1]).or(bva[2]),
 				new Clause().orNot(bva[0]).orNot(bva[1]).orNot(bva[2]) });
@@ -42,8 +42,7 @@ public class ExclusiveDisjunctionDemo
 			System.out.println(bva[1]);
 			System.out.println(bva[2]);
 			BooleanLiteral.reset(s);
-		}
-		else
+		} else
 			System.out.println("There is no solution.");
 	}
 }

@@ -49,9 +49,10 @@ public class ExclusiveDisjunction extends Problem implements IProblem
 			throw new ExclusiveDisjunctionException(
 					"Null IProblem was passed to constructor.");
 		else
-			this.setClauses(new Disjunction(new ProblemDifferencer(first,
-					second), new ProblemDifferencer(second, first))
-					.getClauses());
+			this.setClauses(
+					new Disjunction(new ProblemDifferencer(first, second),
+							new ProblemDifferencer(second, first))
+									.getClauses());
 	}
 
 	public ExclusiveDisjunction(IProblem first, IProblem second, IProblem third)
@@ -78,8 +79,8 @@ public class ExclusiveDisjunction extends Problem implements IProblem
 			IProblem problem1 = list.get(0);
 			IProblem problem2 = new Problem(problem1);
 			for (int i = 1; i < list.size(); i++)
-				problem2 = new Conjunction(problem2, new ProblemDenier(
-						list.get(i)));
+				problem2 = new Conjunction(problem2,
+						new ProblemDenier(list.get(i)));
 
 			IProblem problem3 = new ProblemDenier(problem1);
 			ArrayList<IProblem> list2 = new ArrayList<IProblem>();

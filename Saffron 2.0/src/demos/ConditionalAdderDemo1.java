@@ -10,9 +10,6 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.ConditionalAdder;
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
@@ -22,6 +19,9 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.ConditionalAdder;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
 
 public class ConditionalAdderDemo1
 {
@@ -64,8 +64,7 @@ public class ConditionalAdderDemo1
 			System.out.println("Z = " + Z.getValue());
 			System.out.println("CSUM = " + CSUM);
 			BooleanLiteral.reset(s);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

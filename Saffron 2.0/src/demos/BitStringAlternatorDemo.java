@@ -24,8 +24,7 @@ public class BitStringAlternatorDemo
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println(white);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 

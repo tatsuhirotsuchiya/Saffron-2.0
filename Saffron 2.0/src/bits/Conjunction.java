@@ -11,8 +11,6 @@ import java.util.ArrayList;
 
 public class Conjunction extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -9093413659708586295L;
-
 	/**
 	 * This and() method scrubs out null IClauses and duplicate IClauses within
 	 * an IProblem. The other and() methods ultimately call this one, and thus
@@ -47,7 +45,7 @@ public class Conjunction extends Problem implements IProblem
 
 	public Conjunction(IProblem problem) throws Exception
 	{
-		this.setClauses(problem.getClauses());
+		super.setClauses(problem.getClauses());
 	}
 
 	public Conjunction(IProblem p1, IProblem p2) throws Exception
@@ -68,7 +66,7 @@ public class Conjunction extends Problem implements IProblem
 		this(new IProblem[]
 		{ p1, p2, p3, p4 });
 	}
-	
+
 	public Conjunction(IProblem[] group) throws Exception
 	{
 		IProblem p = Conjunction.and(group);
@@ -77,16 +75,9 @@ public class Conjunction extends Problem implements IProblem
 	}
 
 	/*
-	public Conjunction(List<IProblem> problemList) throws Exception
-	{
-		IProblem[] o = (problemList.toArray(new IProblem[0]));
-		IProblem[] p = new IProblem[o.length];
-		for (int i = 0; i < o.length; i++)
-		{
-			IProblem ip = o[i];
-			p[i] = ip;
-		}
-		this.setClauses(new Conjunction(p).getClauses());
-	}
-	*/
+	 * public Conjunction(List<IProblem> problemList) throws Exception {
+	 * IProblem[] o = (problemList.toArray(new IProblem[0])); IProblem[] p = new
+	 * IProblem[o.length]; for (int i = 0; i < o.length; i++) { IProblem ip =
+	 * o[i]; p[i] = ip; } this.setClauses(new Conjunction(p).getClauses()); }
+	 */
 }

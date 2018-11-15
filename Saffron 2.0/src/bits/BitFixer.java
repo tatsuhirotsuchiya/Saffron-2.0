@@ -46,8 +46,6 @@ package bits;
  */
 public class BitFixer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -3066870443417568106L;
-
 	public BitFixer(IBooleanVariable x) throws Exception
 	{
 		this(x, x.getValue());

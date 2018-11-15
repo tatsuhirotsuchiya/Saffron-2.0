@@ -16,8 +16,6 @@ import bits.Problem;
 
 public class NaturalNumberEqualizer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 2261478759635373098L;
-
 	public NaturalNumberEqualizer(INaturalNumber X, INaturalNumber Y)
 			throws Exception
 	{

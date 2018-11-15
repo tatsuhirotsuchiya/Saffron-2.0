@@ -29,7 +29,7 @@ import java.util.ArrayList;
  *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- * </pre>
+ *         </pre>
  * 
  *         </blockquote>
  * @version 1.0, 2015/03/18
@@ -40,8 +40,6 @@ import java.util.ArrayList;
  */
 public class BitExclusiveSelector extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 2978894161821848384L;
-
 	public BitExclusiveSelector(ArrayList<IBooleanVariable> bitArrayList)
 			throws Exception
 	{
@@ -78,8 +76,8 @@ public class BitExclusiveSelector extends Problem implements IProblem
 			problem = Problem.newProblem();
 			IClause build1 = Clause.newClause();
 			for (IBooleanVariable curr : bitArrayList)
-				build1.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(
-						curr, false));
+				build1.add((BooleanLiteral) BooleanLiteral
+						.getBooleanLiteral(curr, false));
 			problem.addClause(build1);
 
 			for (int i = 0; i < listSize; i++)

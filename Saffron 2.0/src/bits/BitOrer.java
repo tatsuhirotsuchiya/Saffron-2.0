@@ -28,15 +28,24 @@ package bits;
 
 public class BitOrer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 5069389297817201811L;
+	/*
+	 * public BitOrer(IBooleanVariable x, IBooleanVariable y, IBooleanVariable
+	 * z) throws Exception { this.setClauses(new IClause[] {
+	 * Clause.newClause().or(x).or(y).orNot(z),
+	 * Clause.newClause().or(x).orNot(y).or(z),
+	 * Clause.newClause().orNot(x).or(y).or(z),
+	 * Clause.newClause().orNot(x).orNot(y).or(z) }); }
+	 */
 
+	/***************************************
+	 *** { x y $z } { $y z } { $x z }
+	 ***************************************/
 	public BitOrer(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z)
 			throws Exception
 	{
 		this.setClauses(new IClause[]
 		{ Clause.newClause().or(x).or(y).orNot(z),
-				Clause.newClause().or(x).orNot(y).or(z),
-				Clause.newClause().orNot(x).or(y).or(z),
-				Clause.newClause().orNot(x).orNot(y).or(z) });
+				Clause.newClause().orNot(y).or(z),
+				Clause.newClause().orNot(x).or(z) });
 	}
 }

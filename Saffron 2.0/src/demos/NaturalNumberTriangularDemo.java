@@ -10,16 +10,16 @@ package demos;
  */
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberIncrementer;
-import naturalnumbers.NaturalNumberMultiplier;
-import naturalnumbers.NaturalNumberOrderer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberIncrementer;
+import naturalnumbers.NaturalNumberMultiplier;
+import naturalnumbers.NaturalNumberOrderer;
 
 public class NaturalNumberTriangularDemo
 {

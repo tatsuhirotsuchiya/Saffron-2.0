@@ -1,9 +1,9 @@
 package naturalnumberlists;
 
-import naturalnumbers.NaturalNumberEqualizer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumberEqualizer;
 
 public class NaturalNumberListExchanger extends Problem implements IProblem
 {

@@ -31,8 +31,6 @@ package bits;
  */
 public class BitEqualityIndicator extends BitXnorer implements IProblem
 {
-	private static final long serialVersionUID = 17581660041632372L;
-
 	public BitEqualityIndicator(IBooleanVariable x, IBooleanVariable y,
 			IBooleanVariable z) throws Exception
 	{

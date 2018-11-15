@@ -20,15 +20,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumberlists.INaturalNumberList;
-import naturalnumberlists.NaturalNumberList;
-import naturalnumberlists.NaturalNumberListFixer;
-import naturalnumberlists.NaturalNumberListSorter;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.INaturalNumberList;
+import naturalnumberlists.NaturalNumberList;
+import naturalnumberlists.NaturalNumberListFixer;
+import naturalnumberlists.NaturalNumberListSorter;
 
 public class NaturalNumberListSorterDemo
 {
@@ -70,8 +70,7 @@ public class NaturalNumberListSorterDemo
 			BooleanLiteral.interpret(s);
 			System.out.println("s1=" + s1);
 			System.out.println("s2=" + s2);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

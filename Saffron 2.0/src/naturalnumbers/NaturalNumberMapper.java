@@ -29,9 +29,8 @@ public class NaturalNumberMapper extends Problem implements IProblem
 	private INaturalNumber domainVariable;
 	private INaturalNumber rangeVariable;
 
-	public NaturalNumberMapper(INaturalNumber domainVariable,
-			long[] domainData, INaturalNumber rangeVariable, long[] rangeData)
-			throws Exception
+	public NaturalNumberMapper(INaturalNumber domainVariable, long[] domainData,
+			INaturalNumber rangeVariable, long[] rangeData) throws Exception
 	{
 		if (domainData == null || rangeData == null)
 			throw new NaturalNumberMapperException(

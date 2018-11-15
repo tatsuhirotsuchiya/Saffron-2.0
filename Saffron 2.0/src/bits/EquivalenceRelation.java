@@ -150,12 +150,13 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 		while (i1.hasNext())
 		{
 			Object element = i1.next();
-			HashSet<Object> equivalenceClass = (HashSet<Object>) (super
-					.get(element));
+			HashSet<Object> equivalenceClass = (HashSet<Object>) (super.get(
+					element));
 			Iterator<Object> i2 = equivalenceClass.iterator();
 			while (i2.hasNext())
 			{
-				HashSet<Object> equivalenceClassClone = extracted(equivalenceClass);
+				HashSet<Object> equivalenceClassClone = extracted(
+						equivalenceClass);
 				equivalenceClassClone.addAll((super.get(i2.next())));
 				equivalenceClass = equivalenceClassClone;
 			}

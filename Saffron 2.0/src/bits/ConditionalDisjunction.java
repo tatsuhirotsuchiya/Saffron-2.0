@@ -46,8 +46,9 @@ public class ConditionalDisjunction extends Problem implements IProblem
 
 		IProblem[] subProblems = new IProblem[numberOfProblems];
 		for (int i = 0; i < numberOfProblems; i++)
-			subProblems[i] = new Conjunction(new BitFixer(
-					booleanVariableArray[i], true), problemArray[i]);
+			subProblems[i] = new Conjunction(
+					new BitFixer(booleanVariableArray[i], true),
+					problemArray[i]);
 
 		this.setClauses(new Disjunction(subProblems).getClauses());
 	}

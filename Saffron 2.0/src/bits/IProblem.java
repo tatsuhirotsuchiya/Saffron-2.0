@@ -46,7 +46,7 @@ public interface IProblem extends Iterable<IClause>
 
 	IClause getClause(int i);
 
-	IClause[] getClauses();
+	List<IClause> getClauses();
 
 	int numberOfClauses();
 

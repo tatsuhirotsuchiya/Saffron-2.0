@@ -31,6 +31,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class BooleanVariable implements IBooleanVariable
 {
@@ -56,8 +57,7 @@ public class BooleanVariable implements IBooleanVariable
 		return res;
 	}
 
-	public static IBooleanVariable getBooleanVariable(String n)
-			throws Exception
+	public static IBooleanVariable getBooleanVariable(String n) throws Exception
 	{
 		if (n == null || "".compareTo(n) == 0)
 			throw new BooleanVariableException(
@@ -156,8 +156,7 @@ public class BooleanVariable implements IBooleanVariable
 				return true;
 			else
 				return false;
-		}
-		else
+		} else
 			return false;
 	}
 

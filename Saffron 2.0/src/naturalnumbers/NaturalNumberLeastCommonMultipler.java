@@ -13,13 +13,13 @@ import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
 
-public class NaturalNumberLeastCommonMultipler extends Problem implements
-		IProblem
+public class NaturalNumberLeastCommonMultipler extends Problem
+		implements IProblem
 {
 	private static final long serialVersionUID = -3735577023728807900L;
 
-	public NaturalNumberLeastCommonMultipler(INaturalNumber M,
-			INaturalNumber N, INaturalNumber LCM) throws Exception
+	public NaturalNumberLeastCommonMultipler(INaturalNumber M, INaturalNumber N,
+			INaturalNumber LCM) throws Exception
 	{
 		INaturalNumber K = new NaturalNumber();
 		INaturalNumber L = new NaturalNumber();

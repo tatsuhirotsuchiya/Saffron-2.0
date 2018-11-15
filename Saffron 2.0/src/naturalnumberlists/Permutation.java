@@ -1,7 +1,7 @@
 package naturalnumberlists;
 
-import naturalnumbers.NaturalNumber;
 import bits.INaturalNumber;
+import naturalnumbers.NaturalNumber;
 
 public class Permutation
 {

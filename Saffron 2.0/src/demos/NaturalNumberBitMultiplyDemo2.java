@@ -2,9 +2,6 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberBitMultiply;
-import naturalnumbers.NaturalNumberFixer;
 import bits.BitFixer;
 import bits.BooleanLiteral;
 import bits.BooleanVariable;
@@ -14,6 +11,9 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberBitMultiply;
+import naturalnumbers.NaturalNumberFixer;
 
 public class NaturalNumberBitMultiplyDemo2
 {
@@ -57,8 +57,7 @@ public class NaturalNumberBitMultiplyDemo2
 				System.out.println(X[i].getName() + "=" + X[i]);
 				System.out.println(Y[i].getName() + "=" + Y[i]);
 			}
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

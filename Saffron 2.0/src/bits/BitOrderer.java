@@ -38,7 +38,8 @@ public class BitOrderer extends Problem implements IProblem
 	public BitOrderer(IBooleanVariable x, IBooleanVariable y) throws Exception
 	{
 		IProblem compare = new Disjunction(new BitFixer(y, true),
-				new Conjunction(new BitFixer(y, false), new BitFixer(x, false)));
+				new Conjunction(new BitFixer(y, false),
+						new BitFixer(x, false)));
 		this.setClauses(compare.getClauses());
 	}
 }

@@ -14,8 +14,6 @@ import bits.ProblemDenier;
 
 class BoatAndFarmerTogether extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -3891746155584127881L;
-
 	public BoatAndFarmerTogether(Status s) throws Exception
 	{
 		this.setClauses(new BitEqualizer(s.boat, s.farmer).getClauses());
@@ -24,8 +22,6 @@ class BoatAndFarmerTogether extends Problem implements IProblem
 
 class BoatCrosses extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 3373047310966999860L;
-
 	public BoatCrosses(Status s1, Status s2) throws Exception
 	{
 		this.setClauses(new BitUnequalizer(s1.boat, s2.boat).getClauses());
@@ -34,8 +30,6 @@ class BoatCrosses extends Problem implements IProblem
 
 class CrossAlone extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -415239221862983507L;
-
 	public CrossAlone(Status s1, Status s2) throws Exception
 	{
 		this.setClauses(new Conjunction(new IProblem[]
@@ -48,21 +42,17 @@ class CrossAlone extends Problem implements IProblem
 
 class CrossTheRiver extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -6257432340767347437L;
-
 	public CrossTheRiver(Status s1, Status s2) throws Exception
 	{
 		this.setClauses(new ExclusiveDisjunction(new IProblem[]
 		{ new CrossWithFox(s1, s2), new CrossWithGoose(s1, s2),
 				new CrossWithGrain(s1, s2), new CrossAlone(s1, s2) })
-				.getClauses());
+						.getClauses());
 	}
 }
 
 class CrossWithFox extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 2319201519378413233L;
-
 	public CrossWithFox(Status s1, Status s2) throws Exception
 	{
 		this.setClauses(new Conjunction(new IProblem[]
@@ -76,8 +66,6 @@ class CrossWithFox extends Problem implements IProblem
 
 class CrossWithGoose extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -1354767985790340236L;
-
 	public CrossWithGoose(Status s1, Status s2) throws Exception
 	{
 		this.setClauses(new Conjunction(new IProblem[]
@@ -91,8 +79,6 @@ class CrossWithGoose extends Problem implements IProblem
 
 class CrossWithGrain extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -5891682124082196966L;
-
 	public CrossWithGrain(Status s1, Status s2) throws Exception
 	{
 		this.setClauses(new Conjunction(new IProblem[]
@@ -106,8 +92,6 @@ class CrossWithGrain extends Problem implements IProblem
 
 class FarmerAndFoxTogether extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 164880712389461177L;
-
 	public FarmerAndFoxTogether(Status s) throws Exception
 	{
 		this.setClauses(new BitEqualizer(s.farmer, s.fox).getClauses());
@@ -116,8 +100,6 @@ class FarmerAndFoxTogether extends Problem implements IProblem
 
 class FarmerAndGooseTogether extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -1767741192595346928L;
-
 	public FarmerAndGooseTogether(Status s) throws Exception
 	{
 		this.setClauses(new BitEqualizer(s.farmer, s.goose).getClauses());
@@ -126,8 +108,6 @@ class FarmerAndGooseTogether extends Problem implements IProblem
 
 class FarmerAndGrainTogether extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 3343454200385857675L;
-
 	public FarmerAndGrainTogether(Status s) throws Exception
 	{
 		this.setClauses(new BitEqualizer(s.farmer, s.grain).getClauses());
@@ -136,8 +116,6 @@ class FarmerAndGrainTogether extends Problem implements IProblem
 
 class FoxAndGooseAloneTogether extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 3748635710590580510L;
-
 	public FoxAndGooseAloneTogether(Status s) throws Exception
 	{
 		this.setClauses(new BitEqualizer(s.fox, s.goose).getClauses());
@@ -146,8 +124,6 @@ class FoxAndGooseAloneTogether extends Problem implements IProblem
 
 class FoxAndGooseNotAloneTogether extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 7838361944796587814L;
-
 	public FoxAndGooseNotAloneTogether(Status s) throws Exception
 	{
 		this.setClauses(new BitUnequalizer(s.fox, s.goose).getClauses());
@@ -179,8 +155,8 @@ public class FoxGooseGrainDemo
 		IProblem problem = new Conjunction(initPositions, finalPositions);
 
 		for (int i = 0; i < crossings; i++)
-			problem = new Conjunction(problem, new CrossTheRiver(status[i],
-					status[i + 1]));
+			problem = new Conjunction(problem,
+					new CrossTheRiver(status[i], status[i + 1]));
 
 		for (int i = 0; i < crossings + 1; i++)
 			problem = new Conjunction(problem, new StatusIsGood(status[i]));
@@ -195,26 +171,23 @@ public class FoxGooseGrainDemo
 			{
 				System.out.println("\n"
 						+ (status[i].boat.getValue() ? "\t\t" : "") + "Boat");
-				System.out.println((status[i].farmer.getValue() ? "\t\t" : "")
-						+ "Farmer");
-				System.out.println((status[i].fox.getValue() ? "\t\t" : "")
-						+ "Fox");
-				System.out.println((status[i].goose.getValue() ? "\t\t" : "")
-						+ "Goose");
-				System.out.println((status[i].grain.getValue() ? "\t\t" : "")
-						+ "Grain");
+				System.out.println(
+						(status[i].farmer.getValue() ? "\t\t" : "") + "Farmer");
+				System.out.println(
+						(status[i].fox.getValue() ? "\t\t" : "") + "Fox");
+				System.out.println(
+						(status[i].goose.getValue() ? "\t\t" : "") + "Goose");
+				System.out.println(
+						(status[i].grain.getValue() ? "\t\t" : "") + "Grain");
 				System.out.println("------------------------------------");
 			}
-		}
-		else
+		} else
 			System.out.println("There is no solution.");
 	}
 }
 
 class GooseAndGrainTogether extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -292897075823991262L;
-
 	public GooseAndGrainTogether(Status s) throws Exception
 	{
 		this.setClauses(new BitEqualizer(s.goose, s.grain).getClauses());
@@ -223,25 +196,21 @@ class GooseAndGrainTogether extends Problem implements IProblem
 
 class GooseIsSafe extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -2286585270991083106L;
-
 	public GooseIsSafe(Status s) throws Exception
 	{
-		this.setClauses(new Disjunction(new ProblemDenier(
-				new FoxAndGooseAloneTogether(s)), new FarmerAndGooseTogether(s))
-				.getClauses());
+		this.setClauses(new Disjunction(
+				new ProblemDenier(new FoxAndGooseAloneTogether(s)),
+				new FarmerAndGooseTogether(s)).getClauses());
 	}
 }
 
 class GrainIsSafe extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 8300722284554026280L;
-
 	public GrainIsSafe(Status s) throws Exception
 	{
-		this.setClauses(new Disjunction(new ProblemDenier(
-				new GooseAndGrainTogether(s)), new FarmerAndGrainTogether(s))
-				.getClauses());
+		this.setClauses(
+				new Disjunction(new ProblemDenier(new GooseAndGrainTogether(s)),
+						new FarmerAndGrainTogether(s)).getClauses());
 	}
 }
 
@@ -265,8 +234,6 @@ class Status
 
 class StatusIsGood extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -4746086930916156288L;
-
 	public StatusIsGood(Status status) throws Exception
 	{
 		this.setClauses(new Conjunction(new GrainIsSafe(status),

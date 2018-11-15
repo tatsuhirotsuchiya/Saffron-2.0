@@ -2,13 +2,13 @@ package demos;
 
 import java.util.List;
 
-import naturalnumberlists.Permutation;
-import naturalnumberlists.PermutationFixer;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.Permutation;
+import naturalnumberlists.PermutationFixer;
 
 public class PermutationDemo
 {
@@ -18,15 +18,14 @@ public class PermutationDemo
 
 		IProblem p = new Conjunction(new IProblem[]
 		{ new PermutationFixer(perm1, new long[]
-		{ 1, 2, 0, 3, 4 }), });
+				{ 1, 2, 0, 3, 4 }), });
 
 		List<IBooleanLiteral> s = p.findModel(Problem.defaultSolver());
 		if (s != null && s.size() > 0)
 		{
 			BooleanLiteral.interpret(s);
 			System.out.println(perm1);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

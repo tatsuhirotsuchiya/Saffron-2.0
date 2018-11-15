@@ -2,15 +2,15 @@ package demos;
 
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
-import naturalnumbers.NaturalNumberFixer;
-import naturalnumbers.NaturalNumberLeastCommonMultipler;
 import bits.BooleanLiteral;
 import bits.Conjunction;
 import bits.IBooleanLiteral;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberFixer;
+import naturalnumbers.NaturalNumberLeastCommonMultipler;
 
 public class NaturalNumberLeastCommonMultiplerDemo
 {
@@ -35,8 +35,7 @@ public class NaturalNumberLeastCommonMultiplerDemo
 			System.out.println("X = " + X);
 			System.out.println("Y = " + Y);
 			System.out.println("LCM = " + LCM);
-		}
-		else
+		} else
 			System.out.println("No solution.");
 	}
 }

@@ -1,9 +1,9 @@
 package naturalnumberlists;
 
-import naturalnumbers.NaturalNumberXorer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.NaturalNumberXorer;
 
 public class NaturalNumberListXorer extends Problem implements IProblem
 {

@@ -169,9 +169,9 @@ public class KSatReader
 
 		// Assign according to DIMACS format a unique integer to each
 		// positronic.satisfiability.elements.IBooleanLiteral found in problem
-		for (int i = 0; i < problem.getClauses().length; i++)
+		for (int i = 0; i < problem.getClauses().size(); i++)
 		{
-			IClause currClause = problem.getClauses()[i];
+			IClause currClause = problem.getClause(i);
 			for (int j = 0; j < currClause.size(); j++)
 			{
 				IBooleanLiteral currBL = null;
