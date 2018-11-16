@@ -35,8 +35,6 @@ import java.util.List;
  */
 public class ExclusiveDisjunction extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -1069858090767673835L;
-
 	public ExclusiveDisjunction(IProblem problem) throws Exception
 	{
 		this.setClauses(problem.getClauses());

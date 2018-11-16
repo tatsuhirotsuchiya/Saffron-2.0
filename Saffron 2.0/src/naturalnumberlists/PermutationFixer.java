@@ -7,8 +7,6 @@ import naturalnumbers.NaturalNumberFixer;
 
 public class PermutationFixer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -5340199870671278851L;
-
 	public PermutationFixer(Permutation perm, long[] image) throws Exception
 	{
 		if (perm.getOrder() != image.length)

@@ -33,8 +33,6 @@ package bits;
  */
 public class BitNoter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -1802177453914677353L;
-
 	public BitNoter(IBooleanVariable x, IBooleanVariable y) throws Exception
 	{
 		this.setClauses(new IClause[]

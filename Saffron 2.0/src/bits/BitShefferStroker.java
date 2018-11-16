@@ -32,8 +32,6 @@ package bits;
  */
 public class BitShefferStroker extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 6522888866128140593L;
-
 	public BitShefferStroker(IBooleanVariable x, IBooleanVariable y)
 			throws Exception
 	{

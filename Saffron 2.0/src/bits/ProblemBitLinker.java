@@ -16,8 +16,6 @@ package bits;
  */
 public class ProblemBitLinker extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1L;
-
 	public ProblemBitLinker(IProblem p, IBooleanVariable b) throws Exception
 	{
 		IClause left = new Clause();

@@ -33,8 +33,6 @@ package bits;
 
 public class BitOrderer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -3918521182493099543L;
-
 	public BitOrderer(IBooleanVariable x, IBooleanVariable y) throws Exception
 	{
 		IProblem compare = new Disjunction(new BitFixer(y, true),

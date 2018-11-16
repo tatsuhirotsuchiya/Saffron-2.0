@@ -1,15 +1,3 @@
-/*
- * AlternativeDenial.java	1.0 07/08/20
- *
- * Copyright 2007 Positronic Software.
- *
- *
- */
-
-package bits;
-
-import java.util.List;
-
 /**
  * An extension of the Problem class which expresses the alternative denial
  * (also called the NAND or Sheffer stroke) of several given IProblems. More
@@ -27,12 +15,15 @@ import java.util.List;
  *
  * @author Kerry Michael Soileau ksoileau2@yahoo.com
  *         http://kerrysoileau.com/index.html
- * @version 1.0, 07/08/20
- * @see BooleanLiteralException
- * @see IClause
- * @see IProblem
- * @see Problem
+ * @version 1.0, 2007/08/20
+ * @copyright 2007 Positronic Software.
+ * 
  */
+
+package bits;
+
+import java.util.List;
+
 public class AlternativeDenial extends Problem implements IProblem
 {
 	public AlternativeDenial(IProblem first, IProblem second) throws Exception

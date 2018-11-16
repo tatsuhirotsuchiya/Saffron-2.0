@@ -34,8 +34,6 @@ package bits;
  */
 public class ThreeBitAdder extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -4604462419237049087L;
-
 	public ThreeBitAdder(IBooleanVariable w, IBooleanVariable x,
 			IBooleanVariable y, IBooleanVariable z, IBooleanVariable c)
 			throws Exception

@@ -29,8 +29,6 @@ package bits;
 
 public class ConditionalDisjunction extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -6526207407161439199L;
-
 	public ConditionalDisjunction(IProblem[] problemArray,
 			IBooleanVariable[] booleanVariableArray) throws Exception
 	{

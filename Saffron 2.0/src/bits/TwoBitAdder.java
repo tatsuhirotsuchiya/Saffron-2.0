@@ -34,8 +34,6 @@ package bits;
  */
 public class TwoBitAdder extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1474378826107576889L;
-
 	public TwoBitAdder(IBooleanVariable x, IBooleanVariable y,
 			IBooleanVariable z, IBooleanVariable c) throws Exception
 	{

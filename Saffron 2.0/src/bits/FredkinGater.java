@@ -18,8 +18,16 @@ package bits;
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
- * A B C | P Q R ------|------ 0 0 0 | 0 0 0 0 0 1 | 0 0 1 0 1 0 | 0 1 0 0 1 1 |
- * 0 1 1 1 0 0 | 1 0 0 1 0 1 | 1 1 0 1 1 0 | 1 0 1 1 1 1 | 1 1 1
+ * A B C | P Q R 
+ * ------|------ 
+ * 0 0 0 | 0 0 0 
+ * 0 0 1 | 0 0 1 
+ * 0 1 0 | 0 1 0 
+ * 0 1 1 | 0 1 1 
+ * 1 0 0 | 1 0 0
+ * 1 0 1 | 1 1 0 
+ * 1 1 0 | 1 0 1 
+ * 1 1 1 | 1 1 1
  * 
  * @author Kerry Michael Soileau <blockquote>
  * 
@@ -36,8 +44,6 @@ package bits;
  */
 public class FredkinGater extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 8010562082282425070L;
-
 	public FredkinGater(IBooleanVariable A, IBooleanVariable B,
 			IBooleanVariable C, IBooleanVariable P, IBooleanVariable Q,
 			IBooleanVariable R) throws Exception

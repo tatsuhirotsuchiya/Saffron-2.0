@@ -36,8 +36,6 @@ package bits;
  */
 public class ToffoliGater extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 2417242703176785998L;
-
 	public ToffoliGater(IBooleanVariable A, IBooleanVariable B,
 			IBooleanVariable C, IBooleanVariable P, IBooleanVariable Q,
 			IBooleanVariable R) throws Exception

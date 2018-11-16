@@ -31,8 +31,6 @@ package bits;
  */
 public class BitInequalityIndicator extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 2755371001392672594L;
-
 	public BitInequalityIndicator(IBooleanVariable x, IBooleanVariable y,
 			IBooleanVariable z) throws Exception
 	{

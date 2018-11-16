@@ -39,8 +39,6 @@ package bits;
  */
 public class BitXorer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -4909408943246592857L;
-
 	public BitXorer(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z)
 			throws Exception
 	{

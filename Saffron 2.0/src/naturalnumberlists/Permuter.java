@@ -10,8 +10,6 @@ import naturalnumbers.NaturalNumberFixer;
 
 public class Permuter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 474894716363406592L;
-
 	public Permuter(INaturalNumber x, INaturalNumber y, Permutation perm)
 			throws Exception
 	{

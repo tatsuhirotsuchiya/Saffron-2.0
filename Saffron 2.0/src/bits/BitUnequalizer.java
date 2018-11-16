@@ -30,8 +30,6 @@ package bits;
 
 public class BitUnequalizer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 6741703631421663082L;
-
 	public BitUnequalizer(IBooleanVariable x, IBooleanVariable y)
 			throws Exception
 	{

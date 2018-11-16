@@ -15,8 +15,6 @@ import naturalnumbers.NaturalNumberFixer;
 
 public class PermuterMultiplier extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -4908935667338390104L;
-
 	public PermuterMultiplier(INaturalNumber x, INaturalNumber y,
 			Permutation perm1, Permutation perm2) throws Exception
 	{

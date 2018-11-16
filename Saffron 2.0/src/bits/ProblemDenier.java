@@ -31,8 +31,6 @@ package bits;
  */
 public class ProblemDenier extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 7106759746681117418L;
-
 	public ProblemDenier(IProblem problem) throws Exception
 	{
 		if (problem.numberOfClauses() == 0)

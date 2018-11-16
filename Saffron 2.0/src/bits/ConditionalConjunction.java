@@ -33,8 +33,6 @@ package bits;
 
 public class ConditionalConjunction extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -5938385940059737551L;
-
 	public ConditionalConjunction(IProblem[] problemArray,
 			IBooleanVariable[] booleanVariableArray) throws Exception
 	{

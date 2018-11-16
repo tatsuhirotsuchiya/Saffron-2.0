@@ -149,6 +149,9 @@ public class BinPacker
 				solution.add(currentBinContents);
 			}
 			BooleanLiteral.reset(blList);
+			System.out
+			.println((System.currentTimeMillis() - startTimeMillis) / 1000.
+					+ ":" + "Finis");
 			return solution;
 		} else
 			return null;
