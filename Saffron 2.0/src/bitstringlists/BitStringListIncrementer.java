@@ -17,8 +17,6 @@ import bitstrings.BitStringEqualizer;
  */
 public class BitStringListIncrementer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 6747342457137707232L;
-
 	public BitStringListIncrementer(IBitStringList smaller,
 			IBitString singleton, IBitStringList larger) throws Exception
 	{

@@ -14,8 +14,6 @@ import bits.Problem;
 
 public class BitStringListSubsetter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 3880192538685152084L;
-
 	// Ensures that every IBitString in A is also in B
 	public BitStringListSubsetter(IBitStringList A, IBitStringList B)
 			throws Exception

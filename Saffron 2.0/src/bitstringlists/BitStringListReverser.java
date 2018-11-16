@@ -31,8 +31,6 @@ import bitstrings.BitStringEqualizer;
 
 public class BitStringListReverser extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -3186500319524626108L;
-
 	public BitStringListReverser(IBitStringList X, IBitStringList Y)
 			throws Exception
 	{

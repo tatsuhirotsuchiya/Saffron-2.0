@@ -16,8 +16,6 @@ import bits.Problem;
 
 public class BitStringListIntersector extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -4380068931044696939L;
-
 	public BitStringListIntersector(IBitStringList T, IBitStringList A,
 			IBitStringList B) throws Exception
 	{

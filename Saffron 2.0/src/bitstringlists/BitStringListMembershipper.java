@@ -16,8 +16,6 @@ import bitstrings.BitStringEqualizer;
 
 public class BitStringListMembershipper extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1374955023026675466L;
-
 	public BitStringListMembershipper(IBitString string, IBitStringList bsl)
 			throws Exception
 	{

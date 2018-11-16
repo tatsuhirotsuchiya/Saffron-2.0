@@ -16,8 +16,6 @@ import bits.Problem;
 
 public class BitStringListUnioner extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -8580136330484661990L;
-
 	public BitStringListUnioner(IBitStringList union, IBitStringList A,
 			IBitStringList B) throws Exception
 	{

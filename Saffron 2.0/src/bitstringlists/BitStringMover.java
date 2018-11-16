@@ -13,8 +13,6 @@ import bitstrings.BitStringEqualizer;
 
 public class BitStringMover extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -3036927578124630273L;
-
 	public static void main(String[] args) throws Exception
 	{
 		IBitStringList board1 = new BitStringList(16);

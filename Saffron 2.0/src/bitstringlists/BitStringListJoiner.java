@@ -15,8 +15,6 @@ import bitstrings.BitStringEqualizer;
 
 public class BitStringListJoiner extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -919789715451053860L;
-
 	public BitStringListJoiner(IBitStringList join, IBitStringList A,
 			IBitStringList B) throws Exception
 	{

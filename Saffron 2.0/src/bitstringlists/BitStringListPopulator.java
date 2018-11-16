@@ -6,8 +6,6 @@ import bits.Problem;
 
 public class BitStringListPopulator extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -388391718064931108L;
-
 	public BitStringListPopulator(IBitStringList source, IBitStringList target)
 			throws Exception
 	{

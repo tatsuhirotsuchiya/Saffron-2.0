@@ -36,8 +36,6 @@ import bitstrings.BitStringEqualizer;
 
 public class BitStringListRepeater extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -7580584327910617410L;
-
 	public BitStringListRepeater(IBitStringList list) throws Exception
 	{
 		IProblem p = null;

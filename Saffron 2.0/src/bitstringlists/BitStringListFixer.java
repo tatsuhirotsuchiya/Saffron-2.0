@@ -15,8 +15,6 @@ import bits.Problem;
 
 public class BitStringListFixer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -2919269431086684011L;
-
 	public BitStringListFixer(IBitStringList target) throws Exception
 	{
 		/*

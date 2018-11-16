@@ -22,8 +22,6 @@ import bits.Problem;
  */
 public class BitStringListDifferencer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 5773097733791915906L;
-
 	public BitStringListDifferencer(IBitStringList A, IBitStringList B,
 			IBitStringList aMinusB) throws Exception
 	{

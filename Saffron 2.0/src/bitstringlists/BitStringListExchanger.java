@@ -29,8 +29,6 @@ import bitstrings.BitStringEqualizer;
  */
 public class BitStringListExchanger extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 767984630842370927L;
-
 	public BitStringListExchanger(IBitStringList A, IBitStringList B, int m,
 			int n) throws Exception
 	{

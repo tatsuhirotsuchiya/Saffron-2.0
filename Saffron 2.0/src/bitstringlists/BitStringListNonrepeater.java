@@ -36,8 +36,6 @@ import bitstrings.BitStringUnequalizer;
 
 public class BitStringListNonrepeater extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -7048498170990040621L;
-
 	public BitStringListNonrepeater(IBitStringList list) throws Exception
 	{
 		IProblem p = null;

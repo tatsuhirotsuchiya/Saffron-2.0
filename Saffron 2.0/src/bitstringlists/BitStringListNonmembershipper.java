@@ -18,8 +18,6 @@ import bitstrings.BitStringUnequalizer;
 
 public class BitStringListNonmembershipper extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -1304592850531097589L;
-
 	public BitStringListNonmembershipper(IBitString string, IBitStringList bsl)
 			throws Exception
 	{

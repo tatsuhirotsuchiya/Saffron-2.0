@@ -8,8 +8,6 @@ import bits.Problem;
 
 public class BitStringListDisjointUnioner extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 7855182633673603677L;
-
 	public BitStringListDisjointUnioner(IBitStringList T, IBitStringList A,
 			IBitStringList B) throws Exception
 	{
