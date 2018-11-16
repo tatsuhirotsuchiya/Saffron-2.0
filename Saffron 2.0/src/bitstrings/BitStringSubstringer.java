@@ -17,14 +17,14 @@ import bits.Problem;
 
 public class BitStringSubstringer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -4171631543932102607L;
-
 	public BitStringSubstringer(final IBitString X, final IBitString Y)
 			throws Exception
 	{
-		final int smaller = X.size();
+		//final int smaller = X.size();
+		int smaller = X.size();
 		if (smaller > Y.size())
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringSubstringerException("X.size() > Y.size()");
+			//this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem problem = null;

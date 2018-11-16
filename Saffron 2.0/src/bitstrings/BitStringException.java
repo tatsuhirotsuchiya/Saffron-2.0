@@ -1,19 +1,7 @@
 package bitstrings;
 
 /**
- * <p>
- * Title: BitStringException
- * </p>
- * <p>
- * Description: TBS
- * </p>
- * <p>
- * Copyright (c) 2005
- * </p>
- * <p>
- * Company: Positronic Software
- * </p>
- * 
+ * @copyright 2005 Positronic Software
  * @author Kerry Michael Soileau
  * @version 1.0
  */

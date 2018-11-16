@@ -16,12 +16,11 @@ import bits.Problem;
 
 public class BitStringHighPopper extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -258140049165733780L;
-
 	public BitStringHighPopper(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() != Y.size() + 1)
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringHighPopperException("X.size() != Y.size() + 1");
+			//this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.size()];

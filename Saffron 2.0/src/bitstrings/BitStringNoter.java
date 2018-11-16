@@ -16,8 +16,6 @@ import bits.Problem;
 
 public class BitStringNoter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 6958366653731215463L;
-
 	public BitStringNoter(IBitString X, IBitString Y) throws Exception
 	{
 		IProblem[] p = new IProblem[X.size()];

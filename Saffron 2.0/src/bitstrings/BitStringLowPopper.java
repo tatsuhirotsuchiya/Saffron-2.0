@@ -16,12 +16,11 @@ import bits.Problem;
 
 public class BitStringLowPopper extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 697324802640802017L;
-
 	public BitStringLowPopper(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() != Y.size() + 1)
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringLowPopperException("X.size() != Y.size() + 1");
+			//this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[X.size()];

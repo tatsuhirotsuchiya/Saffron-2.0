@@ -1,30 +1,16 @@
 /*
- * BitStringTree.java	1.0 06/03/31
- *
- * Copyright 2006 Positronic Software.
- *
- *
- */
-/**
- * 
- *
+ * BitStringTree.java	
+ * @version 1.0 06/03/31
+ * @copyright 2006 Positronic Software
  * @author  Kerry Michael Soileau
  * <blockquote><pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
  * </pre></blockquote>
- * @version 1.0, 06/03/31
- * @see HashSet
- * @see List
- * @see IBitString
- * @see BitStringGraphException
  */
 package bitstrings;
 
-import java.util.HashSet;
-
 import bits.BooleanVariable;
-import bits.IBitString;
 import bits.IBooleanVariable;
 
 public class BitStringGraph implements IBitStringGraph

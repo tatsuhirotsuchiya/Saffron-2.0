@@ -16,13 +16,12 @@ import bits.Problem;
 
 public class BitStringConcatenator extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -82503210632450351L;
-
 	public BitStringConcatenator(IBitString X, IBitString Y, IBitString Z)
 			throws Exception
 	{
 		if (X.size() + Y.size() != Z.size())
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringConcatenatorException("The sizes of X and Y don't add up to the size of Z.");
+			//this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			IProblem[] p = new IProblem[Z.size()];

@@ -16,13 +16,12 @@ import bits.Problem;
 
 public class BitStringOrer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -7280465474097846016L;
-
 	public BitStringOrer(IBitString X, IBitString Y, IBitString Z)
 			throws Exception
 	{
 		if (X.size() != Y.size() || X.size() != Z.size())
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringOrerException("X, Y and Z are not of equal size.");
+			//this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			int commonsize = X.size();

@@ -16,8 +16,6 @@ import bits.Problem;
 
 public class BitStringEqualizer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -7124138810958693451L;
-
 	public BitStringEqualizer(IBitString X, IBitString Y) throws Exception
 	{
 		/*

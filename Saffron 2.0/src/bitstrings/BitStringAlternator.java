@@ -16,8 +16,6 @@ import bits.Problem;
 
 public class BitStringAlternator extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -3564851556876017721L;
-
 	public BitStringAlternator(IBitString X) throws Exception
 	{
 		IProblem[] p = new IProblem[X.size()];

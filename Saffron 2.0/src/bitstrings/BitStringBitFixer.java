@@ -15,13 +15,12 @@ import bits.Problem;
 
 public class BitStringBitFixer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -6141437951897455708L;
-
 	public BitStringBitFixer(IBitString b, int bit, boolean val)
 			throws Exception
 	{
 		if ((bit < 0) || (b.size() - 1 < bit))
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringBitFixerException("bit < 0 or b.size() - 1 < bit.");
+			//this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 			this.setClauses(
 					new BitFixer(b.getBooleanVariable(bit), val).getClauses());

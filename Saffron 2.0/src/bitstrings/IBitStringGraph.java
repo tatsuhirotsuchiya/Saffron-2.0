@@ -1,9 +1,6 @@
 /*
- * IBitStringTree.java	1.0 06/03/31
- *
- * Copyright 2006 Positronic Software.
- *
- *
+ * @version 1.0 06/03/31
+ * @copyright 2006 Positronic Software
  */
 
 package bitstrings;
@@ -26,6 +23,5 @@ public interface IBitStringGraph extends Cloneable
 
 	void setName(String name) throws BitStringGraphException;
 
-	@Override
 	String toString();
 }

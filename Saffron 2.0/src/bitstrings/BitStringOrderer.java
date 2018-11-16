@@ -37,7 +37,6 @@
 package bitstrings;
 
 import bits.BitFixer;
-import bits.BooleanLiteralException;
 import bits.Conjunction;
 import bits.Disjunction;
 import bits.IBitString;
@@ -47,15 +46,14 @@ import bits.Problem;
 
 public class BitStringOrderer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 7897268478609071132L;
-
 	public BitStringOrderer(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() == 0)
 			this.setClauses(Problem.trivialProblem().getClauses());
 		else
 			if (Y.size() == 0)
-				this.setClauses(Problem.unsolvableProblem().getClauses());
+				throw new BitStringOrdererException("Y has size 0.");
+				//this.setClauses(Problem.unsolvableProblem().getClauses());
 			else
 			{
 				IBooleanVariable X_0 = X.getBooleanVariable(0);

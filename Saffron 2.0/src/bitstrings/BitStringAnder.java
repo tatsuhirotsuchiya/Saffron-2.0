@@ -16,13 +16,12 @@ import bits.Problem;
 
 public class BitStringAnder extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 4603102888282129361L;
-
 	public BitStringAnder(IBitString X, IBitString Y, IBitString Z)
 			throws Exception
 	{
 		if ((X.size() != Y.size()) || (X.size() != Z.size()))
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringAnderException("X, Y and Z are not of equal size.");
+			//this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			int commonsize = X.size();

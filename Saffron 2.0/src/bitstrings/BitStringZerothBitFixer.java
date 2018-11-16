@@ -15,8 +15,6 @@ import bits.Problem;
 
 public class BitStringZerothBitFixer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 2406929624919189924L;
-
 	public BitStringZerothBitFixer(IBitString X, boolean b) throws Exception
 	{
 		this.setClauses(new BitFixer(X.getBooleanVariable(0), b).getClauses());

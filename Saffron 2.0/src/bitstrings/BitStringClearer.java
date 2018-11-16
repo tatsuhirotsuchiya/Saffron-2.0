@@ -15,12 +15,11 @@ import bits.Problem;
 
 public class BitStringClearer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 3337076384909528465L;
-
 	public BitStringClearer(IBitString X, IBitString Y) throws Exception
 	{
 		if (X.size() != Y.size())
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new BitStringClearerException("X and Y are not of equal size.");
+			//this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			int commonsize = X.size();
