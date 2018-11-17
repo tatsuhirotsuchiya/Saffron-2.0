@@ -32,15 +32,17 @@ public class ConditionalDisjunction extends Problem implements IProblem
 	public ConditionalDisjunction(IProblem[] problemArray,
 			IBooleanVariable[] booleanVariableArray) throws Exception
 	{
-		if (problemArray == null || booleanVariableArray == null)
-			return;
+		if (problemArray == null)
+			throw new ConditionalDisjunctionException("Null IProblem array passed to constructor.");
+		if (booleanVariableArray == null)
+			throw new ConditionalDisjunctionException("Null IBooleanVariable array passed to constructor.");
 		int numberOfProblems = problemArray.length;
 		if (numberOfProblems == 0)
-			return;
+			throw new ConditionalDisjunctionException("IProblem array of zero length passed to constructor.");
 		if (numberOfProblems == 1)
 			this.setClauses(problemArray[0].getClauses());
 		if (numberOfProblems != booleanVariableArray.length)
-			return;
+			throw new ConditionalDisjunctionException("IProblem array and IBooleanVariable array of unequal length passed to constructor.");
 
 		IProblem[] subProblems = new IProblem[numberOfProblems];
 		for (int i = 0; i < numberOfProblems; i++)

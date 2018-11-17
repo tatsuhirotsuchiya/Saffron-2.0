@@ -94,7 +94,7 @@ public class Disjunction extends Problem implements IProblem
 	 *         IProblem satisfied if and only if at least one of the following
 	 *         IProblems is satisfied:
 	 * 
-	 *         <pre>
+	 * <pre>
 	 * p_0
 	 * p_1
 	 * p_2
@@ -102,17 +102,17 @@ public class Disjunction extends Problem implements IProblem
 	 * .
 	 * .
 	 * p_{n-1}
-	 *         </pre>
+	 * </pre>
 	 * 
 	 * @throws Exception
 	 */
 	private static IProblem or(IProblem[] problemArray) throws Exception
 	{
 		if (problemArray == null)
-			return null;
+			throw new DisjunctionException("Null IProblem array passed to or method.");
 		int n = problemArray.length;
 		if (n == 0)
-			return null;
+			throw new DisjunctionException("IProblem array of zero length passed to or method.");
 		if (n == 1)
 			return problemArray[0];
 		if (n > 1)
@@ -157,15 +157,17 @@ public class Disjunction extends Problem implements IProblem
 	private static IProblem or(IProblem[] problemArray,
 			IBooleanVariable[] booleanVariableArray) throws Exception
 	{
-		if (problemArray == null || booleanVariableArray == null)
-			return null;
+		if (problemArray == null)
+			throw new DisjunctionException("Null IProblem array passed to or method.");
+		if (booleanVariableArray == null)
+			throw new DisjunctionException("Null IBooleanVariable array passed to or method.");
 		int numberOfProblems = problemArray.length;
 		if (numberOfProblems == 0)
-			return null;
+			throw new DisjunctionException("IProblem array of zero length passed to or method.");
 		if (numberOfProblems == 1)
 			return problemArray[0];
 		if (numberOfProblems != booleanVariableArray.length + 1)
-			return null;
+			throw new DisjunctionException("problemArray.length != booleanVariableArray.length + 1");
 		if (numberOfProblems > 1)
 		{
 			IProblem[] r = new IProblem[numberOfProblems - 1];
@@ -279,12 +281,14 @@ public class Disjunction extends Problem implements IProblem
 	 */
 	public Disjunction(IProblem[] problemArray) throws Exception
 	{
-		if (problemArray != null && problemArray.length > 0)
-		{
-			IProblem p = Disjunction.or(problemArray);
-			if (p != null)
-				this.setClauses(p.getClauses());
-		}
+		
+		if (problemArray == null)
+			throw new DisjunctionException("Null IProblem array passed to or method.");
+		if (problemArray.length == 0)
+			throw new DisjunctionException("IProblem array of zero length passed to or method.");
+		IProblem p = Disjunction.or(problemArray);
+		if (p != null)
+			this.setClauses(p.getClauses());
 	}
 
 	/**
@@ -300,7 +304,7 @@ public class Disjunction extends Problem implements IProblem
 	 * 
 	 * @return {r_0,r_1,r_2,...,r_{n-2}} where
 	 * 
-	 *         <pre>
+	 * <pre>
 	 * r_0=Disjunction.or(p_0,r_1,x_0)
 	 * r_1=Disjunction.or(p_1,r_2,x_1) 
 	 * r_2=Disjunction.or(p_2,r_3,x_2) 
@@ -309,7 +313,7 @@ public class Disjunction extends Problem implements IProblem
 	 * .
 	 * r_{n-3}=Disjunction.or(p_{n-3},r_{n-2},x_{n-3})
 	 * r_{n-2}=Disjunction.or(p_{n-2},p_{n-1},x_{n-2})
-	 *         </pre>
+	 * </pre>
 	 * 
 	 *         In effect, for the first <code>i</code> such that
 	 *         <code>x_i</code> is true, <code>p_i</code> is returned. If no
@@ -319,12 +323,17 @@ public class Disjunction extends Problem implements IProblem
 	public Disjunction(IProblem[] problemArray,
 			IBooleanVariable[] booleanVariableArray) throws Exception
 	{
-		if (problemArray != null && problemArray.length > 0)
-			if (booleanVariableArray != null && booleanVariableArray.length > 0)
-			{
-				IProblem p = Disjunction.or(problemArray, booleanVariableArray);
-				if (p != null)
-					this.setClauses(p.getClauses());
-			}
+		if (problemArray == null)
+			throw new DisjunctionException("Null IProblem array passed to constructor.");
+		if (problemArray.length == 0)
+			throw new DisjunctionException("IProblem array of zero length passed to constructor.");
+		if (booleanVariableArray == null)
+			throw new DisjunctionException("Null IBooleanVariable array passed to constructor.");
+		if (booleanVariableArray.length == 0)
+			throw new DisjunctionException("IBooleanVariable array of zero length passed to constructor.");
+		
+		IProblem p = Disjunction.or(problemArray, booleanVariableArray);
+		if (p != null)
+			this.setClauses(p.getClauses());
 	}
 }

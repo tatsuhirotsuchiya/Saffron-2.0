@@ -21,7 +21,7 @@ public class Conjunction extends Problem implements IProblem
 	private static IProblem and(IProblem[] p) throws Exception
 	{
 		if (p == null)
-			return null;
+			throw new ConjunctionException("Null IProblem array passed to and method.");
 		IProblem res = null;
 		for (int i = 0; i < p.length; i++)
 			if (p[i] != null)
