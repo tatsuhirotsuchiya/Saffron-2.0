@@ -12,7 +12,7 @@ Saffron is a preprocessor which serves as a front end for Sat4j. Saffron is to S
 
 For instance, here's how the NaturalNumberXorerDemo app runs in my particular Java configuration:
 
-cd C:\Users\Kerry\.AndroidStudio2.2\system\restart\jre\bin\
+cd C:\Users\Kerry\\.AndroidStudio2.2\system\restart\jre\bin\
 
 java.exe -classpath "C:\Users\Kerry\git\Saffron-2.0\Saffron 2.0\bin;C:\Users\Kerry\Development\eclipse\plugins\org.sat4j.core_2.3.5.v201308161310.jar" demos.NaturalNumberXorerDemo
 

@@ -1,7 +1,7 @@
 package bitstrings;
 
 /**
- * @copyright 2007 Positronic Software
+ * Copyright 2007 Positronic Software
  * @author Kerry Michael Soileau
  * @version 1.0
  */

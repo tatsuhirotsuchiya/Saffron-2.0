@@ -16,8 +16,11 @@ public class BitInequalityIndicatorDemo
 		IBooleanVariable z = BooleanVariable.getBooleanVariable("z");
 
 		IProblem bitInequalityIndicator1 = new BitInequalityIndicator(x, y, z);
-
 		System.out.println(bitInequalityIndicator1);
+		
+		IProblem bitInequalityIndicator2 = ((Problem) bitInequalityIndicator1).compress();
+		System.out.println(bitInequalityIndicator2);
+		
 		BooleanLiteral.interpret(
 				bitInequalityIndicator1.findModel(Problem.defaultSolver()));
 		System.out.println("x = " + x.getValue());

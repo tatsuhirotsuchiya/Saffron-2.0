@@ -3,18 +3,16 @@ package bits;
 import java.util.ArrayList;
 
 /**
- * 
- * 
  * For example, suppose <code>partition</code> is as follows:
  * 
- * 
- * <pre>
- * 0 1 2 3 4 ------------------- partition[0]: x00 x01 x02 x03 x04 partition[1]:
- * x10 x11 x12 x13 x14 partition[2]: x20 x21 x22 x23 x24
+ * 					0 	1 	2 	3 	4 
+ * 					------------------- 
+ * partition[0]: 	x00 x01 x02 x03 x04 
+ * partition[1]: 	x10 x11 x12 x13 x14 
+ * partition[2]: 	x20 x21 x22 x23 x24
  * 
  * where the x's are IBooleanVariables.
  * 
- * <pre>
  * then new BitArrayPartition(<code>partition</code>) returns an
  * <code>IProblem</code> that imposes the following:
  * 

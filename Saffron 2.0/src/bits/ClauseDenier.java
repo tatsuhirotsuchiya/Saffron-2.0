@@ -32,7 +32,8 @@ public class ClauseDenier extends Problem implements IProblem
 	public ClauseDenier(IClause clause) throws Exception
 	{
 		if (clause == null)
-			this.setClauses(Problem.unsolvableProblem().getClauses());
+			throw new ClauseDenierException("Null clause passed to constructor.");
+			//this.setClauses(Problem.unsolvableProblem().getClauses());
 		else
 		{
 			Object[] oib = clause.toArray();

@@ -1,10 +1,5 @@
-/*
- * BitOrer.java	1.11 04/11/24
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
+package bits;
+
 /**
  * An extension of the Problem class which imposes a Boolean relation on three
  * IBooleanVariables. For example, the Problem instance p defined by
@@ -19,27 +14,11 @@
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
  * @version 1.11, 04/11/24
- * @see IBooleanVariable
- * @see IClause
- * @see Problem
+ * Copyright 2004-2005 Positronic Software.
  */
-
-package bits;
 
 public class BitOrer extends Problem implements IProblem
 {
-	/*
-	 * public BitOrer(IBooleanVariable x, IBooleanVariable y, IBooleanVariable
-	 * z) throws Exception { this.setClauses(new IClause[] {
-	 * Clause.newClause().or(x).or(y).orNot(z),
-	 * Clause.newClause().or(x).orNot(y).or(z),
-	 * Clause.newClause().orNot(x).or(y).or(z),
-	 * Clause.newClause().orNot(x).orNot(y).or(z) }); }
-	 */
-
-	/***************************************
-	 *** { x y $z } { $y z } { $x z }
-	 ***************************************/
 	public BitOrer(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z)
 			throws Exception
 	{

@@ -27,7 +27,7 @@ package bits;
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>z == ( x & y )</tt>
+ * <tt>z == ( x &amp; y )</tt>
  * </p>
  * 
  * @author Kerry Michael Soileau ksoileau2@yahoo.com

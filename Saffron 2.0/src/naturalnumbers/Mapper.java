@@ -38,9 +38,10 @@ import bitstrings.BitStringFixer;
  * <tt>IProblem[] ipr1=new IProblem[]{p7,p9,p2};</tt>
  * <p>
  * <tt>IProblem[] ipr2=new IProblem[]{p3,p8,p1};
- * <p><tt>IBooleanVariable[] bool=new IBooleanVariable[]{b1,b2};
- * <p><tt>IProblem map1=new Mapper(ip1,ipr2,bool);
- * <p><tt>...</tt>
+ * IBooleanVariable[] bool=new IBooleanVariable[]{b1,b2};
+ * IProblem map1=new Mapper(ip1,ipr2,bool);
+ * ...
+ * </tt>
  * </p>
  * <p>
  * Then <tt>map1</tt> will be satisfied when

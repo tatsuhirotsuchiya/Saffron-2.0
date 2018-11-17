@@ -1,11 +1,3 @@
-/*
- * BitNander.java	1.0 05/04/13
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 /**
@@ -29,20 +21,9 @@ package bits;
  * @see IClause
  * @see Problem
  */
+
 public class BitNander extends Problem implements IProblem
 {
-	/*
-	 * public BitNander(IBooleanVariable x, IBooleanVariable y, IBooleanVariable
-	 * z) throws Exception { this.setClauses(new IClause[] {
-	 * Clause.newClause().or(x).or(y).or(z),
-	 * Clause.newClause().or(x).orNot(y).or(z),
-	 * Clause.newClause().orNot(x).or(y).or(z),
-	 * Clause.newClause().orNot(x).orNot(y).orNot(z) }); }
-	 */
-
-	/***************************************
-	 *** { x z } { y z } { $x $y $z }
-	 ***************************************/
 	public BitNander(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z)
 			throws Exception
 	{

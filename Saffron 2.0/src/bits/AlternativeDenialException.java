@@ -1,19 +1,7 @@
 package bits;
 
 /**
- * <p>
- * Title: AlternativeDenialException
- * </p>
- * <p>
- * Description: TBS
- * </p>
- * <p>
- * Copyright (c) 2007
- * </p>
- * <p>
- * Company: Positronic Software
- * </p>
- * 
+ * Copyright 2007 Positronic Software
  * @author Kerry Michael Soileau
  * @version 1.0
  */
