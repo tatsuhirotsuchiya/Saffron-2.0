@@ -185,7 +185,7 @@ public class Disjunction extends Problem implements IProblem
 
 	/**
 	 *
-	 * @return an IProblem equivalent to the IProblem p.
+	 * Returns an IProblem equivalent to the IProblem p.
 	 * @throws Exception
 	 */
 	public Disjunction(IProblem p) throws Exception
@@ -195,8 +195,7 @@ public class Disjunction extends Problem implements IProblem
 	}
 
 	/**
-	 *
-	 * @return an IProblem satisfied if and only if at least one of the
+	 * Returns an IProblem satisfied if and only if at least one of the
 	 *         following IProblems is satisfied:
 	 * 
 	 *         <pre>
@@ -222,7 +221,7 @@ public class Disjunction extends Problem implements IProblem
 
 	/**
 	 *
-	 * @return an IProblem satisfied if and only if at least one of the
+	 * Returns an IProblem satisfied if and only if at least one of the
 	 *         following IProblems is satisfied:
 	 * 
 	 *         <pre>
@@ -241,7 +240,7 @@ public class Disjunction extends Problem implements IProblem
 
 	/**
 	 *
-	 * @return an IProblem satisfied if and only if at least one of the
+	 * Returns an IProblem satisfied if and only if at least one of the
 	 *         following IProblems is satisfied:
 	 * 
 	 *         <pre>
@@ -262,7 +261,7 @@ public class Disjunction extends Problem implements IProblem
 
 	/**
 	 *
-	 * @return an IProblem satisfied if and only if at least one of the
+	 * Returns an IProblem satisfied if and only if at least one of the
 	 *         following IProblems is satisfied:
 	 * 
 	 *         <pre>
@@ -302,7 +301,7 @@ public class Disjunction extends Problem implements IProblem
 	 * 
 	 * then
 	 * 
-	 * @return {r_0,r_1,r_2,...,r_{n-2}} where
+	 * Returns an {r_0,r_1,r_2,...,r_{n-2}} where
 	 * 
 	 * <pre>
 	 * r_0=Disjunction.or(p_0,r_1,x_0)
