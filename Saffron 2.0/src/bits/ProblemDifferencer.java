@@ -33,12 +33,10 @@ public class ProblemDifferencer extends Problem implements IProblem
 	{
 		if (first == null || second == null)
 			throw new ProblemDifferencerException(
-					"Null IProblem was passed to constructor.");
-		else
-		{
-			IProblem denial = new ProblemDenier(second);
-			IProblem res = new Conjunction(first, denial);
-			this.setClauses(res.getClauses());
-		}
+					"A null IProblem was passed to constructor.");
+
+		IProblem denial = new ProblemDenier(second);
+		IProblem res = new Conjunction(first, denial);
+		this.setClauses(res.getClauses());
 	}
 }

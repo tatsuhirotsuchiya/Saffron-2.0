@@ -3,15 +3,10 @@ package bits;
 /**
  * This class links the value of an IBooleanVariable to the truth value of a
  * given IProblem.
- *
  * @author Kerry Michael Soileau <blockquote>
- * 
- *         <pre>
+ * <pre>
  * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- *         </pre>
- * 
- *         </blockquote>
+ * </pre>
  * @version 1.0, 05/12/26
  */
 public class ProblemBitLinker extends Problem implements IProblem

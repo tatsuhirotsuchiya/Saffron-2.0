@@ -152,7 +152,6 @@ public class Problem implements IProblem
 		this.getClauses().add(currcl);
 	}
 
-	@Override
 	public boolean addClause(IClause c) throws Exception
 	{
 		if (c == null)
@@ -165,7 +164,6 @@ public class Problem implements IProblem
 			return false;
 	}
 
-	@Override
 	public void addClauseVoid(IClause c) throws Exception
 	{
 		this.addClause(c);
@@ -183,7 +181,6 @@ public class Problem implements IProblem
 	 * public IProblem and(IProblem p) throws Exception { return new
 	 * Conjunction(new IProblem[]{p,this}); }
 	 */
-	@Override
 	public IProblem and(IProblem p) throws Exception
 	{
 		return (IProblem) new Conjunction(this, p);
@@ -218,7 +215,6 @@ public class Problem implements IProblem
 		return res;
 	}
 
-	@Override
 	public IProblem combineSinglyMatchingClauses() throws Exception
 	{
 		int psize = this.size();
@@ -299,7 +295,6 @@ public class Problem implements IProblem
 		return reduction;
 	}
 
-	@Override
 	public boolean contains(IClause c) throws Exception
 	{
 		if (c == null)
@@ -364,13 +359,11 @@ public class Problem implements IProblem
 		return false;
 	}
 
-	@Override
 	public ArrayList<IBooleanLiteral> findModel() throws Exception
 	{
 		return findModel(Problem.defaultSolver());
 	}
 
-	@Override
 	public ArrayList<IBooleanLiteral> findModel(ISolver solver) throws Exception
 	{
 		KSatReader reader = new KSatReader(solver);
@@ -390,7 +383,6 @@ public class Problem implements IProblem
 		return findModelList(Problem.defaultSolver());
 	}
 
-	@Override
 	public List<IBooleanLiteral> findModelList(ISolver s) throws Exception
 	{
 		return findModel(s);
@@ -401,7 +393,6 @@ public class Problem implements IProblem
 		return findTwoModels(b.getBVArray());
 	}
 
-	@Override
 	public ArrayList<?>[] findTwoModels(IBooleanVariable b) throws Exception
 	{
 		ArrayList<?>[] res = new ArrayList<?>[2];
@@ -442,11 +433,6 @@ public class Problem implements IProblem
 		return findTwoModels(n.getBVArray());
 	}
 
-	/*
-	 * public IClause[] getClauses(int n) { return this.backing; }
-	 */
-
-	@Override
 	public ArrayList<IBooleanVariable> getBooleanVariables() throws Exception
 	{
 		ArrayList<IBooleanVariable> hs = new ArrayList<IBooleanVariable>();
@@ -592,7 +578,6 @@ public class Problem implements IProblem
 		return res;
 	}
 
-	@Override
 	public void setClause(int n, IClause cl)
 	{
 		this.getClauses().set(n, cl);
@@ -787,7 +772,6 @@ public class Problem implements IProblem
 		return ret;
 	}
 
-	@Override
 	public String toString()
 	{
 		String res = "***************************************";
@@ -821,12 +805,14 @@ public class Problem implements IProblem
 	}
 
 	/*
-	 * <?xml version="1.0" encoding="UTF-8" ?> <!ELEMENT Literal EMPTY >
-	 * <!ATTLIST Literal variable NMTOKEN #REQUIRED > <!ATTLIST Literal barred (
-	 * false | true ) #REQUIRED > <!ELEMENT Problem ( Clause+ ) > <!ELEMENT
-	 * Clause ( Literal+ ) >
+	 * <?xml version="1.0" encoding="UTF-8" ?> 
+	 * <!ELEMENT Literal EMPTY >
+	 * <!ATTLIST Literal variable NMTOKEN #REQUIRED > 
+	 * <!ATTLIST Literal barred (
+	 * false | true ) #REQUIRED > 
+	 * <!ELEMENT Problem ( Clause+ ) > 
+	 * <!ELEMENT Clause ( Literal+ ) >
 	 */
-	@Override
 	public String toXML()
 	{
 		String res = "<Problem>\n";

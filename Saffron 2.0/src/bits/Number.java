@@ -4,18 +4,7 @@ import naturalnumbers.NaturalNumber;
 import naturalnumbers.NumberException;
 
 /**
- * <p>
- * Title: TBS
- * </p>
- * <p>
- * Description: TBS
- * </p>
- * <p>
- * Copyright (c) 2004
- * </p>
- * <p>
- * Company: Positronic Software
- * </p>
+ * Copyright 2004 Positronic Software
  * 
  * @author Kerry Michael Soileau
  * @version 1.0
@@ -33,7 +22,6 @@ public class Number implements INumber
 
 	private boolean[] bitArray;
 	private String name;
-
 	private boolean overflow;
 
 	public Number(boolean[] bitArray, boolean overflow) throws NumberException
@@ -118,7 +106,8 @@ public class Number implements INumber
 			this.setBitArray(new boolean[padsize]);
 			for (int i = 0; i < n.getSize(); i++)
 				this.setBit(i, n.getBit(i));
-		} else
+		}
+		else
 		{
 			if (n.getSize() > NaturalNumber.getLength())
 				throw new NumberException(
@@ -140,7 +129,6 @@ public class Number implements INumber
 			return (this.getName().compareTo(n.getName()) == 0);
 	}
 
-	@Override
 	public boolean getBit(int i) throws NumberException
 	{
 		if (i < 0 || i > this.getSize() - 1)
@@ -149,19 +137,16 @@ public class Number implements INumber
 		return this.getBitArray()[i];
 	}
 
-	@Override
 	public boolean[] getBitArray()
 	{
 		return bitArray;
 	}
 
-	@Override
 	public String getName()
 	{
 		return name;
 	}
 
-	@Override
 	public int getSize()
 	{
 		return this.bitArray.length;
@@ -172,7 +157,6 @@ public class Number implements INumber
 		return overflow;
 	}
 
-	@Override
 	public void setBit(int i, boolean b) throws NumberException
 	{
 		if (i < 0 || i > this.getSize() - 1)
@@ -181,7 +165,6 @@ public class Number implements INumber
 		this.getBitArray()[i] = b;
 	}
 
-	@Override
 	public void setBitArray(boolean[] bitArray) throws NumberException
 	{
 		if (bitArray == null)
@@ -190,19 +173,16 @@ public class Number implements INumber
 		this.bitArray = bitArray;
 	}
 
-	@Override
 	public void setName(String name)
 	{
 		this.name = name;
 	}
 
-	@Override
 	public void setOverflow(boolean overflow)
 	{
 		this.overflow = overflow;
 	}
 
-	@Override
 	public String toString()
 	{
 		String res = "<";

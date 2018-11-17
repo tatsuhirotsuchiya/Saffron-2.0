@@ -21,30 +21,29 @@ package bits;
  * about the satisfiability of problem, it is useful mainly in constraining an
  * ICertificate away from those ICertificates which satisfy problem, if any.
  *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.01, 05/12/26
- * @see BooleanLiteralException
- * @see IClause
- * @see IProblem
- * @see Problem
+ * @author Kerry Michael Soileau 
+ * <p>ksoileau2@yahoo.com
+ * <p>http://kerrysoileau.com/index.html
+ * @version 1.01, 2005/12/26
  */
 public class ProblemDenier extends Problem implements IProblem
 {
 	public ProblemDenier(IProblem problem) throws Exception
 	{
+		if (problem == null)
+			throw new ProblemDenierException(
+					"Null IProblem passed to constructor.");
 		if (problem.numberOfClauses() == 0)
-			this.setClauses(Problem.unsolvableProblem().getClauses());
-		else
+			throw new ProblemDenierException(
+					"IProblem of zero size passed to constructor.");
+
+		IProblem res = new ClauseDenier(problem.getClause(0));
+		for (int i = 1; i < problem.numberOfClauses(); i++)
 		{
-			IProblem res = new ClauseDenier(problem.getClause(0));
-			for (int i = 1; i < problem.numberOfClauses(); i++)
-			{
-				IClause cls = problem.getClause(i);
-				IProblem ip = new ClauseDenier(cls);
-				res = new Disjunction(res, ip);
-			}
-			this.setClauses(res.getClauses());
+			IClause cls = problem.getClause(i);
+			IProblem ip = new ClauseDenier(cls);
+			res = new Disjunction(res, ip);
 		}
+		this.setClauses(res.getClauses());
 	}
 }

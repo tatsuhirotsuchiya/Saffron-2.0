@@ -60,7 +60,6 @@ public interface IBooleanLiteral extends Comparable<Object>
 	 */
 	void load();
 
-	@Override
 	String toString();
 
 	String toString(List<IBooleanLiteral> l) throws BooleanLiteralException;

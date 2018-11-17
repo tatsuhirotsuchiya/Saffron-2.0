@@ -23,16 +23,12 @@ package bits;
  * 
  * @author Kerry Michael Soileau <blockquote>
  * 
- *         <pre>
+ * <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- *         </pre>
+ * </pre>
  * 
- *         </blockquote>
- * @version 1.0, 06/04/08
- * @see BitEqualizer
- * @see Conjunction
- * @see Disjunction
+ * @version 1.0, 2006/04/08
  */
 public class ToffoliGater extends Problem implements IProblem
 {

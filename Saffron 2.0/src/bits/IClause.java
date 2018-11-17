@@ -65,7 +65,4 @@ public interface IClause extends Comparable<Object>
 	String toCode() throws ClauseException;
 
 	IBooleanLiteral[] toSortedArray();
-
-	// public String toString();
-
 }
