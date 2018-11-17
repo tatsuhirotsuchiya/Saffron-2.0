@@ -21,7 +21,7 @@ package bits;
  * A B C | P Q R ------|------ 0 0 0 | 0 0 0 0 0 1 | 0 0 1 0 1 0 | 0 1 0 0 1 1 |
  * 0 1 1 1 0 0 | 1 0 0 1 0 1 | 1 0 1 1 1 0 | 1 1 1 1 1 1 | 1 1 0
  * 
- * @author Kerry Michael Soileau <blockquote>
+ * @author Kerry Michael Soileau
  * 
  * <pre>
  * ksoileau2@yahoo.com

@@ -14,7 +14,7 @@ import org.sat4j.specs.ISolver;
 
 /**
  * The <code>IProblem</code> interface must be implemented by any class
- * definition of <tt>Problem</tt> contempleted as an alternative to the
+ * definition of <tt>Problem</tt> contemplated as an alternative to the
  * <tt>Problem</tt> class provided by this package.
  *
  * @author Kerry Michael Soileau

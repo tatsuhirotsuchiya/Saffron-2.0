@@ -24,16 +24,15 @@ import bits.Problem;
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>X > 0</tt>
+ * <tt>X &gt; 0</tt>
  * </p>
  * .
  *
  * @author Kerry Michael Soileau <blockquote>
- * 
- *         <pre>
+ * <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- *         </pre>
+ * </pre>
  * 
  *         </blockquote>
  * @version 1.0, 10/08/29
@@ -45,8 +44,6 @@ import bits.Problem;
 
 public class NaturalNumberPositiver extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 5324036170365126821L;
-
 	public NaturalNumberPositiver(INaturalNumber X) throws Exception
 	{
 		this(X, new NaturalNumber());

@@ -3,7 +3,7 @@ package bits;
 /**
  * This class links the value of an IBooleanVariable to the truth value of a
  * given IProblem.
- * @author Kerry Michael Soileau <blockquote>
+ * @author Kerry Michael Soileau
  * <pre>
  * ksoileau2@yahoo.com
  * </pre>

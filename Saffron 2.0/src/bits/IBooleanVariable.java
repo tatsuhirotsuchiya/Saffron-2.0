@@ -8,7 +8,7 @@ package bits;
 
 /**
  * The <code>IBooleanVariable</code> interface must be implemented by any class
- * definition of <code>BooleanVariable</code> contempleted as an alternative to
+ * definition of <code>BooleanVariable</code> contemplated as an alternative to
  * the <code>BooleanVariable</code> class provided by this package.
  *
  * @author Kerry Michael Soileau

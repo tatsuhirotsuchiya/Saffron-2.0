@@ -48,14 +48,6 @@ import org.sat4j.specs.IVecInt;
  * @author Kerry Michael Soileau ksoileau2@yahoo.com
  *         http://kerrysoileau.com/index.html
  * @version 1.1, 06/01/29
- * @see org.sat4j.core.VecInt;
- * @see org.sat4j.specs.IVecInt;
- * @see positronic.satisfiability.elements.IBooleanLiteral;
- * @see positronic.satisfiability.elements.IBooleanVariable;
- * @see positronic.satisfiability.elements.IClause;
- * @see positronic.satisfiability.elements.IProblem;
- * @see positronic.satisfiability.elements.Problem;
- * @see positronic.satisfiability.exceptions.BooleanLiteralException;
  */
 public class KSatReader
 {

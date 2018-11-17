@@ -1,9 +1,6 @@
 /*
- * BooleanLiteral.java	1.0 04/09/07
- *
+ * BooleanLiteral.java	1.0 04/09/2007
  * Copyright 2004-2005 Positronic Software.
- *
- *
  */
 
 package bits;
@@ -51,6 +48,12 @@ public class BooleanLiteral implements IBooleanLiteral
 	 * instance is returned. If not, the private constructor is used to create
 	 * the desired IBooleanLiteral, which is then added to the
 	 * <tt>HashSet instances</tt> and is returned.
+	 */
+	/**
+	 * @param bv
+	 * @param barred
+	 * @return
+	 * @throws BooleanLiteralException
 	 */
 	public static IBooleanLiteral getBooleanLiteral(IBooleanVariable bv,
 			boolean barred) throws BooleanLiteralException

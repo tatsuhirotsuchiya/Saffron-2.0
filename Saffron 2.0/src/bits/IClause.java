@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * The <code>IClause</code> interface must be implemented by any class
- * definition of <code>Clause</code> contempleted as an alternative to the
+ * definition of <code>Clause</code> contemplated as an alternative to the
  * <code>Clause</code> class provided by this package.
  *
  * @author Kerry Michael Soileau
