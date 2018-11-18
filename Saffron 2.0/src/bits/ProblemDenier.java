@@ -15,7 +15,7 @@ import bits.exceptions.ProblemDenierException;
  * IProblem. More specifically, the IProblem p defined by
  *
  * <p>
- * <tt>IProblem p=new ProblemDenier(problem);</tt>
+ * <tt>IProblem p=new ProblemDenier(problem);</code>
  * </p>
  *
  * is satisfied by an ICertificate c if and only if the IProblem problem is not

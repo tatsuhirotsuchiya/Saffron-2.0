@@ -165,10 +165,10 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 	}
 
 	/**
-	 * Returns <tt>true</tt> if o1 R o2, i.e. if o1 is equivalent to o2 under
-	 * this equivalence relation, otherwise <tt>false</tt> is returned.
+	 * Returns <tt>true</code> if o1 R o2, i.e. if o1 is equivalent to o2 under
+	 * this equivalence relation, otherwise <tt>false</code> is returned.
 	 *
-	 * @return <tt>true</tt> if o1 is equivalent to o2 under this equivalence
+	 * @return <tt>true</code> if o1 is equivalent to o2 under this equivalence
 	 *         relation.
 	 */
 	public boolean areRelated(Object o1, Object o2)

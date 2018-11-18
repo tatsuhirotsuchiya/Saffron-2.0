@@ -9,15 +9,15 @@
  *
  * For example, when the Problem instance p defined by
  *
- * <p><tt>Problem p = new NaturalNumberListMaxer(max,list);</tt></p>
+ * <p><tt>Problem p = new NaturalNumberListMaxer(max,list);</code></p>
  *
  * is satisfied, the following truth equations will be satisfied:
  *
- * <p><tt>max >= X</tt> for every member <tt>X</tt> in <tt>list</tt></p>
+ * <p><tt>max >= X</code> for every member <tt>X</code> in <tt>list</code></p>
  * 
  * and
  * 
- * <p><tt>max</tt> is a member of <tt>list</tt></p>
+ * <p><tt>max</code> is a member of <tt>list</code></p>
  *
  * @author  Kerry Michael Soileau
  * <blockquote><pre>

@@ -9,15 +9,15 @@
  *
  * For example, when the Problem instance p defined by
  *
- * <p><tt>Problem p = new NaturalNumberListMiner(min,list);</tt></p>
+ * <p><tt>Problem p = new NaturalNumberListMiner(min,list);</code></p>
  *
  * is satisfied, the following truth equations will be satisfied:
  *
- * <p><tt>min <= X</tt> for every member <tt>X</tt> in <tt>list</tt></p>
+ * <p><tt>min <= X</code> for every member <tt>X</code> in <tt>list</code></p>
  * 
  * and
  * 
- * <p><tt>min</tt> is a member of <tt>list</tt></p>
+ * <p><tt>min</code> is a member of <tt>list</code></p>
  *
  * @author  Kerry Michael Soileau
  * <blockquote><pre>

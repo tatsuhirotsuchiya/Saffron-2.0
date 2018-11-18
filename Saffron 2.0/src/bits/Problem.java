@@ -30,7 +30,7 @@ import naturalnumbers.NaturalNumber;
  * to a satisfiability problem. Problem is essentially a ArrayList of IClause
  * objects, and additionally provides several useful methods for combining
  * Problem objects, especially performing logical operations such as
- * <tt>and</tt> and <tt>or</tt> on such objects.
+ * <tt>and</code> and <tt>or</code> on such objects.
  *
  * This class is the superclass of numerous generic satisfiability problems.
  *

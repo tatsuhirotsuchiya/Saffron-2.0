@@ -16,7 +16,7 @@ import bits.exceptions.ProblemDifferencerException;
  * two given IProblems. More specifically, the IProblem p defined by
  *
  * <p>
- * <tt>IProblem p=new ProblemDifferencer(first,second);</tt>
+ * <tt>IProblem p=new ProblemDifferencer(first,second);</code>
  * </p>
  *
  * is satisfied if and only if the IProblem first is satisfied and the IProblem

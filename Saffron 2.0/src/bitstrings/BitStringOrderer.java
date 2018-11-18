@@ -12,7 +12,7 @@
  *
  * The Problem instance p defined by
  *
- * <p><tt>Problem p=new BitStringOrderer(X,Y);</tt></p>
+ * <p><tt>Problem p=new BitStringOrderer(X,Y);</code></p>
  *
  * is satisfied if and only if X is previous or equal to Y in lexicographical
  * order.

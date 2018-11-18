@@ -20,13 +20,13 @@ import bits.exceptions.ExclusiveDisjunctionException;
  * of two given IProblems. More specifically, the IProblem p defined by
  *
  * <p>
- * <tt>IProblem p=new ExclusiveDisjunction(first,second);</tt>
+ * <tt>IProblem p=new ExclusiveDisjunction(first,second);</code>
  * </p>
  *
- * is satisfied by an ICertificate c if and only if the IProblem <tt>first</tt>
- * is satisfied by <tt>c</tt> and the IProblem <tt>second</tt> is not satisfied
- * by <tt>c</tt> or the IProblem <tt>first</tt> is not satisfied by <tt>c</tt>
- * and the IProblem <tt>second</tt> is satisfied by <tt>c</tt>.
+ * is satisfied by an ICertificate c if and only if the IProblem <tt>first</code>
+ * is satisfied by <tt>c</code> and the IProblem <tt>second</code> is not satisfied
+ * by <tt>c</code> or the IProblem <tt>first</code> is not satisfied by <tt>c</code>
+ * and the IProblem <tt>second</code> is satisfied by <tt>c</code>.
  *
  * @author Kerry Michael Soileau ksoileau2@yahoo.com
  *         http://kerrysoileau.com/index.html

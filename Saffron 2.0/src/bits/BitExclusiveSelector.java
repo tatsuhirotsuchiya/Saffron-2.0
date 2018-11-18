@@ -17,13 +17,13 @@ import bits.exceptions.BitExclusiveSelectorException;
  * IBooleanVariables. For example, the IProblem p defined by
  *
  * <p>
- * <tt>IProblem p=new BitExclusiveSelector(x,y,z);</tt>
+ * <tt>IProblem p=new BitExclusiveSelector(x,y,z);</code>
  * </p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
  * <p>
- * <tt>Exactly one of x, y and z is true, the other two are false.</tt>
+ * <tt>Exactly one of x, y and z is true, the other two are false.</code>
  * </p>
  *
  * @author Kerry Michael Soileau <blockquote>

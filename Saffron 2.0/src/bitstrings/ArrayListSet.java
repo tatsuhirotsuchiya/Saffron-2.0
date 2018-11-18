@@ -89,7 +89,7 @@ public class ArrayListSet<E> extends ArrayList<E> implements Set<E>
 	 *
 	 * @param c
 	 *            elements to be added
-	 * @return <tt>true</tt> if this set changed as a result of the call.
+	 * @return <tt>true</code> if this set changed as a result of the call.
 	 */
 	public boolean add(Collection<E> c)
 	{
@@ -113,7 +113,7 @@ public class ArrayListSet<E> extends ArrayList<E> implements Set<E>
 	 *
 	 * @param o
 	 *            element to be added to this set.
-	 * @return <tt>true</tt> if the set did not already contain the specified
+	 * @return <tt>true</code> if the set did not already contain the specified
 	 *         element.
 	 */
 	@Override

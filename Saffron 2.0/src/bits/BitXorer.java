@@ -21,13 +21,13 @@ package bits;
  * For example, when the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p=new BitXorer(x,y,z);</tt>
+ * <tt>Problem p=new BitXorer(x,y,z);</code>
  * </p>
  *
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>z == ( x &amp; y )</tt>
+ * <tt>z == ( x &amp; y )</code>
  * </p>
  * 
  * @author Kerry Michael Soileau ksoileau2@yahoo.com

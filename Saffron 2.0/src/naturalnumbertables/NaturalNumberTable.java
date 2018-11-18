@@ -16,7 +16,7 @@ import naturalnumbertables.exceptions.NaturalNumberTableException;
 public class NaturalNumberTable implements INaturalNumberTable
 {
 	/**
-	 * A static integer which records the number of <tt>NaturalNumberTable</tt>
+	 * A static integer which records the number of <tt>NaturalNumberTable</code>
 	 * 's created without specifying a name.
 	 */
 	private static int nNTCount;

@@ -9,17 +9,17 @@
  * An extension of the Problem class which imposes a Boolean relation on two
  * IBooleanVariables. For example, the Problem instance p defined by
  *
- * <p><tt>Problem p=new BitOrderer(x,y);</tt></p>
+ * <p><tt>Problem p=new BitOrderer(x,y);</code></p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
- * <p><tt>x implies y</tt></p>
+ * <p><tt>x implies y</code></p>
  *
- * Equivalently, <p><tt>Problem p=new BitOrderer(x,y);</tt></p>
+ * Equivalently, <p><tt>Problem p=new BitOrderer(x,y);</code></p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
- * <p><tt>y==true or (y==false && x==false)</tt></p>.
+ * <p><tt>y==true or (y==false && x==false)</code></p>.
  *
  * @author  Kerry Michael Soileau
  * ksoileau2@yahoo.com

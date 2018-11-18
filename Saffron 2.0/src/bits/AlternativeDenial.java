@@ -1,31 +1,29 @@
-/**
- * An extension of the Problem class which expresses the alternative denial
- * (also called the NAND or Sheffer stroke) of several given IProblems. More
- * specifically, the IProblem p defined by
- *
- * <p>
- * <tt>IProblem p=new AlternativeDenial(first,second,third);</tt>
- * </p>
- *
- * is satisfied by an ICertificate c if and only if at least one of
- * <tt>first</tt>, <tt>second</tt> or <tt>third</tt> is not satisfied by
- * <tt>c</tt>.
- * 
- * It is the logical opposite of a Conjunction.
- *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.0, 2007/08/20
- * @copyright 2007 Positronic Software.
- * 
- */
-
 package bits;
 
 import java.util.List;
-
 import bits.exceptions.AlternativeDenialException;
 
+/**
+ * An extension of the <code>Problem</code> class which expresses the
+ * alternative denial (also called the NAND or Sheffer stroke) of several given
+ * <code>IProblem</code>s. More specifically, the <code>IProblem</code> p
+ * defined by
+ * <p>
+ * <code>IProblem p=new AlternativeDenial(first,second,third);</code>
+ * </p>
+ * is satisfied by an <code>ICertificate cert</code> if and only if at least one
+ * of <code>first</code>, <code>second</code> or <code>third</code> is not
+ * satisfied by <code>cert</code>. It is the logical opposite of a
+ * <code>Conjunction</code>.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2007/08/20
+ */
 public class AlternativeDenial extends Problem implements IProblem
 {
 	public AlternativeDenial(IProblem first, IProblem second) throws Exception

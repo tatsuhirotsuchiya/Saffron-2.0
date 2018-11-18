@@ -15,13 +15,13 @@ import bits.exceptions.BitEqualizerException;
  * IBooleanVariables. For example, the Problem instance p defined by
  *
  * <p>
- * <tt>Problem p=new BitEqualizer(x,y);</tt>
+ * <tt>Problem p=new BitEqualizer(x,y);</code>
  * </p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
  * <p>
- * <tt>x==y</tt>
+ * <tt>x==y</code>
  * </p>
  *
  * @author Kerry Michael Soileau ksoileau2@yahoo.com
