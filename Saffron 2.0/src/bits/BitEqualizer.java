@@ -24,17 +24,18 @@ import bits.exceptions.BitEqualizerException;
  * <tt>x==y</code>
  * </p>
  *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.11, 05/11/30
- * @see BitEqualizerException
- * @see Clause
- * @see IClause
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.11
+ * @since 2005/11/30
  */
 public class BitEqualizer extends Problem implements IProblem
 {
-	public BitEqualizer(IBooleanVariable x, IBooleanVariable y) throws Exception
+	public BitEqualizer(IBooleanVariable x, IBooleanVariable y)
+			throws Exception
 	{
 		if (x == null || y == null)
 			throw new BitEqualizerException(

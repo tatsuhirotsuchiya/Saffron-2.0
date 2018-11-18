@@ -8,6 +8,7 @@ bittables
 bittables.exceptions
 demos
 demos.binpacking
+demos.scheduling
 naturalnumberlists
 naturalnumberlists.exceptions
 naturalnumbers

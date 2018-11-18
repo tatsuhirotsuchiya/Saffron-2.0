@@ -1,41 +1,29 @@
 package bits;
 
 /**
- * An extension of the Problem class which imposes a Boolean relation on three
- * IBooleanVariables. For example, the IProblem p defined by
+ * An extension of the
+ * <code>Problem class which imposes a Boolean relation on three
+ * <code>IBooleanVariable</code>s. For example, the <code>IProblem p</code>
+ * defined by
  *
  * <p>
- * <tt>IProblem p=new BitAnder(x,y,z);</code>
+ * <code>IProblem p=new BitAnder(x,y,z);</code>
  * </p>
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
  * <p>
- * <tt>z == x &amp; y </code>
+ * <code>z == x &amp; y </code>
  * </p>
  *
- * @author Kerry Michael Soileau <blockquote>
- * @version 1.2, 05/02/09
- * @throws Exception
- * 
- * <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * </pre>
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.2
+ * @since 2005/02/09
  */
-/*
- * public BitAnder(IBooleanVariable x, IBooleanVariable y, IBooleanVariable
- * z) throws Exception { this.setClauses(new IClause[] {
- * Clause.newClause().or(x).or(y).orNot(z),
- * Clause.newClause().or(x).orNot(y).orNot(z),
- * Clause.newClause().orNot(x).or(y).orNot(z),
- * Clause.newClause().orNot(x).orNot(y).or(z) }); }
- */
-/***************************************
- *** { x $z } 
- *** { y $z } 
- *** { $x $y z }
- ***************************************/
 public class BitAnder extends Problem implements IProblem
 {
 	public BitAnder(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z)
@@ -46,4 +34,3 @@ public class BitAnder extends Problem implements IProblem
 				Clause.newClause().orNot(x).orNot(y).or(z) });
 	}
 }
-

@@ -5,40 +5,62 @@ import java.util.ArrayList;
 import bits.exceptions.BitArrayPartitionException;
 
 /**
- * For example, suppose <code>partition</code> is as follows:
- * <blockquote>
- * 		_______________0___1___2__3___4__<p>
- * 					
- * partition[0]: 	x00 x01 x02 x03 x04 <p>
- * partition[1]: 	x10 x11 x12 x13 x14 <p>
- * partition[2]: 	x20 x21 x22 x23 x24 <p>
+ * For example, suppose <code>partition</code> is as follows: <blockquote>
+ * _______________0___1___2__3___4__
+ * <p>
+ * 
+ * partition[0]: x00 x01 x02 x03 x04
+ * <p>
+ * partition[1]: x10 x11 x12 x13 x14
+ * <p>
+ * partition[2]: x20 x21 x22 x23 x24
+ * <p>
  * </blockquote>
  * 
- * where the x's are IBooleanVariables. then new BitArrayPartition(<code>partition</code>) returns an
- * <code>IProblem</code> that imposes the following:<p>
- * Exactly one of these<p>
- * {new BitFixer(x00,true), new BitFixer(x10,true), new
- * BitFixer(x20,true)}<p>
- * is satisfied<p>
- * and exactly one of these<p>
- * {new BitFixer(x01,true), new BitFixer(x11,true), new BitFixer(x21,true)}<p>
- * is satisfied<p>
- * and exactly one of these<p>
- * {new BitFixer(x02,true), new
- * BitFixer(x12,true), new BitFixer(x22,true)}<p>
- * is satisfied<p>
- * and exactly one of these<p>
- * {new BitFixer(x03,true), new BitFixer(x13,true), new
- * BitFixer(x23,true)}<p>
- * is satisfied<p>
- * and exactly one of these {new
- * BitFixer(x04,true), new BitFixer(x14,true), new BitFixer(x24,true)} is
- * satisfied.
- * <p>This class is useful for partitioning a set into several disjoint subsets.
+ * where the <code>x</code>'s are <code>IBooleanVariable</code>s. then new
+ * <code>BitArrayPartition(
+ * partition</code>) returns an <code>IProblem</code> that imposes the
+ * following:
+ * <p>
+ * Exactly one of these
+ * <p>
+ * <code>{new BitFixer(x00,true), new BitFixer(x10,true), new BitFixer(x20,true)}</code>
+ * <p>
+ * is satisfied
+ * <p>
+ * and exactly one of these
+ * <p>
+ * <code>{new BitFixer(x01,true), new BitFixer(x11,true), new BitFixer(x21,true)}</code>
+ * <p>
+ * is satisfied
+ * <p>
+ * and exactly one of these
+ * <p>
+ * <code>{new BitFixer(x02,true), new BitFixer(x12,true), new BitFixer(x22,true)}</code>
+ * <p>
+ * is satisfied
+ * <p>
+ * and exactly one of these
+ * <p>
+ * <code>{new BitFixer(x03,true), new BitFixer(x13,true), new BitFixer(x23,true)}</code>
+ * <p>
+ * is satisfied
+ * <p>
+ * and exactly one of these
+ * <p>
+ * <code>{new BitFixer(x04,true), new BitFixer(x14,true), new BitFixer(x24,true)}</code>
+ * <p>
+ * is satisfied.
+ * <p>
+ * This class is useful for partitioning a set into several disjoint subsets.
  * 
  * @author Kerry Michael Soileau
- * @version 1.0, 2018/11/05
- * 
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2018/11/05
  */
 public class BitArrayPartition extends Problem implements IProblem
 {

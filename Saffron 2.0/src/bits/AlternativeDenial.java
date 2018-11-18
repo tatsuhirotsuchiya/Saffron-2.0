@@ -9,7 +9,7 @@ import bits.exceptions.AlternativeDenialException;
  * <code>IProblem</code>s. More specifically, the <code>IProblem</code> p
  * defined by
  * <p>
- * <code>IProblem p=new AlternativeDenial(first,second,third);</code>
+ * <code>p=new AlternativeDenial(first,second,third);</code>
  * </p>
  * is satisfied by an <code>ICertificate cert</code> if and only if at least one
  * of <code>first</code>, <code>second</code> or <code>third</code> is not

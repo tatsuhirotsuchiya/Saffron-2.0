@@ -18,12 +18,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import naturalnumbers.NaturalNumber;
+
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.specs.ISolver;
 
 import bits.exceptions.ClauseException;
 import bits.exceptions.ProblemException;
-import naturalnumbers.NaturalNumber;
 
 /**
  * A class which represents a collection of IClause objects, and which amounts
@@ -302,8 +303,13 @@ public class Problem implements IProblem
 		if (c == null)
 			return false;
 		for (int i = 0; i < this.numberOfClauses(); i++)
-			if (this.getClause(i).equals(c))
+		{
+			IClause curr = this.getClause(i);
+			if(curr==null)
+				continue;
+			if (curr.equals(c))
 				return true;
+		}
 		return false;
 	}
 
@@ -351,7 +357,6 @@ public class Problem implements IProblem
 		}
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
 	public boolean equals(List<IBooleanLiteral> p)
 	{
 		if (!(p instanceof List))

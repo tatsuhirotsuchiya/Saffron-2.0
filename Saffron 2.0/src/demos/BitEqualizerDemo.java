@@ -12,8 +12,7 @@ import bits.Problem;
 
 public class BitEqualizerDemo
 {
-	public static void main(String[] args) throws Exception// BooleanLiteralException,
-															// BitEqualizerException
+	public static void main(String[] args) throws Exception
 	{
 		IBooleanVariable x = BooleanVariable.getBooleanVariable("x");
 		IBooleanVariable y = BooleanVariable.getBooleanVariable("y");
