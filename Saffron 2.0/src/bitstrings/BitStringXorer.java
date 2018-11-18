@@ -13,6 +13,7 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import bitstrings.exceptions.BitStringXorerException;
 
 public class BitStringXorer extends Problem implements IProblem
 {

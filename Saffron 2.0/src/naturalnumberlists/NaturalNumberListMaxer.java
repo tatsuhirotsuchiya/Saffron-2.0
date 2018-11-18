@@ -41,8 +41,6 @@ import naturalnumbers.NaturalNumberOrderer;
 
 public class NaturalNumberListMaxer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1L;
-
 	public NaturalNumberListMaxer(INaturalNumberList list, INaturalNumber max)
 			throws Exception
 	{

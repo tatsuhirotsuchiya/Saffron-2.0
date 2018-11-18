@@ -16,8 +16,6 @@ import bits.Problem;
 
 public class NaturalNumberRelativelyPrimer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -678441182597233147L;
-
 	public NaturalNumberRelativelyPrimer(INaturalNumber M, INaturalNumber N)
 			throws Exception
 	{

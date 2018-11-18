@@ -1,7 +1,7 @@
 package bits;
 
 import naturalnumbers.NaturalNumber;
-import naturalnumbers.NumberException;
+import naturalnumbers.exceptions.NumberException;
 
 /**
  * Copyright 2004 Positronic Software

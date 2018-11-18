@@ -12,11 +12,10 @@ import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
 import naturalnumbers.NaturalNumberOrer;
+import naturalnumbertables.exceptions.NaturalNumberTableOrerException;
 
 public class NaturalNumberTableOrer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -8214675085232120020L;
-
 	public NaturalNumberTableOrer(INaturalNumberTable X, INaturalNumberTable Y,
 			INaturalNumberTable Z) throws Exception
 	{

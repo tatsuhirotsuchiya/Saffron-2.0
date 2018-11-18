@@ -32,6 +32,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import bits.exceptions.BooleanVariableException;
+
 public class BooleanVariable implements IBooleanVariable
 {
 	private static long boolCount;

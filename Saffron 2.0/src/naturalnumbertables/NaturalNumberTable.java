@@ -11,6 +11,7 @@ package naturalnumbertables;
 import bits.IBitString;
 import bits.INaturalNumber;
 import naturalnumbers.NaturalNumber;
+import naturalnumbertables.exceptions.NaturalNumberTableException;
 
 public class NaturalNumberTable implements INaturalNumberTable
 {

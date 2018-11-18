@@ -21,6 +21,8 @@ import java.util.Map;
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.specs.ISolver;
 
+import bits.exceptions.ClauseException;
+import bits.exceptions.ProblemException;
 import naturalnumbers.NaturalNumber;
 
 /**
@@ -349,6 +351,7 @@ public class Problem implements IProblem
 		}
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	public boolean equals(List<IBooleanLiteral> p)
 	{
 		if (!(p instanceof List))

@@ -11,8 +11,6 @@ import bits.TwoBitAdder;
 
 public class NaturalNumberIncrementer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -2609644289688919937L;
-
 	public NaturalNumberIncrementer(INaturalNumber X, INaturalNumber Y)
 			throws Exception
 	{

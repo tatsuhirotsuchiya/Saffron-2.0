@@ -16,6 +16,7 @@ import java.util.Set;
 import bits.BooleanVariable;
 import bits.IBitString;
 import bits.IBooleanVariable;
+import bitstringlists.exceptions.BitStringListException;
 import bitstrings.ArrayListSet;
 import bitstrings.BitString;
 

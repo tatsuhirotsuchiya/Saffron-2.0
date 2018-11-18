@@ -8,6 +8,9 @@
 
 package bits;
 
+import bits.exceptions.BooleanLiteralException;
+import bits.exceptions.ProblemDifferencerException;
+
 /**
  * An extension of the Problem class which expresses the logical difference of
  * two given IProblems. More specifically, the IProblem p defined by

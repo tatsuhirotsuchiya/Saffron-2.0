@@ -27,6 +27,8 @@
 
 package bits;
 
+import bits.exceptions.ConditionalDisjunctionException;
+
 public class ConditionalDisjunction extends Problem implements IProblem
 {
 	public ConditionalDisjunction(IProblem[] problemArray,

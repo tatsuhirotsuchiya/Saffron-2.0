@@ -15,8 +15,6 @@ import bits.Problem;
 
 public class BitTableFixer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1189539238569048584L;
-
 	public BitTableFixer(IBitTable bitTable) throws Exception
 	{
 		IProblem[] p = new BitFixer[bitTable.numberRows()

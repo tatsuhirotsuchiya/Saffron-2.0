@@ -13,6 +13,7 @@ import bits.Conjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import bitstrings.exceptions.BitStringAnderException;
 
 public class BitStringAnder extends Problem implements IProblem
 {

@@ -29,7 +29,7 @@ package bits;
  * 1 1 0 | 1 0 1 
  * 1 1 1 | 1 1 1
  * 
- * @author Kerry Michael Soileau
+ * @author Kerry Michael Soileau <blockquote>
  * 
  * <pre>
  * ksoileau2@yahoo.com

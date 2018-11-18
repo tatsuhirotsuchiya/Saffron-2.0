@@ -15,8 +15,6 @@ import bits.Problem;
 
 public class NaturalNumberTriangular extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -77437358617434931L;
-
 	public NaturalNumberTriangular(INaturalNumber Z) throws Exception
 	{
 		INaturalNumber X = new NaturalNumber();

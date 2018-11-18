@@ -8,6 +8,9 @@
 
 package bits;
 
+import bits.exceptions.BooleanLiteralException;
+import bits.exceptions.ClauseDenierException;
+
 /**
  * An extension of the Problem class which expresses the denial of a given
  * IClause. More specifically, the IProblem p defined by

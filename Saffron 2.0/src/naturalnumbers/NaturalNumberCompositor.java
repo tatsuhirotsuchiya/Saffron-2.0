@@ -15,8 +15,6 @@ import bits.Problem;
 
 public class NaturalNumberCompositor extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 154021679263116366L;
-
 	public NaturalNumberCompositor(INaturalNumber Z) throws Exception
 	{
 		INaturalNumber A = new NaturalNumber();

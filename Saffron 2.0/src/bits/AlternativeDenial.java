@@ -24,6 +24,8 @@ package bits;
 
 import java.util.List;
 
+import bits.exceptions.AlternativeDenialException;
+
 public class AlternativeDenial extends Problem implements IProblem
 {
 	public AlternativeDenial(IProblem first, IProblem second) throws Exception

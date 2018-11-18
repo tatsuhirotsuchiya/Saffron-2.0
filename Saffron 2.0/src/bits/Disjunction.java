@@ -42,6 +42,8 @@ package bits;
 import java.util.ArrayList;
 import java.util.List;
 
+import bits.exceptions.DisjunctionException;
+
 public class Disjunction extends Problem implements IProblem
 {
 	/**

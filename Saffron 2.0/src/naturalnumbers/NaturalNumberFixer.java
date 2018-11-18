@@ -1,9 +1,7 @@
 /**
- * <p>Title: NaturalNumberFixer</p>
- * <p>Description: An IProblem which constrains an INaturalNumber to a
+ * <p>An IProblem which constrains an INaturalNumber to a
  * particular value.</p>
- * <p>Copyright (c) 2005</p>
- * <p>Company: Positronic Software</p>
+ * <p>Copyright (c) 2005 Positronic Software</p>
  * @author Kerry Michael Soileau
  * @version 1.0
  */
@@ -16,11 +14,10 @@ import bits.INumber;
 import bits.IProblem;
 import bits.Number;
 import bits.Problem;
+import naturalnumbers.exceptions.NaturalNumberFixerException;
 
 public class NaturalNumberFixer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 353253357834152667L;
-
 	public NaturalNumberFixer(INaturalNumber n) throws Exception
 	{
 		if (n == null)

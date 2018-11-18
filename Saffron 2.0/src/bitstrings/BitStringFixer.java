@@ -14,6 +14,7 @@ import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
+import bitstrings.exceptions.BitStringFixerException;
 
 public class BitStringFixer extends Problem implements IProblem
 {

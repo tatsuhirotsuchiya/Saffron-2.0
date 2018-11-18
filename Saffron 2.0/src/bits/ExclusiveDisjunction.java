@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import bits.exceptions.BooleanLiteralException;
+import bits.exceptions.ExclusiveDisjunctionException;
+
 /**
  * An extension of the Problem class which expresses the exclusive disjunction
  * of two given IProblems. More specifically, the IProblem p defined by

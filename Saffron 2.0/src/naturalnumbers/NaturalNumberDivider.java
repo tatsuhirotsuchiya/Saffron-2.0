@@ -45,8 +45,6 @@ import bits.Problem;
 
 public class NaturalNumberDivider extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -1349206429277593088L;
-
 	public NaturalNumberDivider(INaturalNumber X, INaturalNumber Y,
 			INaturalNumber Z) throws Exception
 	{

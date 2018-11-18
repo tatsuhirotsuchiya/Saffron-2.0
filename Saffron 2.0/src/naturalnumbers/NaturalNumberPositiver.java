@@ -24,15 +24,16 @@ import bits.Problem;
  * is satisfied, the following truth equation will be satisfied:
  *
  * <p>
- * <tt>X &gt; 0</tt>
+ * <tt>X > 0</tt>
  * </p>
  * .
  *
  * @author Kerry Michael Soileau <blockquote>
- * <pre>
+ * 
+ *         <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.html
- * </pre>
+ *         </pre>
  * 
  *         </blockquote>
  * @version 1.0, 10/08/29

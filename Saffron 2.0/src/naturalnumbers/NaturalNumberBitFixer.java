@@ -13,11 +13,10 @@ import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.exceptions.NaturalNumberBitFixerException;
 
 public class NaturalNumberBitFixer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -3345738484275675709L;
-
 	public NaturalNumberBitFixer(INaturalNumber b) throws Exception
 	{
 		if (b == null)

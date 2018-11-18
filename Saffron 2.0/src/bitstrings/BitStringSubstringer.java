@@ -14,6 +14,7 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import bitstrings.exceptions.BitStringSubstringerException;
 
 public class BitStringSubstringer extends Problem implements IProblem
 {

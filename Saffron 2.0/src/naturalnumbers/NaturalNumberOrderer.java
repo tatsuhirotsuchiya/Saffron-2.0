@@ -9,7 +9,6 @@ import bits.Problem;
 public class NaturalNumberOrderer extends Problem implements IProblem
 {
 	private static int nNOCount;
-	private static final long serialVersionUID = 4539757428746135087L;
 
 	public NaturalNumberOrderer(INaturalNumber X, INaturalNumber Y)
 			throws Exception

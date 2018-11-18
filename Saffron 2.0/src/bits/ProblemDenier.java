@@ -8,6 +8,8 @@
 
 package bits;
 
+import bits.exceptions.ProblemDenierException;
+
 /**
  * An extension of the Problem class which expresses the denial of a given
  * IProblem. More specifically, the IProblem p defined by

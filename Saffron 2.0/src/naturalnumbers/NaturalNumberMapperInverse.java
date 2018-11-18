@@ -7,16 +7,7 @@ import bits.Problem;
 
 /**
  * <p>
- * Title: NaturalNumberMappingInverse
- * </p>
- * <p>
- * Description: TBS
- * </p>
- * <p>
- * Copyright (c) 2005
- * </p>
- * <p>
- * Company: Positronic Software
+ * Copyright (c) 2005 Positronic Software
  * </p>
  * 
  * @author Kerry Michael Soileau
@@ -25,8 +16,6 @@ import bits.Problem;
 
 public class NaturalNumberMapperInverse extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -2890737715683794908L;
-
 	public NaturalNumberMapperInverse(NaturalNumberMapper f, INaturalNumber X,
 			INaturalNumber Y) throws Exception
 	{

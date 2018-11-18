@@ -16,8 +16,6 @@ import bits.Problem;
 
 public class NaturalNumberOrer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -2019448860707700885L;
-
 	public NaturalNumberOrer(INaturalNumber X, INaturalNumber Y,
 			INaturalNumber Z) throws Exception
 	{

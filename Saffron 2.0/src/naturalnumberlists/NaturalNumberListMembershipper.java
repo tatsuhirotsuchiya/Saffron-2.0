@@ -4,12 +4,11 @@ import bits.Disjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.exceptions.NaturalNumberListException;
 import naturalnumbers.NaturalNumberEqualizer;
 
 public class NaturalNumberListMembershipper extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1L;
-
 	public NaturalNumberListMembershipper(INaturalNumber element,
 			INaturalNumberList set) throws Exception
 	{

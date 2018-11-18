@@ -18,8 +18,6 @@ import bits.Problem;
 
 public class NaturalNumberDoubler extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -4034323416063358408L;
-
 	public NaturalNumberDoubler(INaturalNumber X, INaturalNumber Z)
 			throws Exception
 	{

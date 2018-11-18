@@ -12,6 +12,7 @@ package bitstrings;
 
 import bits.BooleanVariable;
 import bits.IBooleanVariable;
+import bitstrings.exceptions.BitStringGraphException;
 
 public class BitStringGraph implements IBitStringGraph
 {

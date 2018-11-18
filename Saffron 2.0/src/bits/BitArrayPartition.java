@@ -2,31 +2,39 @@ package bits;
 
 import java.util.ArrayList;
 
+import bits.exceptions.BitArrayPartitionException;
+
 /**
  * For example, suppose <code>partition</code> is as follows:
+ * <blockquote>
+ * 		_______________0___1___2__3___4__<p>
+ * 					
+ * partition[0]: 	x00 x01 x02 x03 x04 <p>
+ * partition[1]: 	x10 x11 x12 x13 x14 <p>
+ * partition[2]: 	x20 x21 x22 x23 x24 <p>
+ * </blockquote>
  * 
- * 					0 	1 	2 	3 	4 
- * 					------------------- 
- * partition[0]: 	x00 x01 x02 x03 x04 
- * partition[1]: 	x10 x11 x12 x13 x14 
- * partition[2]: 	x20 x21 x22 x23 x24
- * 
- * where the x's are IBooleanVariables.
- * 
- * then new BitArrayPartition(<code>partition</code>) returns an
- * <code>IProblem</code> that imposes the following:
- * 
- * Exactly one of these {new BitFixer(x00,true), new BitFixer(x10,true), new
- * BitFixer(x20,true)} is satisfied and exactly one of these {new
- * BitFixer(x01,true), new BitFixer(x11,true), new BitFixer(x21,true)} is
- * satisfied) and exactly one of these {new BitFixer(x02,true), new
- * BitFixer(x12,true), new BitFixer(x22,true)} is satisfied) and exactly one of
- * these {new BitFixer(x03,true), new BitFixer(x13,true), new
- * BitFixer(x23,true)} is satisfied) and exactly one of these {new
+ * where the x's are IBooleanVariables. then new BitArrayPartition(<code>partition</code>) returns an
+ * <code>IProblem</code> that imposes the following:<p>
+ * Exactly one of these<p>
+ * {new BitFixer(x00,true), new BitFixer(x10,true), new
+ * BitFixer(x20,true)}<p>
+ * is satisfied<p>
+ * and exactly one of these<p>
+ * {new BitFixer(x01,true), new BitFixer(x11,true), new BitFixer(x21,true)}<p>
+ * is satisfied<p>
+ * and exactly one of these<p>
+ * {new BitFixer(x02,true), new
+ * BitFixer(x12,true), new BitFixer(x22,true)}<p>
+ * is satisfied<p>
+ * and exactly one of these<p>
+ * {new BitFixer(x03,true), new BitFixer(x13,true), new
+ * BitFixer(x23,true)}<p>
+ * is satisfied<p>
+ * and exactly one of these {new
  * BitFixer(x04,true), new BitFixer(x14,true), new BitFixer(x24,true)} is
- * satisfied)
- * 
- * This class is useful for partitioning a set into several disjoint subsets.
+ * satisfied.
+ * <p>This class is useful for partitioning a set into several disjoint subsets.
  * 
  * @author Kerry Michael Soileau
  * @version 1.0, 2018/11/05

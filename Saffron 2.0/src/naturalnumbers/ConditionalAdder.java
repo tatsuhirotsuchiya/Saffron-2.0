@@ -6,6 +6,7 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.exceptions.ConditionalAdderException;
 
 public class ConditionalAdder extends Problem implements IProblem
 {

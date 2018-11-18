@@ -12,11 +12,10 @@ import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
 import naturalnumbers.NaturalNumberAnder;
+import naturalnumbertables.exceptions.NaturalNumberTableAnderException;
 
 public class NaturalNumberTableAnder extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -1907191457667291200L;
-
 	public NaturalNumberTableAnder(INaturalNumberTable X, INaturalNumberTable Y,
 			INaturalNumberTable Z) throws Exception
 	{

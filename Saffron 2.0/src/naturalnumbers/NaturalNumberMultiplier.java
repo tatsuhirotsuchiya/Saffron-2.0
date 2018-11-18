@@ -16,7 +16,6 @@ import bits.Problem;
 public class NaturalNumberMultiplier extends Problem implements IProblem
 {
 	private static int nnmCount = -1;
-	private static final long serialVersionUID = 7104032071486629197L;
 
 	public NaturalNumberMultiplier(INaturalNumber X, INaturalNumber Y,
 			INaturalNumber Z) throws Exception

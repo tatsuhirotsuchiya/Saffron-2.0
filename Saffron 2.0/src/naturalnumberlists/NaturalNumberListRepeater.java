@@ -28,18 +28,14 @@
 package naturalnumberlists;
 
 import bits.Disjunction;
-import bits.IBitString;
 import bits.IClause;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import bitstrings.BitStringEqualizer;
 import naturalnumbers.NaturalNumberEqualizer;
 
 public class NaturalNumberListRepeater extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 3268793939837872505L;
-
 	public NaturalNumberListRepeater(INaturalNumberList list) throws Exception
 	{
 		IProblem p = null;

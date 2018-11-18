@@ -14,6 +14,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import bits.exceptions.ClauseException;
+
 /**
  * A class which represents a satisfiability clause. IClause is essentially an
  * ArrayList of IBooleanLiteral objects, and additionally provides several
@@ -165,6 +167,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 	 * according to size, then on the "lowest" IBooleanLiteral in each IClause.
 	 * 
 	 * @return int
+	 * @throws ClauseException
 	 */
 	@Override
 	public int compareTo(Object o)
@@ -245,7 +248,7 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 
 	/**
 	 * An IClause A dominates an IClause B if and only if every IBooleanLiteral
-	 * in A can be found in B. In that case, A &amp; B if and only if A. Practically speaking,
+	 * in A can be found in B. In that case, A & B <--> A. Practically speaking,
 	 * if A dominates B, then B is redundant and may be deleted from any
 	 * IProblem which includes the IClause A.
 	 * 

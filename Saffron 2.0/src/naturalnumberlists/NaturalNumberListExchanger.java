@@ -3,21 +3,20 @@ package naturalnumberlists;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.exceptions.NaturalNumberListExchangerException;
 import naturalnumbers.NaturalNumberEqualizer;
 
 public class NaturalNumberListExchanger extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -4801677486414297194L;
-
 	public NaturalNumberListExchanger(INaturalNumberList A,
 			INaturalNumberList B, int m, int n) throws Exception
 	{
 		if (A == null)
-			throw new NaturalNumberListException(
-					"Passed a null INaturalNumberList to constructor.");
+			throw new NaturalNumberListExchangerException(
+					"Passed a null A to constructor.");
 		if (B == null)
-			throw new NaturalNumberListException(
-					"Passed a null INaturalNumberList to constructor.");
+			throw new NaturalNumberListExchangerException(
+					"Passed a null B to constructor.");
 
 		IProblem problem = null;
 		for (int i = 0; i < A.size(); i++)

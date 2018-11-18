@@ -13,6 +13,7 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import bitstringlists.exceptions.BitStringListException;
 
 public class BitStringListUnioner extends Problem implements IProblem
 {

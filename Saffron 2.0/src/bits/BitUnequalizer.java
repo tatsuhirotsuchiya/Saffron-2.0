@@ -28,6 +28,8 @@
 
 package bits;
 
+import bits.exceptions.BitUnequalizerException;
+
 public class BitUnequalizer extends Problem implements IProblem
 {
 	public BitUnequalizer(IBooleanVariable x, IBooleanVariable y)

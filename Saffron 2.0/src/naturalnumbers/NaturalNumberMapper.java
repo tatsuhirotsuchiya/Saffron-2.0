@@ -4,19 +4,11 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.exceptions.NaturalNumberMapperException;
 
 /**
  * <p>
- * Title: TBS
- * </p>
- * <p>
- * Description: TBS
- * </p>
- * <p>
- * Copyright (c) 2005
- * </p>
- * <p>
- * Company: Positronic Software
+ * Copyright (c) 2005  Positronic Software
  * </p>
  * 
  * @author Kerry Michael Soileau
@@ -25,7 +17,6 @@ import bits.Problem;
 
 public class NaturalNumberMapper extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 6305486271813947632L;
 	private INaturalNumber domainVariable;
 	private INaturalNumber rangeVariable;
 

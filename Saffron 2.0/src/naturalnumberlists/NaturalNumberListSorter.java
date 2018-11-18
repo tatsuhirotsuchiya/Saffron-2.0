@@ -35,12 +35,11 @@ import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.exceptions.NaturalNumberListException;
 import naturalnumbers.NaturalNumberOrderer;
 
 public class NaturalNumberListSorter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1L;
-
 	public NaturalNumberListSorter(INaturalNumberList source) throws Exception
 	{
 		if (source == null)

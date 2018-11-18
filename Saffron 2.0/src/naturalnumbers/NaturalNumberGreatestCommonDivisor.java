@@ -16,8 +16,6 @@ import bits.Problem;
 public class NaturalNumberGreatestCommonDivisor extends Problem
 		implements IProblem
 {
-	private static final long serialVersionUID = -3735577023728807900L;
-
 	public NaturalNumberGreatestCommonDivisor(INaturalNumber M,
 			INaturalNumber N, INaturalNumber GCD) throws Exception
 	{

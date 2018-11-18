@@ -46,8 +46,6 @@ import bits.Problem;
 
 public class NaturalNumberQuotienter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -3831009110091726051L;
-
 	public NaturalNumberQuotienter(INaturalNumber Dividend,
 			INaturalNumber Divisor, INaturalNumber Quotient,
 			INaturalNumber Remainder) throws Exception

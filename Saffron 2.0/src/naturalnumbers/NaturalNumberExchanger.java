@@ -1,10 +1,7 @@
 package naturalnumbers;
 
 /**
- * <p>Title: NaturalNumberExchanger</p>
- * <p>Description: TBS</p>
- * <p>Copyright (c) 2009</p>
- * <p>Company: Positronic Software</p>
+ * <p>Copyright (c) 2009 Positronic Software</p>
  * @author Kerry Michael Soileau
  * @version 1.0
  */
@@ -15,8 +12,6 @@ import bits.Problem;
 
 public class NaturalNumberExchanger extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1911777771045625266L;
-
 	public NaturalNumberExchanger(INaturalNumber xBefore,
 			INaturalNumber yBefore, INaturalNumber xAfter,
 			INaturalNumber yAfter) throws Exception

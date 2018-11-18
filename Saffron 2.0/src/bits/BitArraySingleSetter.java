@@ -1,5 +1,7 @@
 package bits;
 
+import bits.exceptions.BitArraySingleSetterException;
+
 public class BitArraySingleSetter extends Problem implements IProblem
 {
 	public BitArraySingleSetter(IBooleanVariable[] array) throws Exception

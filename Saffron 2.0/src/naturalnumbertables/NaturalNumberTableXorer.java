@@ -7,8 +7,6 @@ import naturalnumbers.NaturalNumberXorer;
 
 public class NaturalNumberTableXorer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -8058265651886336402L;
-
 	public NaturalNumberTableXorer(INaturalNumberTable X, INaturalNumberTable Y,
 			INaturalNumberTable Z) throws Exception
 	{

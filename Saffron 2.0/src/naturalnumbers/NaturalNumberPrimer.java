@@ -16,8 +16,6 @@ import bits.ProblemDenier;
 
 public class NaturalNumberPrimer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 3224751661986678000L;
-
 	public NaturalNumberPrimer(INaturalNumber Z) throws Exception
 	{
 		INaturalNumber Two = new NaturalNumber();

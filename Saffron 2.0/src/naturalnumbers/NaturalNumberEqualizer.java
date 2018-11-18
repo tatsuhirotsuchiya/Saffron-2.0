@@ -13,6 +13,7 @@ import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumbers.exceptions.NaturalNumberEqualizerException;
 
 public class NaturalNumberEqualizer extends Problem implements IProblem
 {

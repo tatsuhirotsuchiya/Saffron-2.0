@@ -3,6 +3,7 @@ package naturalnumberlists;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.exceptions.NaturalNumberListEqualizerException;
 
 /**
  * Note that for two INaturalNumberLists to be equal, in the sense enforced by
@@ -12,17 +13,15 @@ import bits.Problem;
 
 public class NaturalNumberListEqualizer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1L;
-
 	public NaturalNumberListEqualizer(INaturalNumberList A,
 			INaturalNumberList B) throws Exception
 	{
 		if (A == null)
-			throw new NaturalNumberListException(
-					"Passed a null INaturalNumberList to constructor.");
+			throw new NaturalNumberListEqualizerException(
+					"Passed a null A to constructor.");
 		if (B == null)
-			throw new NaturalNumberListException(
-					"Passed a null INaturalNumberList to constructor.");
+			throw new NaturalNumberListEqualizerException(
+					"Passed a null B to constructor.");
 		IProblem problem = new Conjunction(new NaturalNumberListSubsetter(A, B),
 				new NaturalNumberListSubsetter(B, A));
 		this.setClauses(problem.getClauses());

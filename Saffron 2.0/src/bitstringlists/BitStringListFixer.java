@@ -12,6 +12,7 @@ import bits.BitFixer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import bitstringlists.exceptions.BitStringListFixerException;
 
 public class BitStringListFixer extends Problem implements IProblem
 {

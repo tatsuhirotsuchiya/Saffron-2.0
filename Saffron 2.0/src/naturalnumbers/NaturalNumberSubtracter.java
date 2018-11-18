@@ -52,8 +52,6 @@ import bits.Problem;
 
 public class NaturalNumberSubtracter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -8293085177762051665L;
-
 	public NaturalNumberSubtracter(INaturalNumber X, INaturalNumber Y,
 			INaturalNumber Z) throws Exception
 	{

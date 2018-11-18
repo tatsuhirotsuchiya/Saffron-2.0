@@ -16,8 +16,6 @@ import bits.Problem;
 public class NaturalNumberLeastCommonMultipler extends Problem
 		implements IProblem
 {
-	private static final long serialVersionUID = -3735577023728807900L;
-
 	public NaturalNumberLeastCommonMultipler(INaturalNumber M, INaturalNumber N,
 			INaturalNumber LCM) throws Exception
 	{

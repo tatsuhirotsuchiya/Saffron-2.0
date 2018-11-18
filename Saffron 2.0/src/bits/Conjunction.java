@@ -9,6 +9,8 @@ package bits;
 
 import java.util.ArrayList;
 
+import bits.exceptions.ConjunctionException;
+
 public class Conjunction extends Problem implements IProblem
 {
 	/**

@@ -15,8 +15,6 @@ import bits.Problem;
 
 public class BitTableEqualizer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 5329338421090620447L;
-
 	public BitTableEqualizer(IBitTable X, IBitTable Y) throws Exception
 	{
 		if (!X.isSameSizeAs(Y))

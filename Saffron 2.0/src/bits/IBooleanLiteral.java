@@ -8,6 +8,8 @@ package bits;
 
 import java.util.List;
 
+import bits.exceptions.BooleanLiteralException;
+
 /**
  * The <code>IBooleanLiteral</code> interface must be implemented by any class
  * definition of <code>BooleanLiteral</code> contemplated as an alternative to

@@ -1,6 +1,6 @@
 package bits;
 
-import naturalnumbers.NumberException;
+import naturalnumbers.exceptions.NumberException;
 
 /**
  * This interface must be implemented by any implementation of the Number class.

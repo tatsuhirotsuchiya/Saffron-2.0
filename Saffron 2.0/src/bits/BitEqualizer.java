@@ -8,6 +8,8 @@
 
 package bits;
 
+import bits.exceptions.BitEqualizerException;
+
 /**
  * An extension of the Problem class which imposes a Boolean relation on two
  * IBooleanVariables. For example, the Problem instance p defined by

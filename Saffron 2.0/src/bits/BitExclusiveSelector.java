@@ -10,6 +10,8 @@ package bits;
 
 import java.util.ArrayList;
 
+import bits.exceptions.BitExclusiveSelectorException;
+
 /**
  * An extension of the Problem class which imposes a Boolean relation on three
  * IBooleanVariables. For example, the IProblem p defined by

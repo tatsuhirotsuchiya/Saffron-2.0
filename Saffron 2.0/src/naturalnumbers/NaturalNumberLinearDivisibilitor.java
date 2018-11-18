@@ -48,8 +48,6 @@ import bits.Problem;
 public class NaturalNumberLinearDivisibilitor extends Problem
 		implements IProblem
 {
-	private static final long serialVersionUID = 5709891251428434123L;
-
 	public NaturalNumberLinearDivisibilitor(INaturalNumber A, INaturalNumber C)
 			throws Exception
 	{

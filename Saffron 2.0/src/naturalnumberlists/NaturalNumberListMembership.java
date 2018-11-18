@@ -4,30 +4,19 @@ import bits.Disjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.exceptions.NaturalNumberListMembershipException;
 import naturalnumbers.NaturalNumberEqualizer;
 
 /**
  * <p>
- * Title: NaturalNumberListMembership
+ * Copyright (c) 2005 Positronic Software
  * </p>
- * <p>
- * Description: TBS
- * </p>
- * <p>
- * Copyright (c) 2005
- * </p>
- * <p>
- * Company: Positronic Software
- * </p>
- * 
  * @author Kerry Michael Soileau
  * @version 1.0
  */
 
 public class NaturalNumberListMembership extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1L;
-
 	public NaturalNumberListMembership(INaturalNumber inn,
 			INaturalNumberList bsl) throws Exception
 	{

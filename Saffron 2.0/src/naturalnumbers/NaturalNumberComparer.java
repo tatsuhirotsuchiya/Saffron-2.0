@@ -13,8 +13,6 @@ import bits.Problem;
 //Satisfied when X is STRICTLY LESS THAN Y.
 public class NaturalNumberComparer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -3818517171139276188L;
-
 	public NaturalNumberComparer(INaturalNumber X, INaturalNumber Y)
 			throws Exception
 	{

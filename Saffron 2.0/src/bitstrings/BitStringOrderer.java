@@ -43,6 +43,7 @@ import bits.IBitString;
 import bits.IBooleanVariable;
 import bits.IProblem;
 import bits.Problem;
+import bitstrings.exceptions.BitStringOrdererException;
 
 public class BitStringOrderer extends Problem implements IProblem
 {

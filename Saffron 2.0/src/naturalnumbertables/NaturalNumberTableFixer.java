@@ -4,11 +4,11 @@ import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
 import naturalnumbers.NaturalNumberFixer;
+import naturalnumbertables.exceptions.NaturalNumberTableException;
+import naturalnumbertables.exceptions.NaturalNumberTableFixerException;
 
 public class NaturalNumberTableFixer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -7825577819090023758L;
-
 	public NaturalNumberTableFixer(INaturalNumberTable A, long[][] data)
 			throws NaturalNumberTableException, Exception
 	{

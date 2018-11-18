@@ -7,26 +7,14 @@ import bits.Problem;
 
 /**
  * <p>
- * Title: NaturalNumberMappingComposition
+ * Copyright (c) 2005 Positronic Software
  * </p>
- * <p>
- * Description: TBS
- * </p>
- * <p>
- * Copyright (c) 2005
- * </p>
- * <p>
- * Company: Positronic Software
- * </p>
- * 
  * @author Kerry Michael Soileau
  * @version 1.0
  */
 
 public class NaturalNumberMapperComposition extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 4831629236073609407L;
-
 	public NaturalNumberMapperComposition(NaturalNumberMapper first,
 			NaturalNumberMapper second, INaturalNumber X, INaturalNumber Y)
 			throws Exception

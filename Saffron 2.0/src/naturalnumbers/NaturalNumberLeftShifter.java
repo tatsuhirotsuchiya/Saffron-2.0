@@ -18,8 +18,6 @@ import bits.Problem;
 
 public class NaturalNumberLeftShifter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 4779345659533425112L;
-
 	public NaturalNumberLeftShifter(INaturalNumber X, INaturalNumber Z)
 			throws Exception
 	{

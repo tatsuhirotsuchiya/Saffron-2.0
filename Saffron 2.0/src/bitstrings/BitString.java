@@ -28,6 +28,7 @@ import java.util.List;
 import bits.BooleanVariable;
 import bits.IBitString;
 import bits.IBooleanVariable;
+import bitstrings.exceptions.BitStringException;
 
 public class BitString implements IBitString
 {

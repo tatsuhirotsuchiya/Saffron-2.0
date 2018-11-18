@@ -1,10 +1,7 @@
 package naturalnumbers;
 
 /**
- * <p>Title: TBS</p>
- * <p>Description: TBS</p>
- * <p>Copyright: Copyright (c) 2005</p>
- * <p>Company: Positronic Software</p>
+ * <p>Copyright: Copyright (c) 2005 Positronic Software</p>
  * @author Kerry Michael Soileau
  * @version 1.0
  */
@@ -18,8 +15,6 @@ import bits.Problem;
 
 public class NaturalNumberFromBitConverter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -2378651781971713945L;
-
 	public NaturalNumberFromBitConverter(INaturalNumber b, IBooleanVariable bv)
 			throws Exception
 	{

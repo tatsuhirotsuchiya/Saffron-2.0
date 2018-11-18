@@ -16,8 +16,6 @@ import bits.Problem;
 
 public class NaturalNumberAnder extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -4279836520946427651L;
-
 	public NaturalNumberAnder(INaturalNumber X, INaturalNumber Y,
 			INaturalNumber Z) throws Exception
 	{

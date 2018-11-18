@@ -8,8 +8,6 @@ import bits.Problem;
 public class NaturalNumberRelativelyCompositor extends Problem
 		implements IProblem
 {
-	private static final long serialVersionUID = -4756992399919407651L;
-
 	public NaturalNumberRelativelyCompositor(INaturalNumber M, INaturalNumber N,
 			INaturalNumber CF) throws Exception
 	{

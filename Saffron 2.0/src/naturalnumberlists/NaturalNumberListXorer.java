@@ -3,12 +3,12 @@ package naturalnumberlists;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.exceptions.NaturalNumberListException;
+import naturalnumberlists.exceptions.NaturalNumberListXorerException;
 import naturalnumbers.NaturalNumberXorer;
 
 public class NaturalNumberListXorer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1L;
-
 	public NaturalNumberListXorer(INaturalNumberList addend1,
 			INaturalNumberList addend2, INaturalNumberList sum)
 			throws NaturalNumberListException, Exception

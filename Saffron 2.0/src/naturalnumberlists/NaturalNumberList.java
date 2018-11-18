@@ -5,22 +5,11 @@ import bits.INaturalNumber;
 import bits.Number;
 import bitstringlists.BitStringList;
 import bitstrings.BitString;
+import naturalnumberlists.exceptions.NaturalNumberListException;
 import naturalnumbers.NaturalNumber;
 
 /**
- * <p>
- * Title: NaturalNumberList
- * </p>
- * <p>
- * Description: TBS
- * </p>
- * <p>
- * Copyright (c) 2005
- * </p>
- * <p>
- * Company: Positronic Software
- * </p>
- * 
+ * Copyright (c) 2005 Positronic Software
  * @author Kerry Michael Soileau
  * @version 1.0
  */

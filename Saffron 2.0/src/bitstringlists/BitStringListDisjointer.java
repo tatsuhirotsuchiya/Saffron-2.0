@@ -11,6 +11,7 @@ package bitstringlists;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import bitstringlists.exceptions.BitStringListDisjointerException;
 
 /**
  * This IProblem imposes the constraint that IBitStrings A and B are disjoint,

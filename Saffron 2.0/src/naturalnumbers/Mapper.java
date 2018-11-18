@@ -21,6 +21,7 @@ import bits.IProblem;
 import bits.Problem;
 import bits.ProblemPair;
 import bitstrings.BitStringFixer;
+import naturalnumbers.exceptions.MapperException;
 
 /**
  * <p>
@@ -64,8 +65,6 @@ import bitstrings.BitStringFixer;
 
 public class Mapper extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 4913368323750298820L;
-
 	private static String binCount(int bitsrequired, long count)
 			throws Exception
 	{

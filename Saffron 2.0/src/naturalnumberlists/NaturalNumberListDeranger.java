@@ -1,11 +1,10 @@
 package naturalnumberlists;
 
-import bits.BooleanLiteralException;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.IProblem;
 import bits.Problem;
-import naturalnumbers.NaturalNumberException;
+import naturalnumberlists.exceptions.NaturalNumberListDerangerException;
 import naturalnumbers.NaturalNumberUnequalizer;
 
 /*
@@ -23,38 +22,26 @@ import naturalnumbers.NaturalNumberUnequalizer;
  * NaturalNumbers in the source list must have the same length, and there should
  * be a corresponding allocation for the NaturalNumbers in the target.
  *
- * @author Kerry Michael Soileau <blockquote>
+ * @author Kerry Michael Soileau 
  * 
- *         <pre>
+ * <pre>
  * ksoileau2@yahoo.com
  * http://kerrysoileau.com/index.htm
- *         </pre>
- * 
- *         </blockquote>
- * @version 1.0, 09/05/21
- * @see NaturalNumberException
- * @see NaturalNumberListEqualizer
- * @see NaturalNumberListException
- * @see BooleanLiteralException
- * @see NaturalNumberUnequalizer
- * @see Conjunction
- * @see INaturalNumber
- * @see INaturalNumberList
+ * </pre>
+ * @version 1.0, 2009/05/21
  */
 
 public class NaturalNumberListDeranger extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -5359788019373090642L;
-
 	public NaturalNumberListDeranger(INaturalNumberList source,
 			INaturalNumberList target) throws Exception
 	{
 		if (source == null)
-			throw new NaturalNumberListException(
-					"Passed a null INaturalNumberList to constructor.");
+			throw new NaturalNumberListDerangerException(
+					"Passed a null source to constructor.");
 		if (target == null)
-			throw new NaturalNumberListException(
-					"Passed a null INaturalNumberList to constructor.");
+			throw new NaturalNumberListDerangerException(
+					"Passed a null target to constructor.");
 
 		IProblem problem = null;
 		IProblem same = new NaturalNumberListEqualizer(source, target);

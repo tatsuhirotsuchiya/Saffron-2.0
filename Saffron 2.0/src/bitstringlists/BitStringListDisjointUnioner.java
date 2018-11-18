@@ -5,6 +5,7 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import bitstringlists.exceptions.BitStringListException;
 
 public class BitStringListDisjointUnioner extends Problem implements IProblem
 {

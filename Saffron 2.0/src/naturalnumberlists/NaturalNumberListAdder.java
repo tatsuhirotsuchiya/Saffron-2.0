@@ -3,6 +3,7 @@ package naturalnumberlists;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import naturalnumberlists.exceptions.NaturalNumberListAdderException;
 import naturalnumbers.NaturalNumberAdder;
 
 /**
@@ -14,15 +15,12 @@ import naturalnumbers.NaturalNumberAdder;
  */
 public class NaturalNumberListAdder extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1L;
-
 	public NaturalNumberListAdder(INaturalNumberList addend1,
-			INaturalNumberList addend2, INaturalNumberList sum)
-			throws NaturalNumberListException, Exception
+			INaturalNumberList addend2, INaturalNumberList sum) throws Exception
 	{
 		if (addend1.size() != addend2.size() || addend1.size() != sum.size())
 			throw new NaturalNumberListAdderException(
-					"Size mismatch of INaturalNumberList parameters passed to constructor.");
+					"addend1, addend2 and sum are of unequal size.");
 		IProblem[] p = new Problem[addend1.size()];
 		for (int i = 0; i < p.length; i++)
 			p[i] = new NaturalNumberAdder(addend1.getNaturalNumber(i),

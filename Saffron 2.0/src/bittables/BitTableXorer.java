@@ -15,8 +15,6 @@ import bits.Problem;
 
 public class BitTableXorer extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1125894830904743313L;
-
 	public BitTableXorer(IBitTable X, IBitTable Y, IBitTable Z) throws Exception
 	{
 		if (!X.isSameSizeAs(Y) || !X.isSameSizeAs(Z))

@@ -1,6 +1,9 @@
 /*
- * BooleanLiteral.java	1.0 04/09/2007
+ * BooleanLiteral.java	1.0 04/09/07
+ *
  * Copyright 2004-2005 Positronic Software.
+ *
+ *
  */
 
 package bits;
@@ -10,6 +13,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+
+import bits.exceptions.BooleanLiteralException;
 
 /**
  * A class which represents a Boolean literal. BooleanLiteral is essentially a
@@ -48,12 +53,6 @@ public class BooleanLiteral implements IBooleanLiteral
 	 * instance is returned. If not, the private constructor is used to create
 	 * the desired IBooleanLiteral, which is then added to the
 	 * <tt>HashSet instances</tt> and is returned.
-	 */
-	/**
-	 * @param bv
-	 * @param barred
-	 * @return
-	 * @throws BooleanLiteralException
 	 */
 	public static IBooleanLiteral getBooleanLiteral(IBooleanVariable bv,
 			boolean barred) throws BooleanLiteralException

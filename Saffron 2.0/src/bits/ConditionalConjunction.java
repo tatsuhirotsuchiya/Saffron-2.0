@@ -31,6 +31,8 @@
 
 package bits;
 
+import bits.exceptions.ConditionalConjunctionException;
+
 public class ConditionalConjunction extends Problem implements IProblem
 {
 	public ConditionalConjunction(IProblem[] problemArray,

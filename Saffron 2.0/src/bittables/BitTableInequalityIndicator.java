@@ -12,11 +12,10 @@ import bits.BitEqualizer;
 import bits.Conjunction;
 import bits.IProblem;
 import bits.Problem;
+import bittables.exceptions.BitTableInequalityIndicatorException;
 
 public class BitTableInequalityIndicator extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 3830741124008815485L;
-
 	public BitTableInequalityIndicator(IBitTable X, IBitTable Y)
 			throws Exception
 	{

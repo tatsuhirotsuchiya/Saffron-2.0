@@ -22,7 +22,7 @@ import bits.IBooleanVariable;
 import bits.INaturalNumber;
 import bits.Number;
 import bitstrings.BitString;
-import bitstrings.BitStringException;
+import naturalnumbers.exceptions.NaturalNumberException;
 
 public class NaturalNumber extends BitString implements INaturalNumber
 {

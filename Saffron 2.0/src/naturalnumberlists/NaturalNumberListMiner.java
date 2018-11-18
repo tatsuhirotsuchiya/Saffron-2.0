@@ -41,8 +41,6 @@ import naturalnumbers.NaturalNumberOrderer;
 
 public class NaturalNumberListMiner extends Problem implements IProblem
 {
-	private static final long serialVersionUID = 1L;
-
 	public NaturalNumberListMiner(INaturalNumberList list, INaturalNumber min)
 			throws Exception
 	{

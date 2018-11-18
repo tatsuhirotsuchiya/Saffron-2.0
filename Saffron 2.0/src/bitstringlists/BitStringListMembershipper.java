@@ -4,6 +4,7 @@ import bits.Disjunction;
 import bits.IBitString;
 import bits.IProblem;
 import bits.Problem;
+import bitstringlists.exceptions.BitStringListException;
 import bitstrings.BitStringEqualizer;
 
 /*

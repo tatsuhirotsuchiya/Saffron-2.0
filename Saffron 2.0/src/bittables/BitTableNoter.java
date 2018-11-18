@@ -15,8 +15,6 @@ import bits.Problem;
 
 public class BitTableNoter extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -4024914197482942638L;
-
 	public BitTableNoter(IBitTable X, IBitTable Y) throws Exception
 	{
 		if (!X.isSameSizeAs(Y))

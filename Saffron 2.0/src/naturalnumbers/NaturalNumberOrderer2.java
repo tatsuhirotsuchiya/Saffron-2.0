@@ -11,7 +11,6 @@ import bits.Problem;
 public class NaturalNumberOrderer2 extends Problem implements IProblem
 {
 	private static int depthCount = 0;
-	private static final long serialVersionUID = -6694284316559827918L;
 
 	public NaturalNumberOrderer2(INaturalNumber X, INaturalNumber Y)
 			throws Exception

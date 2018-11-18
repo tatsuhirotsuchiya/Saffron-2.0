@@ -15,8 +15,6 @@ import bits.Problem;
 
 public class BitTableAnder extends Problem implements IProblem
 {
-	private static final long serialVersionUID = -1836438899521241830L;
-
 	public BitTableAnder(IBitTable bitTable1, IBitTable bitTable2,
 			IBitTable bitTable3) throws Exception
 	{
