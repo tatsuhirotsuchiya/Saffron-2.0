@@ -11,17 +11,17 @@ package bits;
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
  * <p>
- * <tt>z == !( x ^ y )</code>
+ * <tt>z == !( x & y )</code>
  * </p>
  *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.0, 05/04/13
- * @see IBooleanVariable
- * @see IClause
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/13
  */
-
 public class BitNander extends Problem implements IProblem
 {
 	public BitNander(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z)

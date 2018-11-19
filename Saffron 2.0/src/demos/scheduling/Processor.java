@@ -9,6 +9,11 @@ public class Processor
 		this.name = name;
 	}
 
+	public String getName()
+	{
+		return name;
+	}
+
 	public String toString()
 	{
 		return "Processor [name=" + name + "]";

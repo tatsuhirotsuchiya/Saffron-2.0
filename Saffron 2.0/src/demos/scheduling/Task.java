@@ -1,11 +1,9 @@
 package demos.scheduling;
 
-import java.util.Arrays;
-
 public class Task
 {
-	private String name;
 	private long duration;
+	private String name;
 	private Task[] predecessors;
 
 	public Task(String name, long duration, Task[] predecessors)
@@ -42,7 +40,6 @@ public class Task
 
 	public String toString()
 	{
-		return "\nTask [name=" + name + ", duration=" + duration
-				+ ", predecessors=" + Arrays.toString(predecessors) + "]";
+		return name;
 	}
 }

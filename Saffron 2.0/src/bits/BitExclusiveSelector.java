@@ -1,15 +1,6 @@
-/*
- * BitExclusiveSelector.java 1.0 2015/03/18
- *
- * Copyright 2015 Positronic Software.
- *
- *
- */
-
 package bits;
 
 import java.util.ArrayList;
-
 import bits.exceptions.BitExclusiveSelectorException;
 
 /**
@@ -26,19 +17,13 @@ import bits.exceptions.BitExclusiveSelectorException;
  * <tt>Exactly one of x, y and z is true, the other two are false.</code>
  * </p>
  *
- * @author Kerry Michael Soileau <blockquote>
- * 
- *         <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- *         </pre>
- * 
- *         </blockquote>
- * @version 1.0, 2015/03/18
- * @see IBooleanVariable
- * @see IClause
- * @see IProblem
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2015/03/18
  */
 public class BitExclusiveSelector extends Problem implements IProblem
 {

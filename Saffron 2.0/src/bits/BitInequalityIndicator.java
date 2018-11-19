@@ -1,11 +1,3 @@
-/*
- * BitInequalityIndicator.java	1.1 04/10/05
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 /**
@@ -22,12 +14,13 @@ package bits;
  * <tt>z == (x!=y)</code>
  * </p>
  *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.1, 04/10/05
- * @see IBooleanVariable
- * @see IClause
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.1
+ * @since 2004/10/05
  */
 public class BitInequalityIndicator extends Problem implements IProblem
 {

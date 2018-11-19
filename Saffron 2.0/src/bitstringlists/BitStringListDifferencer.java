@@ -36,7 +36,7 @@ public class BitStringListDifferencer extends Problem implements IProblem
 			throw new BitStringListDisjointerException(
 					"Passed a null IBitStringList to constructor.");
 
-		// T=A$B <=> (B ^ T = null) and (B v T = A v B)
+		// T=A\B <=> (B & T = null) and (B | T = A | B)
 		// in T: notInB and inA
 		// in A: (inB or inT) and (notInB or notInT)
 		// in B: notInT and (inA or inB)
