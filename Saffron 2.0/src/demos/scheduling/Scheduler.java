@@ -11,7 +11,7 @@ package demos.scheduling;
 import java.util.ArrayList;
 import java.util.List;
 
-import naturalnumbers.NaturalNumber;
+import naturalnumbers.NaturalNumberAdder;
 import naturalnumbers.NaturalNumberFixer;
 import naturalnumbers.NaturalNumberOrderer;
 import bits.BitArrayPartition;
@@ -43,7 +43,7 @@ public class Scheduler
 		int numberTasks = task.length;
 		int stagingIndex = 0;
 		IProblem[] stagingArray = new IProblem[1 + 1 + numberTasks
-				* numberTasks * numberProcs];
+				* numberTasks * numberProcs + numberTasks];
 
 		// Partition Problem
 		IBooleanVariable[][] partition = new IBooleanVariable[numberProcs][numberTasks];
@@ -58,46 +58,60 @@ public class Scheduler
 		stagingArray[stagingIndex++] = partitionProblem;
 
 		// Start and Finish Times NaturalNumbers
-		INaturalNumber[] start = new INaturalNumber[numberTasks];
-		for (int i = 0; i < start.length; i++)
-			start[i] = new NaturalNumber("Start-" + task[i].getName());
-		INaturalNumber[] finish = new INaturalNumber[numberTasks];
-		for (int i = 0; i < finish.length; i++)
-			finish[i] = new NaturalNumber("Finish-" + task[i].getName());
+		// INaturalNumber[] start = new INaturalNumber[numberTasks];
+		// for (int i = 0; i < numberTasks; i++)
+		// task[i].start[i] = new NaturalNumber("Start-" + task[i].getName());
+		// INaturalNumber[] finish = new INaturalNumber[numberTasks];
+		// for (int i = 0; i < finish.length; i++)
+		// finish[i] = new NaturalNumber("Finish-" + task[i].getName());
 
 		// Durations NaturalNumbers
-		INaturalNumber[] duration = new INaturalNumber[numberTasks];
-		for (int i = 0; i < duration.length; i++)
-			duration[i] = new NaturalNumber("Duration-" + task[i].getDuration());
+		// NaturalNumber[] duration = new INaturalNumber[numberTasks];
+		// for (int i = 0; i < duration.length; i++)
+		// duration[i] = new NaturalNumber("Duration-" + task[i].getDuration());
 
 		// Bind Durations Problem
-		IProblem[] bindDurationsProblem = new IProblem[duration.length];
-		for (int i = 0; i < duration.length; i++)
+		IProblem[] bindDurationsProblem = new IProblem[numberTasks];
+		for (int i = 0; i < numberTasks; i++)
 			bindDurationsProblem[i] = new NaturalNumberFixer(
-					duration[i], task[i].getDuration());
+					task[i].getNNDuration(), task[i].getDuration());
 		stagingArray[stagingIndex++] = new Conjunction(bindDurationsProblem);
 
 		// Impose Precedence Relations
 		for (int i = 0; i < numberTasks; i++)
 		{
-			Task currTask = task[i];
-			List<Task> currPreds = currTask.getPredecessors();
-			if(currPreds==null)
+			Task currentPostTask = task[i];
+			List<Task> currPreds = currentPostTask.getPredecessors();
+			if (currPreds == null)
 				continue;
-			for (int j = 0; j < numberTasks
-					&& currPreds.contains(task[j]); j++)
+			for (int j = 0; j < numberTasks && currPreds.contains(task[j]); j++)
 			{
+				Task currentPreTask = task[j];
 				for (int k = 0; k < numberProcs; k++)
 				{
 					// Task i and j are not both assigned to procecessor k, or j
 					// finishes before i starts.
-					IBooleanVariable[] curr = partition[k];
+					IBooleanVariable[] currentProcessorTaskAssignments = partition[k];
+					INaturalNumber currentPreTaskFinish = currentPreTask
+							.getNNFinish();
+					INaturalNumber currentPostTaskStart = currentPostTask
+							.getNNStart();
 					stagingArray[stagingIndex++] = new Disjunction(
-							new BitFixer(curr[i], false), new BitFixer(
-									curr[j], false),
-							new NaturalNumberOrderer(finish[j], start[i]));
+							new BitFixer(currentProcessorTaskAssignments[i],
+									false), new BitFixer(
+									currentProcessorTaskAssignments[j], false),
+							new NaturalNumberOrderer(currentPreTaskFinish,
+									currentPostTaskStart));
 				}
 			}
+		}
+
+		// Impose Duration Relations
+		for (int i = 0; i < numberTasks; i++)
+		{
+			stagingArray[stagingIndex++] = new NaturalNumberAdder(
+					task[i].getNNStart(), task[i].getNNDuration(),
+					task[i].getNNFinish());
 		}
 
 		jobSchedulingProblem = new Conjunction(stagingArray);
@@ -124,8 +138,10 @@ public class Scheduler
 			}
 			for (int i = 0; i < numberTasks; i++)
 			{
-				task[i].setStart(start[i].toDecimal());
-				task[i].setFinish(finish[i].toDecimal());
+				long currStart = task[i].getNNStart().toDecimal();
+				task[i].setStart(currStart);
+				long currFinish = task[i].getNNFinish().toDecimal();
+				task[i].setFinish(currFinish);
 			}
 			BooleanLiteral.reset(blList);
 			// System.out.println((System.currentTimeMillis() - startTimeMillis)

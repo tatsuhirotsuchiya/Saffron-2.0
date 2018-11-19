@@ -2,21 +2,28 @@ package demos.scheduling;
 
 import java.util.List;
 
+import naturalnumbers.NaturalNumber;
+import bits.INaturalNumber;
+
 public class Task
 {
 	private long duration;
-	
+
 	private long finish;
 	private String name;
+	private INaturalNumber NNDuration;
+	private INaturalNumber NNFinish;
+	private INaturalNumber NNStart;
 	private List<Task> predecessors;
-	
 	private long start;
-	
 
-	public Task(String name, long duration)
+	public Task(String name, long duration) throws Exception
 	{
 		this.name = name;
 		this.duration = duration;
+		this.NNStart = new NaturalNumber("Start-" + name);
+		this.NNFinish = new NaturalNumber("Finish-" + name);
+		this.NNDuration = new NaturalNumber("Duration-" + name);
 	}
 
 	public long getDuration()
@@ -32,6 +39,21 @@ public class Task
 	public String getName()
 	{
 		return this.name;
+	}
+
+	public INaturalNumber getNNDuration()
+	{
+		return NNDuration;
+	}
+
+	public INaturalNumber getNNFinish()
+	{
+		return NNFinish;
+	}
+
+	public INaturalNumber getNNStart()
+	{
+		return NNStart;
 	}
 
 	public List<Task> getPredecessors()
@@ -57,6 +79,16 @@ public class Task
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	public void setNNFinish(NaturalNumber nNFinish)
+	{
+		NNFinish = nNFinish;
+	}
+
+	public void setNNStart(NaturalNumber nNStart)
+	{
+		NNStart = nNStart;
 	}
 
 	public void setPredecessors(List<Task> predecessors)
