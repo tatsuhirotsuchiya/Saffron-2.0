@@ -10,13 +10,14 @@ package bits;
  *
  * <p><tt>z == ( x | y )</code></p>
  *
- * @author  Kerry Michael Soileau
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * @version 1.11, 04/11/24
- * Copyright 2004-2005 Positronic Software.
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.11
+ * @since 2004/11/24
  */
-
 public class BitOrer extends Problem implements IProblem
 {
 	public BitOrer(IBooleanVariable x, IBooleanVariable y, IBooleanVariable z)

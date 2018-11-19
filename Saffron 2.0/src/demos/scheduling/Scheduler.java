@@ -81,27 +81,34 @@ public class Scheduler
 		for (int i = 0; i < numberTasks; i++)
 		{
 			Task currentPostTask = task[i];
+			System.out.println("Current post task = "+currentPostTask.getName());
 			List<Task> currPreds = currentPostTask.getPredecessors();
+			System.out.println("Predecessors = "+currPreds);
 			if (currPreds == null)
 				continue;
 			for (int j = 0; j < numberTasks && currPreds.contains(task[j]); j++)
 			{
 				Task currentPreTask = task[j];
+				INaturalNumber currentPostTaskStart = currentPostTask
+						.getNNStart();
+				INaturalNumber currentPreTaskFinish = currentPreTask
+						.getNNFinish();
+				System.out.println("Constraining "
+						+ currentPreTaskFinish.getName()
+						+ " to be not greater than "
+						+ currentPostTaskStart.getName());
+				IProblem constrain = new NaturalNumberOrderer(
+						currentPreTaskFinish, currentPostTaskStart);
 				for (int k = 0; k < numberProcs; k++)
 				{
 					// Task i and j are not both assigned to procecessor k, or j
 					// finishes before i starts.
 					IBooleanVariable[] currentProcessorTaskAssignments = partition[k];
-					INaturalNumber currentPreTaskFinish = currentPreTask
-							.getNNFinish();
-					INaturalNumber currentPostTaskStart = currentPostTask
-							.getNNStart();
 					stagingArray[stagingIndex++] = new Disjunction(
 							new BitFixer(currentProcessorTaskAssignments[i],
 									false), new BitFixer(
 									currentProcessorTaskAssignments[j], false),
-							new NaturalNumberOrderer(currentPreTaskFinish,
-									currentPostTaskStart));
+							constrain);
 				}
 			}
 		}

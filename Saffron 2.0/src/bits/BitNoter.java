@@ -1,11 +1,3 @@
-/*
- * BitNoter.java	1.1 04/10/05
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 /**
@@ -24,12 +16,13 @@ package bits;
  *
  * Note that BitNoter is equivalent to BitUnequalizer.
  *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.1, 04/10/05
- * @see IBooleanVariable
- * @see IClause
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.1
+ * @since 2004/10/05
  */
 public class BitNoter extends Problem implements IProblem
 {

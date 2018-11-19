@@ -1,12 +1,9 @@
-/*
- * BitUnequalizer.java	1.1 05/03/09
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
+package bits;
+
+import bits.exceptions.BitUnequalizerException;
+
 /**
- An extension of the Problem class which imposes a Boolean relation on two
+ * An extension of the Problem class which imposes a Boolean relation on two
  * IBooleanVariables. For example, the Problem instance p defined by
  *
  * <p><tt>Problem p=new BitUnequalizer(x,y);</code></p>
@@ -17,19 +14,14 @@
  *
  * Note that BitUnequalizer is equivalent to BitNoter.
  *
- * @author  Kerry Michael Soileau
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * @version 1.1, 05/03/09
- * @see IBooleanVariable
- * @see IClause
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.1
+ * @since 2005/03/09
  */
-
-package bits;
-
-import bits.exceptions.BitUnequalizerException;
-
 public class BitUnequalizer extends Problem implements IProblem
 {
 	public BitUnequalizer(IBooleanVariable x, IBooleanVariable y)

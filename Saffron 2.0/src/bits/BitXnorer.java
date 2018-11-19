@@ -1,11 +1,3 @@
-/*
- * BitXnorer.java	1.0 05/04/13
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 /**
@@ -30,12 +22,13 @@ package bits;
  * <tt>z == ( x &amp; y ) | ( !x &amp; !y )</code>
  * </p>
  *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.0, 05/04/13
- * @see IBooleanVariable
- * @see IClause
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/04/13
  */
 public class BitXnorer extends Problem implements IProblem
 {

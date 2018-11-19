@@ -1,11 +1,3 @@
-/*
- * BitShefferStroker.java 1.0 2015/03/18
- *
- * Copyright 2015 Positronic Software.
- *
- *
- */
-
 package bits;
 
 /**
@@ -22,13 +14,13 @@ package bits;
  * <tt>!x | !y</code>
  * </p>
  *
- *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.0, 2015/03/18
- * @see IBooleanVariable
- * @see IClause
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2015/03/18
  */
 public class BitShefferStroker extends Problem implements IProblem
 {
