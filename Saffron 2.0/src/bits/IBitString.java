@@ -32,5 +32,6 @@ public interface IBitString extends Cloneable
 
 	String toBits();
 
+	@Override
 	String toString();
 }

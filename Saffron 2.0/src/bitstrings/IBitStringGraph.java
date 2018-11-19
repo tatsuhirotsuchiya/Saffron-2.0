@@ -24,5 +24,6 @@ public interface IBitStringGraph extends Cloneable
 
 	void setName(String name) throws BitStringGraphException;
 
+	@Override
 	String toString();
 }

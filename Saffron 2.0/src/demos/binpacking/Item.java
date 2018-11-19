@@ -31,6 +31,7 @@ public class Item
 		this.size = size;
 	}
 
+	@Override
 	public String toString()
 	{
 		return getName() + "(" + getSize() + ")";

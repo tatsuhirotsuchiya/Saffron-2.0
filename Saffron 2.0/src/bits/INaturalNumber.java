@@ -7,4 +7,6 @@ package bits;
 public interface INaturalNumber extends IBitString
 {
 	final int DEFAULTLENGTH = 5;
+	
+	long toDecimal();
 }

@@ -26,9 +26,9 @@ import naturalnumbers.exceptions.NaturalNumberException;
 
 public class NaturalNumber extends BitString implements INaturalNumber
 {
-	private static long nNCount;
 	private static int bits = INaturalNumber.DEFAULTLENGTH;
 	private static boolean hasBeenSet = false;
+	private static long nNCount;
 
 	public static int getLength()
 	{
@@ -103,6 +103,7 @@ public class NaturalNumber extends BitString implements INaturalNumber
 				.getBitArray());
 	}
 
+	@Override
 	public boolean equals(Object o)
 	{
 		if (o == null)
@@ -114,11 +115,13 @@ public class NaturalNumber extends BitString implements INaturalNumber
 					.compareTo(((NaturalNumber) o).getName())) == 0;
 	}
 
+	@Override
 	public String getName()
 	{
 		return super.getName();
 	}
 
+	@Override
 	public void setName(String s) throws Exception
 	{
 		super.setName(s);
@@ -128,8 +131,9 @@ public class NaturalNumber extends BitString implements INaturalNumber
 	{
 		return super.getBVArray();
 	}
-
-	public String toString()
+	
+	@Override
+	public long toDecimal()
 	{
 		long total = 0L;
 		for (int i = getLength() - 1; i >= 0; i--)
@@ -148,6 +152,12 @@ public class NaturalNumber extends BitString implements INaturalNumber
 			else
 				total = 2 * total;
 		}
-		return "" + total;
+		return total;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "" + this.toDecimal();
 	}
 }

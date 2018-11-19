@@ -14,6 +14,7 @@ public class Processor
 		return name;
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Processor [name=" + name + "]";

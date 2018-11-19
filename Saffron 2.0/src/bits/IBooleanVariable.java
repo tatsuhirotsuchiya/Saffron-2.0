@@ -22,6 +22,7 @@ public interface IBooleanVariable extends Comparable<Object>
 	 * 
 	 * @return <code>true</code> if this.getName().compareTo(o.getName())==0.
 	 */
+	@Override
 	boolean equals(Object o);
 
 	/**

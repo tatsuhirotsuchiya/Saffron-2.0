@@ -129,6 +129,7 @@ public class Number implements INumber
 			return (this.getName().compareTo(n.getName()) == 0);
 	}
 
+	@Override
 	public boolean getBit(int i) throws NumberException
 	{
 		if (i < 0 || i > this.getSize() - 1)
@@ -137,16 +138,19 @@ public class Number implements INumber
 		return this.getBitArray()[i];
 	}
 
+	@Override
 	public boolean[] getBitArray()
 	{
 		return bitArray;
 	}
 
+	@Override
 	public String getName()
 	{
 		return name;
 	}
 
+	@Override
 	public int getSize()
 	{
 		return this.bitArray.length;
@@ -157,6 +161,7 @@ public class Number implements INumber
 		return overflow;
 	}
 
+	@Override
 	public void setBit(int i, boolean b) throws NumberException
 	{
 		if (i < 0 || i > this.getSize() - 1)
@@ -165,6 +170,7 @@ public class Number implements INumber
 		this.getBitArray()[i] = b;
 	}
 
+	@Override
 	public void setBitArray(boolean[] bitArray) throws NumberException
 	{
 		if (bitArray == null)
@@ -173,16 +179,19 @@ public class Number implements INumber
 		this.bitArray = bitArray;
 	}
 
+	@Override
 	public void setName(String name)
 	{
 		this.name = name;
 	}
 
+	@Override
 	public void setOverflow(boolean overflow)
 	{
 		this.overflow = overflow;
 	}
 
+	@Override
 	public String toString()
 	{
 		String res = "<";

@@ -15,6 +15,7 @@ import bitstringlists.IBitStringList;
 
 public interface INaturalNumberList extends IBitStringList
 {
+	@Override
 	String getName();
 
 	INaturalNumber getNaturalNumber(int i) throws Exception;

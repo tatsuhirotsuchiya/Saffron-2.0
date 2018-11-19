@@ -13,6 +13,7 @@ import naturalnumbers.exceptions.NumberException;
 
 public interface INumber
 {
+	@Override
 	public boolean equals(Object anObject);
 
 	public boolean getBit(int i) throws NumberException;
