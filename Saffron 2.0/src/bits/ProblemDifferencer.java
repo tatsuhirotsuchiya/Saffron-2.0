@@ -1,14 +1,5 @@
-/*
- * ProblemDifferencer.java	1.0 05/10/18
- *
- * Copyright 2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
-import bits.exceptions.BooleanLiteralException;
 import bits.exceptions.ProblemDifferencerException;
 
 /**
@@ -22,13 +13,13 @@ import bits.exceptions.ProblemDifferencerException;
  * is satisfied if and only if the IProblem first is satisfied and the IProblem
  * second is not satisfied.
  *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.0, 05/10/18
- * @see BooleanLiteralException
- * @see IClause
- * @see IProblem
- * @see Problem
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2005/10/18
  */
 public class ProblemDifferencer extends Problem implements IProblem
 {

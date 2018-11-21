@@ -1,11 +1,3 @@
-/*
- * ThreeBitAdder.java	1.11 04/11/24
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 /**
@@ -24,13 +16,13 @@ package bits;
  *
  * z == w + x + y (without carry) c == (carry bit)
  *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.11, 04/11/24
- * @see IBooleanVariable
- * @see IClause
- * @see IProblem
- * @see String
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.11
+ * @since 2004/11/24
  */
 public class ThreeBitAdder extends Problem implements IProblem
 {

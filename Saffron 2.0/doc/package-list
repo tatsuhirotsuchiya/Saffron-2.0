@@ -1,1 +1,17 @@
 bits
+bits.exceptions
+bitstringlists
+bitstringlists.exceptions
+bitstrings
+bitstrings.exceptions
+bittables
+bittables.exceptions
+demos
+demos.binpacking
+demos.scheduling
+naturalnumberlists
+naturalnumberlists.exceptions
+naturalnumbers
+naturalnumbers.exceptions
+naturalnumbertables
+naturalnumbertables.exceptions

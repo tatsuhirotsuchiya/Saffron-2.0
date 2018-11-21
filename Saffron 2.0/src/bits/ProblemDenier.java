@@ -1,11 +1,3 @@
-/*
- * ProblemDenier.java	1.0 05/10/18
- *
- * Copyright 2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 import bits.exceptions.ProblemDenierException;
@@ -23,10 +15,13 @@ import bits.exceptions.ProblemDenierException;
  * about the satisfiability of problem, it is useful mainly in constraining an
  * ICertificate away from those ICertificates which satisfy problem, if any.
  *
- * @author Kerry Michael Soileau 
- * <p>ksoileau2@yahoo.com
- * <p>http://kerrysoileau.com/index.html
- * @version 1.01, 2005/12/26
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.01
+ * @since 2005/12/26
  */
 public class ProblemDenier extends Problem implements IProblem
 {

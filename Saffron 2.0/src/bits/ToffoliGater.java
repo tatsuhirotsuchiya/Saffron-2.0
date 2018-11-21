@@ -1,11 +1,3 @@
-/*
- * BitAnder.java	1.2 05/02/09
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 /**
@@ -18,17 +10,34 @@ package bits;
  *
  * is satisfied if and only if the following Boolean relation is satisfied:
  *
- * A B C | P Q R ------|------ 0 0 0 | 0 0 0 0 0 1 | 0 0 1 0 1 0 | 0 1 0 0 1 1 |
- * 0 1 1 1 0 0 | 1 0 0 1 0 1 | 1 0 1 1 1 0 | 1 1 1 1 1 1 | 1 1 0
+ * <p>
+ * A B C | P Q R
+ * <p>
+ * ------|------
+ * <p>
+ * 0 0 0 | 0 0 0
+ * <p>
+ * 0 0 1 | 0 0 1
+ * <p>
+ * 0 1 0 | 0 1 0
+ * <p>
+ * 0 1 1 | 0 1 1
+ * <p>
+ * 1 0 0 | 1 0 0
+ * <p>
+ * 1 0 1 | 1 0 1
+ * <p>
+ * 1 1 0 | 1 1 1
+ * <p>
+ * 1 1 1 | 1 1 0
  * 
- * @author Kerry Michael Soileau <blockquote>
- * 
- * <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * </pre>
- * 
- * @version 1.0, 2006/04/08
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2006/04/08
  */
 public class ToffoliGater extends Problem implements IProblem
 {

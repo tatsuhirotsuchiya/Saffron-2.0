@@ -1,11 +1,3 @@
-/*
- * TwoBitAdder.java	1.11 04/11/24
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 /**
@@ -23,10 +15,14 @@ package bits;
  * is satisfied, the following truth equation will be satisfied:
  *
  * z == x + y (without carry) c == (carry bit)
- *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.11, 2004/11/24
+ * 
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.11
+ * @since 2004/11/24
  */
 public class TwoBitAdder extends Problem implements IProblem
 {

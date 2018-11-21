@@ -1,11 +1,3 @@
-/*
- * Problem.java	1.41 05/07/12
- *
- * Copyright 2004-2012 Positronic Software.
- *
- *
- */
-
 package bits;
 
 import java.io.File;
@@ -17,8 +9,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import naturalnumbers.NaturalNumber;
 
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.specs.ISolver;
@@ -32,30 +22,13 @@ import bits.exceptions.ProblemException;
  * objects, and additionally provides several useful methods for combining
  * Problem objects, especially performing logical operations such as
  * <tt>and</code> and <tt>or</code> on such objects.
- *
+ * 
  * This class is the superclass of numerous generic satisfiability problems.
  *
- * @author Kerry Michael Soileau <blockquote>
- * 
- *         <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- *         </pre>
- * 
- *         </blockquote>
- * @version 1.3, 05/10/07
- * @see IClause
- * @see IBooleanVariable
- * @see IBooleanLiteral
- * @see NaturalNumber
- * @see BitAnder
- * @see BitEqualityIndicator
- * @see BitEqualizer
- * @see BitFixer
- * @see BitInequalityIndicator
- * @see BitNoter
- * @see BitOrer
- * @see BitXorer
+ * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
+ *         http://kerrysoileau.com/index.html
+ * @version 1.41
+ * @since 2005/07/12
  */
 public class Problem implements IProblem
 {
@@ -164,7 +137,8 @@ public class Problem implements IProblem
 		{
 			this.backing.add(c);
 			return true;
-		} else
+		}
+		else
 			return false;
 	}
 
@@ -311,7 +285,7 @@ public class Problem implements IProblem
 		for (int i = 0; i < this.numberOfClauses(); i++)
 		{
 			IClause curr = this.getClause(i);
-			if(curr==null)
+			if (curr == null)
 				continue;
 			if (curr.equals(c))
 				return true;
@@ -380,14 +354,15 @@ public class Problem implements IProblem
 	}
 
 	@Override
-	public ArrayList<IBooleanLiteral> findModel(ISolver solver) throws Exception
+	public ArrayList<IBooleanLiteral> findModel(ISolver solver)
+			throws Exception
 	{
 		KSatReader reader = new KSatReader(solver);
 		org.sat4j.specs.IProblem sat4jproblem = reader.parseInstance(this);
 		if (!sat4jproblem.isSatisfiable())
 			return new ArrayList<IBooleanLiteral>();
-		ArrayList<IBooleanLiteral> rl = reader
-				.toBooleanLiterals(sat4jproblem.model());
+		ArrayList<IBooleanLiteral> rl = reader.toBooleanLiterals(sat4jproblem
+				.model());
 		IProblem test = this.resolve(rl);
 		if (test.size() > 0)
 			return new ArrayList<IBooleanLiteral>();
@@ -647,7 +622,8 @@ public class Problem implements IProblem
 		{
 			BooleanLiteral.interpret(s);
 			return true;
-		} else
+		}
+		else
 			return false;
 	}
 
@@ -755,20 +731,19 @@ public class Problem implements IProblem
 	public String toSatSimTable() throws Exception
 	{
 		String ret = "{";
-		for (int clauseindex = 0; clauseindex < this.numberOfClauses()
-				- 1; clauseindex++)
+		for (int clauseindex = 0; clauseindex < this.numberOfClauses() - 1; clauseindex++)
 		{
 			IClause currentClause = this.getClause(clauseindex);
 			ret += "{";
-			for (int literalindex = 0; literalindex < currentClause.size()
-					- 1; literalindex++)
+			for (int literalindex = 0; literalindex < currentClause.size() - 1; literalindex++)
 			{
 				IBooleanLiteral currentLiteral = currentClause
 						.getLiteralAt(literalindex);
-				ret += "{" + (currentLiteral.isBarred() ? 1 : 0) + ","
+				ret += "{"
+						+ (currentLiteral.isBarred() ? 1 : 0)
+						+ ","
 						+ currentLiteral.getBooleanVariable().getName()
-								.toString()
-						+ "},";
+								.toString() + "},";
 			}
 			IBooleanLiteral currentLiteral = currentClause
 					.getLiteralAt(currentClause.size() - 1);
@@ -778,8 +753,7 @@ public class Problem implements IProblem
 		}
 		IClause currentClause = this.getClause(this.numberOfClauses() - 1);
 		ret += "{";
-		for (int literalindex = 0; literalindex < currentClause.size()
-				- 1; literalindex++)
+		for (int literalindex = 0; literalindex < currentClause.size() - 1; literalindex++)
 		{
 			IBooleanLiteral currentLiteral = currentClause
 					.getLiteralAt(literalindex);
@@ -836,13 +810,10 @@ public class Problem implements IProblem
 	}
 
 	/*
-	 * <?xml version="1.0" encoding="UTF-8" ?> 
-	 * <!ELEMENT Literal EMPTY >
-	 * <!ATTLIST Literal variable NMTOKEN #REQUIRED > 
-	 * <!ATTLIST Literal barred (
-	 * false | true ) #REQUIRED > 
-	 * <!ELEMENT Problem ( Clause+ ) > 
-	 * <!ELEMENT Clause ( Literal+ ) >
+	 * <?xml version="1.0" encoding="UTF-8" ?> <!ELEMENT Literal EMPTY >
+	 * <!ATTLIST Literal variable NMTOKEN #REQUIRED > <!ATTLIST Literal barred (
+	 * false | true ) #REQUIRED > <!ELEMENT Problem ( Clause+ ) > <!ELEMENT
+	 * Clause ( Literal+ ) >
 	 */
 	@Override
 	public String toXML()
