@@ -1,15 +1,20 @@
-/*
- * IBitString.java	1.1 05/10/27
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 import java.util.List;
 
+/**
+ * The <code>IBitString</code> interface must be implemented by any class
+ * definition of <code>BitString</code> contemplated as an alternative to
+ * the <code>BitString</code> class provided by this package.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.1
+ * @since 2005/10/27
+ */
 public interface IBitString extends Cloneable
 {
 	List<IBooleanVariable> asList();
@@ -32,6 +37,5 @@ public interface IBitString extends Cloneable
 
 	String toBits();
 
-	@Override
 	String toString();
 }

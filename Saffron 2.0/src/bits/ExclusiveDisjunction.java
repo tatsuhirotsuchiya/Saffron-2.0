@@ -1,18 +1,9 @@
-/*
- * ProblemDifferencer.java	1.01 07/08/22
- *
- * Copyright 2005-2007 Positronic Software.
- *
- *
- */
-
 package bits;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import bits.exceptions.BooleanLiteralException;
 import bits.exceptions.ExclusiveDisjunctionException;
 
 /**
@@ -23,18 +14,16 @@ import bits.exceptions.ExclusiveDisjunctionException;
  * <tt>IProblem p=new ExclusiveDisjunction(first,second);</code>
  * </p>
  *
- * is satisfied by an ICertificate c if and only if the IProblem <tt>first</code>
+ * is satisfied by an ICertificate c if and only if the IProblem
+ * <tt>first</code>
  * is satisfied by <tt>c</code> and the IProblem <tt>second</code> is not satisfied
  * by <tt>c</code> or the IProblem <tt>first</code> is not satisfied by <tt>c</code>
  * and the IProblem <tt>second</code> is satisfied by <tt>c</code>.
  *
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
+ * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
  *         http://kerrysoileau.com/index.html
- * @version 1.01, 07/08/22
- * @see BooleanLiteralException
- * @see IClause
- * @see IProblem
- * @see Problem
+ * @version 1.01
+ * @since 2007/08/22
  */
 public class ExclusiveDisjunction extends Problem implements IProblem
 {
@@ -50,10 +39,9 @@ public class ExclusiveDisjunction extends Problem implements IProblem
 			throw new ExclusiveDisjunctionException(
 					"Null IProblem was passed to constructor.");
 		else
-			this.setClauses(
-					new Disjunction(new ProblemDifferencer(first, second),
-							new ProblemDifferencer(second, first))
-									.getClauses());
+			this.setClauses(new Disjunction(new ProblemDifferencer(first,
+					second), new ProblemDifferencer(second, first))
+					.getClauses());
 	}
 
 	public ExclusiveDisjunction(IProblem first, IProblem second, IProblem third)
@@ -80,8 +68,8 @@ public class ExclusiveDisjunction extends Problem implements IProblem
 			IProblem problem1 = list.get(0);
 			IProblem problem2 = new Problem(problem1);
 			for (int i = 1; i < list.size(); i++)
-				problem2 = new Conjunction(problem2,
-						new ProblemDenier(list.get(i)));
+				problem2 = new Conjunction(problem2, new ProblemDenier(
+						list.get(i)));
 
 			IProblem problem3 = new ProblemDenier(problem1);
 			ArrayList<IProblem> list2 = new ArrayList<IProblem>();

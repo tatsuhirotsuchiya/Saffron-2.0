@@ -1,16 +1,40 @@
-/*
- * Conjunction.java	1.2 05/04/08
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
 package bits;
 
 import java.util.ArrayList;
 
 import bits.exceptions.ConjunctionException;
 
+/**
+ * An extension of the Problem class which creates a new IProblem object from a
+ * collection of IProblem objects that will be satisfied if and only if all of
+ * the original IProblems are satisfied. For example, when the IProblem instance
+ * p defined by <blockquote>
+ * 
+ * <pre>
+ * IProblem p = new Conjunction(new IProblem[]
+ * { p_1, p_2, p_3 });
+ * </pre>
+ * 
+ * whenever the following truth equation will be satisfied: <blockquote>
+ * 
+ * <pre>
+ * p_1 is satisfied
+ * and
+ * p_2 is satisfied
+ * and
+ * p_3 is satisfied.
+ * </pre>
+ * 
+ * </blockquote>
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.2
+ * @since 2005/04/08
+ */
 public class Conjunction extends Problem implements IProblem
 {
 	/**
@@ -23,7 +47,8 @@ public class Conjunction extends Problem implements IProblem
 	private static IProblem and(IProblem[] p) throws Exception
 	{
 		if (p == null)
-			throw new ConjunctionException("Null IProblem array passed to and method.");
+			throw new ConjunctionException(
+					"Null IProblem array passed to and method.");
 		IProblem res = null;
 		for (int i = 0; i < p.length; i++)
 			if (p[i] != null)

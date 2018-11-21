@@ -4,17 +4,18 @@
  * <p>Copyright (c) 2005 Positronic Software</p>
  * @author Kerry Michael Soileau
  * @version 1.0
+ * 2009/05/21
  */
 
 package naturalnumbers;
 
+import naturalnumbers.exceptions.NaturalNumberFixerException;
 import bits.Conjunction;
 import bits.INaturalNumber;
 import bits.INumber;
 import bits.IProblem;
 import bits.Number;
 import bits.Problem;
-import naturalnumbers.exceptions.NaturalNumberFixerException;
 
 public class NaturalNumberFixer extends Problem implements IProblem
 {

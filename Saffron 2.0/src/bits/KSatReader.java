@@ -21,7 +21,7 @@ import bits.exceptions.UnsolvableProblemException;
  * 
  * For example, here's how a <tt>KSatReader</code> might be used on a
  * <tt>positronic.satisfiability.elements.IProblem</code> called <tt>problem</code>:
- *
+ * 
  * <p>
  * <tt>...</code>
  * </p>
@@ -46,18 +46,14 @@ import bits.exceptions.UnsolvableProblemException;
  * <p>
  * <tt>}</code>
  * </p>
- * 
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
+ *
+ * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
  *         http://kerrysoileau.com/index.html
- * @version 1.1, 06/01/29
- * @see org.sat4j.core.VecInt;
- * @see org.sat4j.specs.IVecInt;
- * @see positronic.satisfiability.elements.IBooleanLiteral;
- * @see positronic.satisfiability.elements.IBooleanVariable;
- * @see positronic.satisfiability.elements.IClause;
- * @see positronic.satisfiability.elements.IProblem;
- * @see positronic.satisfiability.elements.Problem;
- * @see positronic.satisfiability.exceptions.BooleanLiteralException;
+ * @version 1.1
+ * @since 2006/01/29
+ * 
+ * @see org.sat4j.core.VecInt
+ * @see org.sat4j.specs.IVecInt
  */
 public class KSatReader
 {

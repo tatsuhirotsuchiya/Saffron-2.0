@@ -1,11 +1,3 @@
-/*
- * BitAnder.java	1.2 05/02/09
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 /**
@@ -28,15 +20,11 @@ package bits;
  * 1 0 1 | 1 1 0 
  * 1 1 0 | 1 0 1 
  * 1 1 1 | 1 1 1
- * 
- * @author Kerry Michael Soileau <blockquote>
- * 
- * <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * </pre>
- * 
- * @version 1.0, 06/04/08
+ *
+ * @author Kerry Michael Soileau <p> email: ksoileau2@yahoo.com <p> website:
+ *         http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2006/04/08
  */
 public class FredkinGater extends Problem implements IProblem
 {

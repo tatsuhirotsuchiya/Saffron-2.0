@@ -16,7 +16,12 @@ import bits.exceptions.BooleanLiteralException;
  * the <code>BooleanLiteral</code> class provided by this package.
  *
  * @author Kerry Michael Soileau
- * @version 1.1, 05/07/22
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.1
+ * @since 2005/07/22
  */
 public interface IBooleanLiteral extends Comparable<Object>
 {

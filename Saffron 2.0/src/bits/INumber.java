@@ -3,17 +3,20 @@ package bits;
 import naturalnumbers.exceptions.NumberException;
 
 /**
- * This interface must be implemented by any implementation of the Number class.
- * <p>
- * Copyright 2004-2005 Positronic Software
- * 
+ * The <code>INumber</code> interface must be implemented by any class
+ * definition of <code>Number</code> contemplated as an alternative to the
+ * <code>Number</code> class provided by this package.
+ *
  * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.01
+ * @since 2005/05/04
  */
-
 public interface INumber
 {
-	@Override
 	public boolean equals(Object anObject);
 
 	public boolean getBit(int i) throws NumberException;

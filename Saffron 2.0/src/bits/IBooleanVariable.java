@@ -1,9 +1,3 @@
-/*
- * IBooleanVariable.java
- *
- * Copyright 2004-2005 Positronic Software.
- *
- */
 package bits;
 
 /**
@@ -12,7 +6,12 @@ package bits;
  * the <code>BooleanVariable</code> class provided by this package.
  *
  * @author Kerry Michael Soileau
- * @version 1.11, 05/10/24
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.11
+ * @since 2005/10/24
  */
 public interface IBooleanVariable extends Comparable<Object>
 {

@@ -1,42 +1,3 @@
-/**
- * Disjunction.java
- * 
- * An extension of the Problem class which creates a new IProblem object from a
- * collection of IProblem objects. Given several IProblems p_1, p_2, ..., p_n,
- * to satisfy the IProblem given by new Disjunction(new IProblem[]{p_1, p_2,
- * ..., p_n}) is to satisfy at least one of the p_1, p_2, ..., p_n.
- *
- * To use this class, one passes several IProblem objects (or an IProblem[]
- * array) to the appropriate constructor. The object produced is an IProblem,
- * and one may manipulate it using any of the methods provided by the Problem
- * class.
- *
- * For example, when the IProblem instance p defined by <blockquote>
- * 
- * <pre>
- * IProblem p = new Disjunction(new IProblem[]
- * { p_1, p_2, p_3 });
- * </pre>
- * 
- * is satisfied, the following truth equation will be satisfied: <blockquote>
- * 
- * <pre>
- * p_1 is satisfied
- * or
- * p_2 is satisfied
- * or
- * p_3 is satisfied.
- * </pre>
- * 
- * </blockquote>
- * 
- * @author Kerry Michael Soileau ksoileau2@yahoo.com
- *         http://kerrysoileau.com/index.html
- * @version 1.21, 2007/08/22
- * @see IProblem
- * @see Problem
- */
-
 package bits;
 
 import java.util.ArrayList;
@@ -44,6 +5,20 @@ import java.util.List;
 
 import bits.exceptions.DisjunctionException;
 
+/**
+ * Returns an IProblem that is satisfied if and only at least one of the IProblems
+ * passed to it as parameters is satisfied.
+ * 
+ * </pre>
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.2
+ * @since 2005/04/08
+ */
 public class Disjunction extends Problem implements IProblem
 {
 	/**

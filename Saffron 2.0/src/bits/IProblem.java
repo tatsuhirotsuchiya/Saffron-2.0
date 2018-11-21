@@ -1,10 +1,3 @@
-/*
- * IProblem.java
- *
- * Copyright 2004-2005 Positronic Software.
- *
- */
-
 package bits;
 
 import java.util.ArrayList;
@@ -14,13 +7,17 @@ import org.sat4j.specs.ISolver;
 
 /**
  * The <code>IProblem</code> interface must be implemented by any class
- * definition of <tt>Problem</code> contemplated as an alternative to the
- * <tt>Problem</code> class provided by this package.
+ * definition of <code>Problem</code> contemplated as an alternative to the
+ * <code>Problem</code> class provided by this package.
  *
  * @author Kerry Michael Soileau
- * @version 1.4, 06/04/10
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.4
+ * @since 2006/04/10
  */
-
 public interface IProblem extends Iterable<IClause>
 {
 	boolean addClause(IClause c) throws Exception;

@@ -4,12 +4,18 @@ import naturalnumbers.NaturalNumber;
 import naturalnumbers.exceptions.NumberException;
 
 /**
- * Copyright 2004 Positronic Software
- * 
+ * A class which represents a number by wrapping a
+ * <code>boolean[] bitArray</code>, a <code>String
+ * name</code> and a <code>boolean overflow</code>.
+ *
  * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
  * @version 1.0
+ * @since 2005/05/04
  */
-
 public class Number implements INumber
 {
 	public static void main(String[] args) throws NumberException

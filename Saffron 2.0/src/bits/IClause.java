@@ -1,9 +1,3 @@
-/*
- * IBooleanLiteral.java
- *
- * Copyright 2004-2005 Positronic Software.
- *
- */
 package bits;
 
 import java.util.List;
@@ -16,7 +10,12 @@ import bits.exceptions.ClauseException;
  * <code>Clause</code> class provided by this package.
  *
  * @author Kerry Michael Soileau
- * @version 1.1, 05/07/22
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.1
+ * @since 2005/07/22
  */
 public interface IClause extends Comparable<Object>
 {

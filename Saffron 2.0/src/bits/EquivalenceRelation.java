@@ -1,35 +1,3 @@
-/*
- * @(#)EquivalenceRelation.java	1.0 04/08/26
- *
- * Copyright 2004 Positronic Software. All Rights Reserved.
- *
- * This software is the proprietary information of Positronic Software.
- * Use is subject to license terms.
- *
- */
-/**
- * Implements the concept of an equivalence relation R over a set of elements X.
- * For any x,y in X, xRy means "x is equivalent to y."
- *
- * An equivalence relation R over a set X has the following properties:
- *
- * For any x in X, xRx.
- * For any x,y in X, xRy if and only if yRx.
- * For any x,y,z in X, xRy and yRz implies xRz.
- *
- * To use this class, one creates an instance of the class, then passes
- * equivalent objects to the instance by means of the add method. The result is
- * the smallest/simplest equivalence relation consistent with the object pairs
- * added by the add method.
- *
- * @author  Kerry Michael Soileau
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * @version 1.0, 04/08/26
- * @see HashMap
- * @see HashSet
- * @see Iterator
- */
 package bits;
 
 import java.util.Arrays;
@@ -38,6 +6,28 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+/**
+ * Implements the concept of an equivalence relation R over a set of elements X.
+ * For any x,y in X, xRy means "x is equivalent to y."
+ *
+ * An equivalence relation R over a set X has the following properties:
+ *
+ * For any x in X, xRx. For any x,y in X, xRy if and only if yRx. For any x,y,z
+ * in X, xRy and yRz implies xRz.
+ *
+ * To use this class, one creates an instance of the class, then passes
+ * equivalent objects to the instance by means of the add method. The result is
+ * the smallest/simplest equivalence relation consistent with the object pairs
+ * added by the add method.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2004/08/26
+ */
 public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 {
 	private static final long serialVersionUID = -9098553501315972641L;
@@ -150,13 +140,12 @@ public class EquivalenceRelation extends HashMap<Object, Set<Object>>
 		while (i1.hasNext())
 		{
 			Object element = i1.next();
-			HashSet<Object> equivalenceClass = (HashSet<Object>) (super.get(
-					element));
+			HashSet<Object> equivalenceClass = (HashSet<Object>) (super
+					.get(element));
 			Iterator<Object> i2 = equivalenceClass.iterator();
 			while (i2.hasNext())
 			{
-				HashSet<Object> equivalenceClassClone = extracted(
-						equivalenceClass);
+				HashSet<Object> equivalenceClassClone = extracted(equivalenceClass);
 				equivalenceClassClone.addAll((super.get(i2.next())));
 				equivalenceClass = equivalenceClassClone;
 			}
