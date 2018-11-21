@@ -1,39 +1,26 @@
-/*
- * BooleanVariable.java	1.01 06/01/04
- *
- * Copyright 2004-2006 Positronic Software.
- *
- *
- */
-/**
- * A class which represents a Boolean variable. BooleanVariable is essentially a
- * named boolean variable.
- * NOTE: Alternative implementations of BooleanVariable must not only implement
- * IBooleanVariable, but must also ensure that any two instances of
- * BooleanVariable are equal if and only if they have the same name.
- *
- * @author  Kerry Michael Soileau
- * <blockquote><pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- * </pre></blockquote>
- * @version 1.0, 06/01/04
- * @see Arrays
- * @see Collections
- * @see HashSet
- * @see List
- * @see Set
- */
-
 package bits;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-
 import bits.exceptions.BooleanVariableException;
 
+/**
+ * A class which represents a Boolean variable. BooleanVariable is essentially a
+ * named boolean variable. NOTE: Alternative implementations of BooleanVariable
+ * must not only implement IBooleanVariable, but must also ensure that any two
+ * instances of BooleanVariable are equal if and only if they have the same
+ * name.
+ *
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.0
+ * @since 2006/01/04
+ */
 public class BooleanVariable implements IBooleanVariable
 {
 	private static long boolCount;
@@ -58,7 +45,8 @@ public class BooleanVariable implements IBooleanVariable
 		return res;
 	}
 
-	public static IBooleanVariable getBooleanVariable(String n) throws Exception
+	public static IBooleanVariable getBooleanVariable(String n)
+			throws Exception
 	{
 		if (n == null || "".compareTo(n) == 0)
 			throw new BooleanVariableException(
@@ -157,7 +145,8 @@ public class BooleanVariable implements IBooleanVariable
 				return true;
 			else
 				return false;
-		} else
+		}
+		else
 			return false;
 	}
 

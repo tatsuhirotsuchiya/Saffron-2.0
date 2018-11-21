@@ -1,11 +1,3 @@
-/*
- * Clause.java	1.01 05/04/22
- *
- * Copyright 2004-2005 Positronic Software.
- *
- *
- */
-
 package bits;
 
 import java.util.ArrayList;
@@ -21,20 +13,13 @@ import bits.exceptions.ClauseException;
  * ArrayList of IBooleanLiteral objects, and additionally provides several
  * useful methods for manipulating and evaluating the truth value of an IClause.
  *
- * @author Kerry Michael Soileau <blockquote>
- * 
- *         <pre>
- * ksoileau2@yahoo.com
- * http://kerrysoileau.com/index.html
- *         </pre>
- * 
- *         </blockquote>
- * @version 1.01, 05/04/22
- * @see ArrayList
- * @see Arrays
- * @see Iterator
- * @see List
- * @see Map
+ * @author Kerry Michael Soileau
+ *         <p>
+ *         email: ksoileau2@yahoo.com
+ *         <p>
+ *         website: http://kerrysoileau.com/index.html
+ * @version 1.01
+ * @since 2005/04/22
  */
 public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 {
@@ -69,11 +54,11 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 			if (choice == 0)
 				;
 			if (choice == 1)
-				ret.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv[i],
-						false));
+				ret.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(
+						bv[i], false));
 			if (choice == 2)
-				ret.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(bv[i],
-						true));
+				ret.add((BooleanLiteral) BooleanLiteral.getBooleanLiteral(
+						bv[i], true));
 		}
 		return ret;
 	}
@@ -95,7 +80,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		{
 			super.add(b);
 			return true;
-		} else
+		}
+		else
 			return false;
 	}
 
@@ -178,8 +164,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		}
 		catch (Exception e)
 		{
-			System.out.println(
-					"The compareTo method failed on Object " + o + ".");
+			System.out.println("The compareTo method failed on Object " + o
+					+ ".");
 			e.printStackTrace();
 			return Integer.MAX_VALUE;
 		}
@@ -604,8 +590,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 		return this;
 	}
 
-	public IClause substitute(Map<IBooleanLiteral, IBooleanLiteral> h,
-			IClause c) throws Exception
+	public IClause substitute(Map<IBooleanLiteral, IBooleanLiteral> h, IClause c)
+			throws Exception
 	{
 		if (h == null)
 			throw new ClauseException(
@@ -648,8 +634,8 @@ public class Clause extends ArrayList<IBooleanLiteral> implements IClause
 			right.add(this.getLiteralAt(i));
 		}
 		IBooleanVariable bv = BooleanVariable.getBooleanVariable();
-		IBooleanLiteral blunbarred = BooleanLiteral.getBooleanLiteral(bv,
-				false);
+		IBooleanLiteral blunbarred = BooleanLiteral
+				.getBooleanLiteral(bv, false);
 		IBooleanLiteral blbarred = BooleanLiteral.getBooleanLiteral(bv, true);
 		left.add(blunbarred);
 		right.add(blbarred);
